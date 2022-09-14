@@ -1,20 +1,26 @@
-.body{
-    margin: auto;
-}
-.sidebar{
-    width: 130px;
-    height: 50px;
-    padding-top: 10%;
-    padding-left: 40px;
+.filter{
+    width: 1300px;
+    height: 100px;
+    background-color: yellow;
+    float: inherit;
+    margin: 10px;
+    clear: right;
+
+
 }
 
-#arrow{
-    width: 20px;
-    height: 15px;
-    padding-top: 10px;
+.root{
+    width: 1300px;
+    height: 1000px;
+    float: right;
+    background-color: beige;
+    margin: 10px;
 }
 
-#list{
-    padding-left: 430px;
+.list{
+    width: 1300px;
+    height: 500px;
+    background-color: bisque;
+    clear: both;
 
 }
