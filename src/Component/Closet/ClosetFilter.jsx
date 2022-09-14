@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-// import { CgArrowsShrinkV } from 'react-icons/cg';
 import { CgArrowsMergeAltV } from 'react-icons/cg';
+import Form from 'react-bootstrap/Form';
 
 import Accordion from 'react-bootstrap/Accordion';
 import { useAccordionButton } from 'react-bootstrap/AccordionButton';
@@ -12,7 +12,7 @@ import Card from 'react-bootstrap/Card';
 function CustomToggle({ children, eventKey }) {
 
   const decoratedOnClick = useAccordionButton(eventKey, () =>
-    console.log('totally custom!'),
+    console.log('필터 클릭'),
   );
 
   const [textColor, setTextColor] = useState('black')
@@ -45,9 +45,9 @@ function CustomToggle({ children, eventKey }) {
         handleChangeColor();
         changeContents();
       }
-    }
+      }
     >
-      <span style={{color:textColor}}>{contents}<CgArrowsMergeAltV/></span>
+      <span style={{ color: textColor }}>{contents}<CgArrowsMergeAltV /></span>
 
       {children}
     </Button>
@@ -57,16 +57,78 @@ function CustomToggle({ children, eventKey }) {
 function ClosetFilter() {
   return (
     <>
-    <Accordion defaultActiveKey="0">
-      <Card>
-        <Card.Header>
-        <CustomToggle eventKey="0"></CustomToggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey="0">
-          <Card.Body>Hello! I'm the body</Card.Body>
-        </Accordion.Collapse>
-      </Card>
-    </Accordion>
+      <Accordion defaultActiveKey="0">
+        <Card>
+          <Card.Header>
+            <CustomToggle eventKey="0"></CustomToggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body>
+              <Form>
+                <h6>종류</h6>
+                {['radio'].map((type) => (
+                  <div key={`inline-${type}`} className="mb-3">
+                    <Form.Check
+                      inline
+                      label="상의"
+                      name="group1"
+                      type={type}
+                      id={`inline-${type}-1`}
+                    />
+                    <Form.Check
+                      inline
+                      label="아우터"
+                      name="group1"
+                      type={type}
+                      id={`inline-${type}-2`}
+                    />
+                    <Form.Check
+                      inline
+                      label="하의"
+                      name="group1"
+                      type={type}
+                      id={`inline-${type}-3`}
+                    />
+
+                    <Form.Check
+                      inline
+                      label="신발"
+                      name="group1"
+                      type={type}
+                      id={`inline-${type}-4`}
+                    />
+
+                    <Form.Check
+                      inline
+                      label="가방"
+                      name="group1"
+                      type={type}
+                      id={`inline-${type}-5`}
+                    />
+
+                    <Form.Check
+                      inline
+                      label="악세사리"
+                      name="group1"
+                      type={type}
+                      id={`inline-${type}-6`}
+                    />
+
+                    <Form.Check
+                      inline
+                      label="기타"
+                      name="group1"
+                      type={type}
+                      id={`inline-${type}-7`}
+                    />
+                  </div>
+                ))}
+              </Form>
+              <hr />
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
 
     </>
   );
