@@ -1,9 +1,10 @@
 .filter{
     width: 1290px;
     height: 100px;
-    background-color: yellow;
     margin: 10px;
     float: right;
+    margin-top: 80px;
+    background-color: antiquewhite;
 
 
 }
@@ -12,14 +13,24 @@
     width: 1300px;
     height: 1000px;
     float: left;
-    background-color: beige;
+
     margin: 10px;
 }
 
 .list{
     width: 1300px;
-    height: 500px;
-    background-color: bisque;
-    clear: both;
+    height: auto;
 
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    margin-left: 43px;
+    align-content: flex-start;
+
+}
+
+figcaption{
+    text-align: center;
 }
