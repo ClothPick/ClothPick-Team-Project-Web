@@ -12,7 +12,7 @@ function header(){
         <div class="item"><img src={menubar} id="menubar"></img></div>
         <div class="item"><img src={logo} alt="logo" id="logo"></img></div>
 
-        <div className="end">
+        <div className="item">
             <img src={alarm} alt="logo" id="alarm"></img>
             <img src={human} alt="logo" id="human"></img>
         </div>
