@@ -14,8 +14,9 @@
     width: 100%;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
-    border: 1px solid black;
-    border-radius: 20px;
+    /* border: 1px solid black;
+    border-radius: 20px; */
+    background-color: blueviolet;
     flex-direction: column;
   }
 
@@ -45,16 +46,4 @@
 
     visibility: hidden;
     transition:padding-top 0.5s, padding-bottom 0.5s, height 0.5s, transform 0.5s;
-  }
-
-  .question-mark {
-    color: rgb(12, 77, 162);
-    font-size: 20px;
-    margin-right: 10px;
-  }
-
-  .answer-mark {
-    color: skyblue;
-    font-size: 20px;
-    margin-right: 10px;
   }

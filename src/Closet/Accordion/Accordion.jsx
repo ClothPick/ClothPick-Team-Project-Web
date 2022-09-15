@@ -10,14 +10,16 @@ const Accordion = () => {
             <div className="faq-card" key={index}>
                 <div
                     className="faq-card-title"
-                    onClick={() => {
+                >
+                    <button onClick={() => {
                         let tempCard = cardOnOff;
                         tempCard[index].show = !tempCard[index].show;
                         setCardOnOff([...tempCard]);
-                    }}
-                >
-                    <span className="question-mark">Q.</span>
-                    <span>{item.question}</span>
+                    }}>
+                        필터 닫기
+                    </button>
+                    {/* <span className="question-mark">Q.</span> */}
+                    {/* <span>{item.question}</span> */}
                 </div>
                 <div
                     className={
@@ -26,7 +28,6 @@ const Accordion = () => {
                             : "faq-card-answer faq-card-none"
                     }
                 >
-                    <span className="answer-mark">A.</span>
                     <span className="FAQ-card-answer">{item.answer}</span>
                 </div>
             </div>
