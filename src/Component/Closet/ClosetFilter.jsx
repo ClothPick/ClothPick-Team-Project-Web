@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import { CgArrowsMergeAltV } from 'react-icons/cg';
 import Form from 'react-bootstrap/Form';
-
 import Accordion from 'react-bootstrap/Accordion';
 import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 import Card from 'react-bootstrap/Card';
@@ -15,10 +14,10 @@ function CustomToggle({ children, eventKey }) {
     console.log('필터 클릭'),
   );
 
-  const [textColor, setTextColor] = useState('black')
-  const [textBorderColor, setTextBorderColor] = useState('black')
+  const [textColor, setTextColor] = useState('black');
+  const [textBorderColor, setTextBorderColor] = useState('black');
   const [isBlack, setIsBlack] = useState(true);
-  const [contents, setContents] = useState('필터 닫기')
+  const [contents, setContents] = useState('필터 닫기');
 
   const changeContents = () => {
     setContents(prev => prev === '필터 닫기' ? '필터 열기' : '필터 닫기')
@@ -26,7 +25,7 @@ function CustomToggle({ children, eventKey }) {
 
   const handleChangeColor = (e) => {
     setIsBlack(!isBlack);
-    setTextBorderColor(isBlack ? 'red' : 'black')
+    setTextBorderColor(isBlack ? 'red' : 'black');
     setTextColor(isBlack ? 'red' : 'black');
 
   }
