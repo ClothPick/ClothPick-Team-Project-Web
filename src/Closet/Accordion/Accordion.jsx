@@ -9,11 +9,11 @@ const Accordion = () => {
     const showList = data;
     const [search, setSearch] = useState('');
 
-    const state = { checked: false };
+    // const state = { checked: false };
 
-    const handleCheckboxChange = (e) => {
-        this.setState({ checked: e.target.checked })
-    }
+    // const handleCheckboxChange = (e) => {
+    //     this.setState({ checked: e.target.checked })
+    // }
 
     const onChange = (e) => {
         setSearch(e.target.value)
@@ -51,8 +51,9 @@ const Accordion = () => {
                         <p className="FAQ-card-answer">{item.color}</p>
                         <label>
                             <ColorCheck
-                                checked={state.checked}
-                                onChange={handleCheckboxChange} />
+                            // checked={state.checked}
+                            // onChange={handleCheckboxChange}
+                            />
                         </label>
 
                         <hr />
