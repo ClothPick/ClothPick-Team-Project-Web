@@ -16,7 +16,7 @@
     padding-right: 1.25rem;
     /* border: 1px solid black;
     border-radius: 20px; */
-    background-color: blueviolet;
+    background-color: rgba(51, 64, 72, 0.5);
     flex-direction: column;
   }
 
