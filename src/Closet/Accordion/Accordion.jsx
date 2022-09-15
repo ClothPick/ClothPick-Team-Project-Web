@@ -1,103 +1,47 @@
-import React from 'react'
-import { AnimatePresence } from 'framer-motion'
-import { Container, Item, Header, Panel } from './Accordion.styled'
+import React, { useState } from "react";
+import data from './data'
 
-// ------------------------------------------------------------------------
-// 아코디언 메인(Main)
-export default function Accordion({ children, ...restProps }) {
-    return <Container {...restProps}>{children}</Container>
-}
+const Accordion = () => {
+    const [cardOnOff, setCardOnOff] = useState(data);
+    const showList = data;
 
-// ------------------------------------------------------------------------
-// 아코디언 아이템(Item) (Compound Components)
-
-const ItemContext = React.createContext()
-const useItem = () => React.useContext(ItemContext)
-
-Accordion.Item = function AccordionItem({
-    index,
-    expanded,
-    disabled,
-    children,
-    ...restProps
-}) {
-    const { styledComponentId: id } = Item
-    console.log(Item)
-    return (
-        <ItemContext.Provider
-            value={{ id, index, expanded, disabled }}
-            {...restProps}
-        >
-            <Item>{children}</Item>
-        </ItemContext.Provider>
-    )
-}
-
-// ------------------------------------------------------------------------
-// 아코디언 아이템 헤더(Header) (Compound Components)
-
-Accordion.Header = function AccordionHeader({
-    onActive = null,
-    children,
-    ...restProps
-}) {
-    const { id, index, expanded, disabled } = useItem()
-    const handleActivePanel = () => {
-        onActive(index)
-    }
-
-    return (
-        <Header
-            id={id}
-            expanded={expanded}
-            disabled={disabled}
-            onClick={handleActivePanel}
-            {...restProps}
-        >
-            {children}
-        </Header>
-    )
-}
-
-// ------------------------------------------------------------------------
-// 아코디언 아이템 패널(Panel) (Compound Components)
-
-Accordion.Panel = function AccordionPanel(props) {
-    const { id, expanded } = useItem()
-
-    return (
-        <AnimatePresence>
-            {expanded && (
-                <Panel
-                    id={id}
-                    variants={Accordion.Panel.variants}
-                    initial="hide"
-                    animate="show"
-                    exit="hide"
+    const getQnACard = (item, index) => {
+        return (
+            <div className="faq-card" key={index}>
+                <div
+                    className="faq-card-title"
+                    onClick={() => {
+                        let tempCard = cardOnOff;
+                        tempCard[index].show = !tempCard[index].show;
+                        setCardOnOff([...tempCard]);
+                    }}
                 >
-                    {props.children}
-                </Panel>
-            )}
-        </AnimatePresence>
-    )
-}
+                    <span className="question-mark">Q.</span>
+                    <span>{item.question}</span>
+                </div>
+                <div
+                    className={
+                        data[index].show
+                            ? "faq-card-answer"
+                            : "faq-card-answer faq-card-none"
+                    }
+                >
+                    <span className="answer-mark">A.</span>
+                    <span className="FAQ-card-answer">{item.answer}</span>
+                </div>
+            </div>
+        );
+    };
 
-Accordion.Panel.variants = {
-    hide: {
-        height: 0,
-    },
-    show: {
-        height: 'auto',
-        transition: {
-            duration: 0.2,
+    return (
+        <div>
+            <div className="fqa-parent">
+                <div className="faq-list">
+                    {showList.map((item, index) => getQnACard(item, index))}
+                </div>
+            </div>
+        </div>
+    );
+};
 
-            // 트윈 예제
-            type: 'tween',
-            ease: [0.04, 0.62, 0.23, 0.98],
-
-            // 스프링 예제
-            // type: 'spring',
-            // stiffness: 100,
-        },
-    },
-}
+export default Accordion;
