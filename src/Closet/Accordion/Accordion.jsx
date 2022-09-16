@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import data from './data'
 import { BiSearchAlt2 } from 'react-icons/bi';
-import TypeRadio from "./Collection/TypeRadio";
-import ColorCheck from "./Collection/ColorCheck";
+import TypeRadio from "./Collection/TypeRadioButton/TypeRadio";
+import ColorCheck from "./Collection/ColorCheckBox/ColorCheck";
+// import Contents from './Collection/TypeRadioButton/Contents'
 
 const Accordion = () => {
     const [cardOnOff, setCardOnOff] = useState(data);
     const showList = data;
     const [search, setSearch] = useState('');
-
-    // const state = { checked: false };
-
-    // const handleCheckboxChange = (e) => {
-    //     this.setState({ checked: e.target.checked })
-    // }
 
     const onChange = (e) => {
         setSearch(e.target.value)
@@ -47,6 +42,10 @@ const Accordion = () => {
                     <div>
                         <p className="FAQ-card-answer">{item.type}</p>
                         <TypeRadio />
+                        {/* 테스트 중 */}
+                        {/* <div>
+                            <Contents />
+                        </div> */}
                         <hr />
                         <p className="FAQ-card-answer">{item.color}</p>
                         <ColorCheck />
@@ -55,7 +54,6 @@ const Accordion = () => {
                         <hr />
                         <p className="FAQ-card-answer">{item.style}</p>
                     </div>
-
                 </div>
             </div>
         );

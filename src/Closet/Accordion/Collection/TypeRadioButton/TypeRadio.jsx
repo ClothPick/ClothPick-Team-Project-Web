@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import Components from './Contents'
 
 const TypeRadio = () => {
     const [radio, setRadio] = useState([]);
@@ -8,10 +9,19 @@ const TypeRadio = () => {
         console.log(e.target.value);
         setRadio(e.target.value);
     }
+
+    // if ($('label:radio[id=radio1]').is(':checked')) {
+    //     $(<Components />).show();
+    // }
+    // else {
+    //     $(<Components />).hide();
+    // }
+
     return (
         <div>
             <label>
                 <input
+                    id='radio1'
                     type='radio'
                     value='1'
                     checked={radio === '1'}
@@ -22,6 +32,7 @@ const TypeRadio = () => {
 
             <label>
                 <input
+                    id='radio2'
                     type='radio'
                     value='2'
                     checked={radio === '2'}
@@ -32,6 +43,7 @@ const TypeRadio = () => {
 
             <label>
                 <input
+                    id='radio3'
                     type='radio'
                     value='3'
                     checked={radio === '3'}
@@ -42,6 +54,7 @@ const TypeRadio = () => {
 
             <label>
                 <input
+                    id='radio4'
                     type='radio'
                     value='4'
                     checked={radio === '4'}
@@ -52,6 +65,7 @@ const TypeRadio = () => {
 
             <label>
                 <input
+                    id='radio5'
                     type='radio'
                     value='5'
                     checked={radio === '5'}
@@ -62,6 +76,7 @@ const TypeRadio = () => {
 
             <label>
                 <input
+                    id='radio6'
                     type='radio'
                     value='6'
                     checked={radio === '6'}
@@ -72,6 +87,7 @@ const TypeRadio = () => {
 
             <label>
                 <input
+                    id='radio7'
                     type='radio'
                     value='7'
                     checked={radio === '7'}
