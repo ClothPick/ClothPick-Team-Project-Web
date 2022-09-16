@@ -1,10 +1,10 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-const checkBoxColors = {
-  white: '#938224',
-  black: '#ffff99',
-};
+// const checkBoxColors = {
+//   white: '#938224',
+//   black: '#ffff99',
+// };
 
 const StyledLabel = styled.label`
   display: flex;
@@ -122,14 +122,6 @@ ${(props) =>
       background-color: gray;
     `
   }
-
-  /* ${(props) => {
-    const color = checkBoxColors[props.name] || checkBoxColors['default'];
-    props.black &&
-      css`
-    background-color: ${color};
-    `
-  }} */
 
   ${HiddenCheckbox}: focus + & {
   box- shadow: 0 0 0 2px red;
