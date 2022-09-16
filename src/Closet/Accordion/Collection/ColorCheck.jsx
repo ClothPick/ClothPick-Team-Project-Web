@@ -1,28 +1,34 @@
 import React, { useState } from 'react'
 import CSSColorCheck from './styles/CSSColorCheck'
 
-function ColorCheck({ ...props }) {
-  const [state, setState] = useState(false);
+function ColorCheck() {
+  const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheckboxChange = () => {
-    setState(!state);
+  const onClickCheck = () => {
+    // setIsChecked(isChecked ? !isChecked : isChecked);
+    setIsChecked(!isChecked);
+    console.log(!isChecked);
   };
 
   return (
     <div>
-      <label>
+      <label value='check1'>
         <CSSColorCheck
-          checked={state}
-          onChange={handleCheckboxChange}
+          checked={isChecked}
+          onChange={() => {
+            onClickCheck()
+          }}
         />
         <span style={{ marginLeft: 8 }}>흰색</span>
       </label>
 
-      <label>
+      <label value='check2'>
         <CSSColorCheck
           black
-          checked={state}
-          onChange={handleCheckboxChange}
+          checked={isChecked}
+          onChange={() => {
+            onClickCheck()
+          }}
         />
         <span style={{ marginLeft: 8 }}>검정</span>
       </label>

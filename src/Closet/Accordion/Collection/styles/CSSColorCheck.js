@@ -8,15 +8,8 @@ const CheckboxContainer = styled.div`
 `
 const Icon = styled.svg`
   fill: none;
-  stroke: ${props => props.stroke || 'black'};;
+  stroke: ${props => props.black ? 'white' : 'black'};;
   stroke-width: 3px;
-
-  /* ${(props) =>
-    props.black &&
-    css`
-      stroke: 'white';
-    `
-  } */
 `
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   border: 0;
@@ -42,29 +35,31 @@ const StyledCheckbox = styled.div`
   background-color: ${props => props.background || 'white'};
   box-shadow: 0 0 0 1px black;
 
+
   ${(props) =>
     props.black &&
     css`
       background-color: black;
-      stroke: 'white';
+      label = '검정'
     `
   }
 
-  ${HiddenCheckbox}:focus + & {
-    box-shadow: 0 0 0 3px black;
+  ${HiddenCheckbox}: focus + & {
+  box- shadow: 0 0 0 3px red;
 
   }
 
   ${Icon} {
-    visibility: ${props => (props.checked ? 'visible' : 'hidden')}
-  }
+  visibility: ${props => (props.checked ? 'visible' : 'hidden')}
+}
 `;
 
 const CSSColorCheck = ({ className, checked, ...props }) => (
+
   <CheckboxContainer className={className}>
     <HiddenCheckbox checked={checked} {...props} />
     <StyledCheckbox checked={checked} {...props}>
-      <Icon viewBox="0 0 24 24">
+      <Icon viewBox="0 0 24 24" {...props}>
         <polyline points="20 6 9 17 4 12" />
       </Icon>
     </StyledCheckbox>
