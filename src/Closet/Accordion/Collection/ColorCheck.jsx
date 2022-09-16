@@ -1,11 +1,74 @@
 import React, { useState } from 'react'
 import CSSColorCheck from './styles/CSSColorCheck'
 
-const ColorCheck = ({ props }) => {
-  const [isChecked, setIsChecked] = useState(false);
+const ColorCheck = () => {
+  const isChecked = useState(false);
+  const [white, setWhite] = useState(false);
+  const [black, setBlack] = useState(false);
+  const [red, setRed] = useState(false);
+  const [orange, setOrange] = useState(false);
+  const [yellow, setYellow] = useState(false);
+  const [green, setGreen] = useState(false);
+  const [blue, setBlue] = useState(false);
+  const [purple, setPurple] = useState(false);
+  const [pink, setPink] = useState(false);
+  const [beige, setBeige] = useState(false);
+  const [brown, setBrown] = useState(false);
+  const [gray, setGray] = useState(false);
 
-  const onClickCheck = () => {
-    setIsChecked(!isChecked);
+  const onClickCheck = (color) => {
+    switch (color) {
+      case "white":
+        setWhite(!white);
+        break;
+
+      case "black":
+        setBlack(!black)
+        break;
+
+      case "red":
+        setRed(!red)
+        break;
+
+      case "orange":
+        setOrange(!orange)
+        break;
+
+      case "yellow":
+        setYellow(!yellow)
+        break;
+
+      case "green":
+        setGreen(!green)
+        break;
+
+      case "blue":
+        setBlue(!blue)
+        break;
+
+      case "purple":
+        setPurple(!purple)
+        break;
+
+      case "pink":
+        setPink(!pink)
+        break;
+
+      case "beige":
+        setBeige(!beige)
+        break;
+
+      case "brown":
+        setBrown(!brown)
+        break;
+
+      case "gray":
+        setGray(!gray)
+        break;
+
+      default:
+        document.write("잘못된 단어 입력");
+    }
     console.log(!isChecked);
   };
 
@@ -13,9 +76,9 @@ const ColorCheck = ({ props }) => {
     <>
       <label>
         <CSSColorCheck
-          checked={isChecked}
+          checked={white}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('white')
           }}
         />
         <span name='white' text='white' style={{ marginLeft: 8 }}>흰색</span>
@@ -24,9 +87,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           black
-          checked={isChecked}
+          checked={black}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('black')
           }}
         />
         <span name='black' text='black' style={{ marginLeft: 8 }}>검정</span>
@@ -35,9 +98,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           red
-          checked={isChecked}
+          checked={red}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('red')
           }}
         />
         <span name='red' text='red' style={{ marginLeft: 8 }}>빨강</span>
@@ -46,9 +109,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           orange
-          checked={isChecked}
+          checked={orange}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('orange')
           }}
         />
         <span name='orange' text='orange' style={{ marginLeft: 8 }}>주황</span>
@@ -57,9 +120,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           yellow
-          checked={isChecked}
+          checked={yellow}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('yellow')
           }}
         />
         <span name='yellow' text='yellow' style={{ marginLeft: 8 }}>노랑</span>
@@ -68,9 +131,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           green
-          checked={isChecked}
+          checked={green}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('green')
           }}
         />
         <span name='green' text='green' style={{ marginLeft: 8 }}>초록</span>
@@ -79,9 +142,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           blue
-          checked={isChecked}
+          checked={blue}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('blue')
           }}
         />
         <span name='blue' text='blue' style={{ marginLeft: 8 }}>파랑</span>
@@ -90,9 +153,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           purple
-          checked={isChecked}
+          checked={purple}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('purple')
           }}
         />
         <span name='purple' text='purple' style={{ marginLeft: 8 }}>보라</span>
@@ -101,9 +164,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           pink
-          checked={isChecked}
+          checked={pink}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('pink')
           }}
         />
         <span name='pink' text='pink' style={{ marginLeft: 8 }}>분홍</span>
@@ -112,9 +175,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           beige
-          checked={isChecked}
+          checked={beige}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('beige')
           }}
         />
         <span name='beige' text='beige' style={{ marginLeft: 8 }}>베이지</span>
@@ -123,9 +186,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           brown
-          checked={isChecked}
+          checked={brown}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('brown')
           }}
         />
         <span name='brown' text='brown' style={{ marginLeft: 8 }}>갈색</span>
@@ -134,9 +197,9 @@ const ColorCheck = ({ props }) => {
       <label>
         <CSSColorCheck
           gray
-          checked={isChecked}
+          checked={gray}
           onChange={() => {
-            onClickCheck()
+            onClickCheck('gray')
           }}
         />
         <span name='gray' text='gray' style={{ marginLeft: 8 }}>회색</span>

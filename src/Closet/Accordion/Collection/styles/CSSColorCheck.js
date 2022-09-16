@@ -1,17 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-// const checkBoxColors = {
-//   white: '#938224',
-//   black: '#ffff99',
-// };
-
-const StyledLabel = styled.label`
-  display: flex;
-  align-items: center;
-  user-select: none;
-`;
-
 const CheckboxContainer = styled.label`
   display: inline-block;
   vertical-align: middle;
@@ -19,7 +8,7 @@ const CheckboxContainer = styled.label`
 `
 const Icon = styled.svg`
   fill: none;
-  stroke: ${props => props.black || props.green || props.blue || props.purple || props.brown ? 'white' : 'black'};;
+  stroke: ${props => props.black || props.green || props.blue || props.purple || props.brown || props.gray ? 'white' : 'black'};;
   stroke-width: 3px;
 `
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
