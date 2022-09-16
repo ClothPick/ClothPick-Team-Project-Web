@@ -49,13 +49,7 @@ const Accordion = () => {
                         <TypeRadio />
                         <hr />
                         <p className="FAQ-card-answer">{item.color}</p>
-                        <label>
-                            <ColorCheck
-                            // checked={state.checked}
-                            // onChange={handleCheckboxChange}
-                            />
-                        </label>
-
+                        <ColorCheck />
                         <hr />
                         <p className="FAQ-card-answer">{item.texture}</p>
                         <hr />
