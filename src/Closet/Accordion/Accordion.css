@@ -35,15 +35,9 @@
     padding-right: 2rem;
     border: 0px solid rgba(225,228,230,.5);
     border-top-width: 1px;
-
-    transition:padding-top 0.5s, padding-bottom 0.5s, height 0.5s, transform 0.5s;
   }
 
   .faq-card-none {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    height: 0px;
+    display: none;
 
-    visibility: hidden;
-    transition:padding-top 0.5s, padding-bottom 0.5s, height 0.5s, transform 0.5s;
   }

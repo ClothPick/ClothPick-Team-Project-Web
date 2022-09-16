@@ -1,14 +1,25 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-const CheckboxContainer = styled.div`
+const checkBoxColors = {
+  white: '#938224',
+  black: '#ffff99',
+};
+
+const StyledLabel = styled.label`
+  display: flex;
+  align-items: center;
+  user-select: none;
+`;
+
+const CheckboxContainer = styled.label`
   display: inline-block;
   vertical-align: middle;
 
 `
 const Icon = styled.svg`
   fill: none;
-  stroke: ${props => props.black ? 'white' : 'black'};;
+  stroke: ${props => props.black || props.green || props.blue || props.purple || props.brown ? 'white' : 'black'};;
   stroke-width: 3px;
 `
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
@@ -28,10 +39,9 @@ const StyledCheckbox = styled.div`
   display: inline-block;
   width: 16px;
   height: 16px;
-  /* background: ${props => props.background || 'white'} */
+  margin-left: 5px;
   border-radius: 3px;
   transition: all 150ms;
-  /* background-color: white; */
   background-color: ${props => props.background || 'white'};
   box-shadow: 0 0 0 1px black;
 
@@ -40,13 +50,89 @@ const StyledCheckbox = styled.div`
     props.black &&
     css`
       background-color: black;
-      label = '검정'
     `
   }
 
-  ${HiddenCheckbox}: focus + & {
-  box- shadow: 0 0 0 3px red;
+  ${(props) =>
+    props.red &&
+    css`
+      background-color: red;
+    `
+  }
 
+  ${(props) =>
+    props.orange &&
+    css`
+      background-color: orange;
+    `
+  }
+
+${(props) =>
+    props.yellow &&
+    css`
+      background-color: yellow;
+    `
+  }
+
+${(props) =>
+    props.green &&
+    css`
+      background-color: green;
+    `
+  }
+
+${(props) =>
+    props.blue &&
+    css`
+      background-color: blue;
+    `
+  }
+
+${(props) =>
+    props.purple &&
+    css`
+      background-color: purple;
+    `
+  }
+
+${(props) =>
+    props.pink &&
+    css`
+      background-color: pink;
+    `
+  }
+
+${(props) =>
+    props.beige &&
+    css`
+      background-color: beige;
+    `
+  }
+
+${(props) =>
+    props.brown &&
+    css`
+      background-color: brown;
+    `
+  }
+
+${(props) =>
+    props.gray &&
+    css`
+      background-color: gray;
+    `
+  }
+
+  /* ${(props) => {
+    const color = checkBoxColors[props.name] || checkBoxColors['default'];
+    props.black &&
+      css`
+    background-color: ${color};
+    `
+  }} */
+
+  ${HiddenCheckbox}: focus + & {
+  box- shadow: 0 0 0 2px red;
   }
 
   ${Icon} {
@@ -54,10 +140,9 @@ const StyledCheckbox = styled.div`
 }
 `;
 
-const CSSColorCheck = ({ className, checked, ...props }) => (
-
-  <CheckboxContainer className={className}>
-    <HiddenCheckbox checked={checked} {...props} />
+const CSSColorCheck = ({ className, checked, text, ...props }) => (
+  <CheckboxContainer>
+    <HiddenCheckbox {...props} />
     <StyledCheckbox checked={checked} {...props}>
       <Icon viewBox="0 0 24 24" {...props}>
         <polyline points="20 6 9 17 4 12" />
