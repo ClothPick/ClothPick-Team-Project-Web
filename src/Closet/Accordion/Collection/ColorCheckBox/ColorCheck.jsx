@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CSSColorCheck from './styles/CSSColorCheck'
+import CSSColorCheck from './CSSColorCheck'
 
 const ColorCheck = () => {
   const isChecked = useState(false);
