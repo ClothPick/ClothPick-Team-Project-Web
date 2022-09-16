@@ -18,7 +18,6 @@ const PageLi = styled.li
 `
    display: inline-block;
   font-size: 17px;
-  padding-left: 100px
   font-weight: 600;
   padding: 5px;
   border-radius: 5px;
@@ -44,6 +43,9 @@ const PageSpan = styled.span`
   }
 `;
 
+function paginate(){
+
+}
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {

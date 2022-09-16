@@ -1,30 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './closetList.css'
 import cloth1 from './img/cloth1.png'
-import Pagination from './pagination';
+import ArrowLeft from './img/right.png'
+import ArrowRight from './img/left.png'
+// import Pagination from './pagination';
 
-function List({list}){
-    return(
-        <div>
-            <figure>
-                {list.img}
-                <figcaption>{list.explain}</figcaption>
-            </figure>
-        </div>
-    )
-}
+
 
 function ClosetList(){
     const [currentPage,setCurrentPage]=useState(1);
-    const [postsPerPage, setPostsPerPage]=useState(9);
-    const indexOfLast=currentPage*postsPerPage;
-    const indexOfFirst=indexOfLast-postsPerPage;
-    const currentPosts=(list)=>{
-        let currentPosts=0;
-        currentPosts=list.slice(indexOfFirst,indexOfLast);
-        return currentPosts;
-    };
+    const [postsPerPage, setPostsPerPage]=useState(6);
 
+    const [onepage, setOnepae]=useState([]);
+    const [pageNumbers, setPageNumbers]=useState([]);
+
+
+    const oncheck =(data) => {
+        console.log('확인' + data)
+        setCurrentPage(data)
+
+    }
+
+    const next=() =>{
+        setCurrentPage(currentPage+1)
+        if (currentPage>=pageNumbers.length){
+            setCurrentPage(currentPage)
+        }
+    }
+
+    const prev=()=>{
+        setCurrentPage(currentPage-1)
+        if (currentPage<=1){
+            setCurrentPage(currentPage);
+        }
+    }
 
 
 
@@ -62,44 +71,156 @@ function ClosetList(){
         {
             id: 7,
             img:<img src={cloth1}></img>,
-            explain : '반팔인데 로고 민트'
+            explain : '반팔인데 로고 민트 7'
         },
         {
             id: 8,
             img:<img src={cloth1}></img>,
-            explain : '언제 샀는지 기억 안나'
+            explain : '언제 샀는지 기억 안나  8'
         },
         {
             id: 9,
             img:<img src={cloth1}></img>,
-            explain : '커버낫'
+            explain : '커버낫123 9'
         },
         {
             id: 10,
             img:<img src={cloth1}></img>,
             explain : '커버낫'
+        },
+        {
+            id: 11,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 12,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 13,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 14,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 15,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 16,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 17,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 18,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 19,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 20,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 21,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 22,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 23,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 24,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 25,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 26,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 27,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
+        },
+        {
+            id: 28,
+            img:<img src={cloth1}></img>,
+            explain : '기모 긴팔 티'
         }
+
 
     ];
 
+    useEffect(() => {
+        const abc = [];
+        setOnepae(list.slice( (currentPage-1)*6, (currentPage-1)*6+6))
+        for (var i = 1; i <= Math.ceil(list.length / postsPerPage); i++) {
+            abc.push(i);
+        }
+        setPageNumbers(abc)
+    }, [currentPage]);
+    console.log(pageNumbers)
+
     return(
         <div className='root'>
-                <div className='filter'>
-                    필터
-                </div>
-                <hr></hr>
-                <div className='list'>
-                <br></br>
-                   {
-                    list.map(list=>(<List list={list}/>))
-                   }
+            <div className='fil'>
+                필터
+            </div>
+            <hr></hr>
+        <div className='mypage'>
+            <div className='itemlist'>
+            {
+                    onepage.map((data)=>(
+                        <div className='itemone' key={data.id}>
+                            <div className='iteming'>{data.img}</div>
+                            <div className='itemname'>{data.explain}</div>
+                        </div>
+                    ))
+            }
             </div>
             <div className='num'>
-                <Pagination
-                    postsPerPage={postsPerPage} //페이지당 포스트 수
-                    totalPosts={list.length} //전체 포스트 갯수
-                    paginate={setCurrentPage}></Pagination>
+                <img src={ArrowRight} onClick={()=>prev()} alt=''/>
+                {
+                    pageNumbers.map((data) => (
+                        <div className='pagenumBox' key={data.id}>
+                            <p onClick={()=>oncheck(data)}>{data}</p>
+                        </div>
+                    ))
+                }
+                <img src={ArrowLeft} onClick={()=>next()}alt=''/>
             </div>
+        </div>
         </div>
     );
 }
