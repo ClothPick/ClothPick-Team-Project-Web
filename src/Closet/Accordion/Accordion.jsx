@@ -5,6 +5,8 @@ import TypeRadio from "./Collection/TypeRadioButton/TypeRadio";
 import ColorCheck from "./Collection/ColorCheckBox/ColorCheck";
 // import Contents from './Collection/TypeRadioButton/Contents'
 
+// [내 옷장] Filter 구성 요소
+
 const Accordion = () => {
     const [cardOnOff, setCardOnOff] = useState(data);
     const showList = data;
@@ -42,10 +44,7 @@ const Accordion = () => {
                     <div>
                         <p className="FAQ-card-answer">{item.type}</p>
                         <TypeRadio />
-                        {/* 테스트 중 */}
-                        {/* <div>
-                            <Contents />
-                        </div> */}
+
                         <hr />
                         <p className="FAQ-card-answer">{item.color}</p>
                         <ColorCheck />

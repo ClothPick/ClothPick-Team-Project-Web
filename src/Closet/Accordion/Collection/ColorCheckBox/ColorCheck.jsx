@@ -138,7 +138,7 @@ const ColorCheck = () => {
         />
         <span name='green' text='green' style={{ marginLeft: 8 }}>초록</span>
       </label>
-      <p></p>
+
       <label>
         <CSSColorCheck
           blue
