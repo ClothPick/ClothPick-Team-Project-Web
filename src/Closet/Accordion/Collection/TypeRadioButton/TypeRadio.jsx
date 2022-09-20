@@ -32,8 +32,8 @@ const TopContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='1'
-                        checked={topRadio === '1'}
+                        value='민소매'
+                        checked={topRadio === '민소매'}
                         onChange={handleClickTopRadioButton}
                     />
                     민소매
@@ -43,8 +43,8 @@ const TopContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='2'
-                        checked={topRadio === '2'}
+                        value='반팔'
+                        checked={topRadio === '반팔'}
                         onChange={handleClickTopRadioButton}
                     />
                     반팔
@@ -53,8 +53,8 @@ const TopContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='3'
-                        checked={topRadio === '3'}
+                        value='5부 반팔'
+                        checked={topRadio === '5부 반팔'}
                         onChange={handleClickTopRadioButton}
                     />
                     5부 반팔
@@ -63,8 +63,8 @@ const TopContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='4'
-                        checked={topRadio === '4'}
+                        value='긴팔'
+                        checked={topRadio === '긴팔'}
                         onChange={handleClickTopRadioButton}
                     />
                     긴팔
@@ -73,8 +73,8 @@ const TopContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='5'
-                        checked={topRadio === '5'}
+                        value='기타'
+                        checked={topRadio === '상의 기타'}
                         onChange={handleClickTopRadioButton}
                     />
                     기타
@@ -100,8 +100,8 @@ const OuterContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='1'
-                        checked={radio === '1'}
+                        value='가디건'
+                        checked={radio === '가디건'}
                         onChange={handleClickTopRadioButton}
                     />
                     가디건
@@ -111,8 +111,8 @@ const OuterContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='2'
-                        checked={radio === '2'}
+                        value='자켓'
+                        checked={radio === '자켓'}
                         onChange={handleClickTopRadioButton}
                     />
                     자켓
@@ -121,8 +121,8 @@ const OuterContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='3'
-                        checked={radio === '3'}
+                        value='코트'
+                        checked={radio === '코트'}
                         onChange={handleClickTopRadioButton}
                     />
                     코트
@@ -131,8 +131,8 @@ const OuterContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='4'
-                        checked={radio === '4'}
+                        value='패딩'
+                        checked={radio === '패딩'}
                         onChange={handleClickTopRadioButton}
                     />
                     패딩
@@ -141,8 +141,8 @@ const OuterContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='5'
-                        checked={radio === '5'}
+                        value='아우터 기타'
+                        checked={radio === '아우터 기타'}
                         onChange={handleClickTopRadioButton}
                     />
                     기타
@@ -168,8 +168,8 @@ const BottomContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='1'
-                        checked={radio === '1'}
+                        value='숏팬츠'
+                        checked={radio === '숏팬츠'}
                         onChange={handleClickTopRadioButton}
                     />
                     숏팬츠
@@ -179,8 +179,8 @@ const BottomContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='2'
-                        checked={radio === '2'}
+                        value='롱팬츠'
+                        checked={radio === '롱팬츠'}
                         onChange={handleClickTopRadioButton}
                     />
                     롱팬츠
@@ -189,8 +189,8 @@ const BottomContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='3'
-                        checked={radio === '3'}
+                        value='미니스커트'
+                        checked={radio === '미니스커트'}
                         onChange={handleClickTopRadioButton}
                     />
                     미니스커트
@@ -199,8 +199,8 @@ const BottomContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='4'
-                        checked={radio === '4'}
+                        value='롱스커트'
+                        checked={radio === '롱스커트'}
                         onChange={handleClickTopRadioButton}
                     />
                     롱스커트
@@ -209,8 +209,8 @@ const BottomContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='5'
-                        checked={radio === '5'}
+                        value='원피스/세트'
+                        checked={radio === '원피스/세트'}
                         onChange={handleClickTopRadioButton}
                     />
                     원피스/세트
@@ -219,8 +219,8 @@ const BottomContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='6'
-                        checked={radio === '6'}
+                        value='하의 기타'
+                        checked={radio === '하의 기타'}
                         onChange={handleClickTopRadioButton}
                     />
                     기타
@@ -246,8 +246,8 @@ const ShoesContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='1'
-                        checked={radio === '1'}
+                        value='슬리퍼/쪼리'
+                        checked={radio === '슬리퍼/쪼리'}
                         onChange={handleClickTopRadioButton}
                     />
                     슬리퍼/쪼리
@@ -257,8 +257,8 @@ const ShoesContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='2'
-                        checked={radio === '2'}
+                        value='샌들'
+                        checked={radio === '샌들'}
                         onChange={handleClickTopRadioButton}
                     />
                     샌들
@@ -267,8 +267,8 @@ const ShoesContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='3'
-                        checked={radio === '3'}
+                        value='플랫/로퍼'
+                        checked={radio === '플랫/로퍼'}
                         onChange={handleClickTopRadioButton}
                     />
                     플랫/로퍼
@@ -277,8 +277,8 @@ const ShoesContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='4'
-                        checked={radio === '4'}
+                        value='스니커즈'
+                        checked={radio === '스니커즈'}
                         onChange={handleClickTopRadioButton}
                     />
                     스니커즈
@@ -287,8 +287,8 @@ const ShoesContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='5'
-                        checked={radio === '5'}
+                        value='운동화'
+                        checked={radio === '운동화'}
                         onChange={handleClickTopRadioButton}
                     />
                     운동화
@@ -297,8 +297,8 @@ const ShoesContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='6'
-                        checked={radio === '6'}
+                        value='기타'
+                        checked={radio === '신발 기타'}
                         onChange={handleClickTopRadioButton}
                     />
                     기타
@@ -325,8 +325,8 @@ const BagContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='1'
-                        checked={radio === '1'}
+                        value='크로스백'
+                        checked={radio === '크로스백'}
                         onChange={handleClickTopRadioButton}
                     />
                     크로스백
@@ -336,8 +336,8 @@ const BagContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='2'
-                        checked={radio === '2'}
+                        value='숄더백'
+                        checked={radio === '숄더백'}
                         onChange={handleClickTopRadioButton}
                     />
                     숄더백
@@ -346,8 +346,8 @@ const BagContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='3'
-                        checked={radio === '3'}
+                        value='에코백'
+                        checked={radio === '에코백'}
                         onChange={handleClickTopRadioButton}
                     />
                     에코백
@@ -356,8 +356,8 @@ const BagContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='4'
-                        checked={radio === '4'}
+                        value='클러치'
+                        checked={radio === '클러치'}
                         onChange={handleClickTopRadioButton}
                     />
                     클러치
@@ -366,8 +366,8 @@ const BagContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='5'
-                        checked={radio === '5'}
+                        value='백팩'
+                        checked={radio === '백팩'}
                         onChange={handleClickTopRadioButton}
                     />
                     백팩
@@ -376,8 +376,8 @@ const BagContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='6'
-                        checked={radio === '6'}
+                        value='가방 기타'
+                        checked={radio === '가방 기타'}
                         onChange={handleClickTopRadioButton}
                     />
                     기타
@@ -404,8 +404,8 @@ const AccessoryContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='1'
-                        checked={radio === '1'}
+                        value='반지'
+                        checked={radio === '반지'}
                         onChange={handleClickTopRadioButton}
                     />
                     반지
@@ -415,8 +415,8 @@ const AccessoryContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='2'
-                        checked={radio === '2'}
+                        value='귀걸이'
+                        checked={radio === '귀걸이'}
                         onChange={handleClickTopRadioButton}
                     />
                     귀걸이
@@ -425,8 +425,8 @@ const AccessoryContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='3'
-                        checked={radio === '3'}
+                        value='목걸이'
+                        checked={radio === '목걸이'}
                         onChange={handleClickTopRadioButton}
                     />
                     목걸이
@@ -435,8 +435,8 @@ const AccessoryContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='4'
-                        checked={radio === '4'}
+                        value='팔찌'
+                        checked={radio === '팔찌'}
                         onChange={handleClickTopRadioButton}
                     />
                     팔찌
@@ -445,18 +445,8 @@ const AccessoryContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='5'
-                        checked={radio === '5'}
-                        onChange={handleClickTopRadioButton}
-                    />
-                    원피스/세트
-                </label>
-
-                <label className='radio-contents'>
-                    <input
-                        type='radio'
-                        value='6'
-                        checked={radio === '6'}
+                        value='악세사리 기타'
+                        checked={radio === '악세사리 기타'}
                         onChange={handleClickTopRadioButton}
                     />
                     기타
@@ -481,11 +471,6 @@ const TypeRadio = () => {
     const [accessoryContents, setAccessoryContents] = useState(false);
 
     const handleClickRadioButton = (e) => {
-        // const { name, type } = e.target.value
-        // setShow({
-        //     ...show,
-        //     [name]: type
-        // })
         setRadio(e.target.value);
         console.log(e.target.value);
         e.target.value === '1' ? setTopContents(true) : setTopContents(false);
@@ -500,10 +485,10 @@ const TypeRadio = () => {
         <div>
             <label>
                 <input
-                    id='radio1'
+                    id='top'
                     type='radio'
-                    value='1'
-                    checked={radio === '1'}
+                    value='상의'
+                    checked={radio === '상의'}
                     onChange={handleClickRadioButton}
                 />
                 상의
@@ -511,37 +496,31 @@ const TypeRadio = () => {
 
             <label>
                 <input
-                    id='radio2'
+                    id='outer'
                     type='radio'
-                    value='2'
-                    checked={radio === '2'}
+                    value='아우터'
+                    checked={radio === '아우터'}
                     onChange={handleClickRadioButton}
-
-                // onClick={() => {
-                //     setOuterShow(!outerShow)
-                // }
-                // }
-
                 />
                 아우터
             </label>
 
             <label>
                 <input
-                    id='radio3'
+                    id='bottom'
                     type='radio'
-                    value='3'
-                    checked={radio === '3'}
+                    value='하의'
+                    checked={radio === '하의'}
                     onChange={handleClickRadioButton}
                 />
                 하의
             </label>
             <label>
                 <input
-                    id='radio4'
+                    id='shoes'
                     type='radio'
-                    value='4'
-                    checked={radio === '4'}
+                    value='신발'
+                    checked={radio === '신발'}
                     onChange={handleClickRadioButton}
                 />
                 신발
@@ -549,10 +528,10 @@ const TypeRadio = () => {
 
             <label>
                 <input
-                    id='radio5'
+                    id='bag'
                     type='radio'
-                    value='5'
-                    checked={radio === '5'}
+                    value='가방'
+                    checked={radio === '가방'}
                     onChange={handleClickRadioButton}
                 />
                 가방
@@ -560,10 +539,10 @@ const TypeRadio = () => {
 
             <label>
                 <input
-                    id='radio6'
+                    id='accessory'
                     type='radio'
-                    value='6'
-                    checked={radio === '6'}
+                    value='악세사리'
+                    checked={radio === '악세사리'}
                     onChange={handleClickRadioButton}
                 />
                 악세사리
@@ -571,10 +550,10 @@ const TypeRadio = () => {
 
             <label>
                 <input
-                    id='radio7'
+                    id='etc'
                     type='radio'
-                    value='7'
-                    checked={radio === '7'}
+                    value='기타'
+                    checked={radio === '기타'}
                     onChange={handleClickRadioButton}
                 />
                 기타

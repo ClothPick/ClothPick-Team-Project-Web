@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import CSSColorCheck from './CSSColorCheck'
 
 const ColorCheck = () => {
-  const isChecked = useState(false);
   const [white, setWhite] = useState(false);
   const [black, setBlack] = useState(false);
   const [red, setRed] = useState(false);
@@ -20,56 +19,67 @@ const ColorCheck = () => {
     switch (color) {
       case "white":
         setWhite(!white);
+        console.log('흰색')
         break;
 
       case "black":
         setBlack(!black)
+        console.log('검정')
         break;
 
       case "red":
         setRed(!red)
+        console.log('빨강')
         break;
 
       case "orange":
         setOrange(!orange)
+        console.log('주황')
         break;
 
       case "yellow":
         setYellow(!yellow)
+        console.log('노랑')
         break;
 
       case "green":
         setGreen(!green)
+        console.log('초록')
         break;
 
       case "blue":
         setBlue(!blue)
+        console.log('파랑')
         break;
 
       case "purple":
         setPurple(!purple)
+        console.log('보라')
         break;
 
       case "pink":
         setPink(!pink)
+        console.log('분홍')
         break;
 
       case "beige":
         setBeige(!beige)
+        console.log('베이지')
         break;
 
       case "brown":
         setBrown(!brown)
+        console.log('갈색')
         break;
 
       case "gray":
         setGray(!gray)
+        console.log('회색')
         break;
 
       default:
         document.write("잘못된 단어 입력");
     }
-    console.log(!isChecked);
   };
 
   return (
