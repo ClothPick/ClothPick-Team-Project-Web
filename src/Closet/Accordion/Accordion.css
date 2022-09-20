@@ -14,9 +14,7 @@
     width: 100%;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
-    /* border: 1px solid black;
-    border-radius: 20px; */
-    background-color: rgba(51, 64, 72, 0.5);
+    background-color: rgba(214, 176, 176, 0.5);
     flex-direction: column;
   }
 

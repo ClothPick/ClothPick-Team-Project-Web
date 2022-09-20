@@ -23,7 +23,6 @@ const TopContents = () => {
 
     const handleClickTopRadioButton = (e) => {
         setTopRadio(e.target.value);
-
     }
 
     return (
@@ -473,12 +472,12 @@ const TypeRadio = () => {
     const handleClickRadioButton = (e) => {
         setRadio(e.target.value);
         console.log(e.target.value);
-        e.target.value === '1' ? setTopContents(true) : setTopContents(false);
-        e.target.value === '2' ? setOuterContents(true) : setOuterContents(false);
-        e.target.value === '3' ? setBottomContents(true) : setBottomContents(false);
-        e.target.value === '4' ? setShoesContents(true) : setShoesContents(false);
-        e.target.value === '5' ? setBagContents(true) : setBagContents(false);
-        e.target.value === '6' ? setAccessoryContents(true) : setAccessoryContents(false);
+        e.target.value === '상의' ? setTopContents(true) : setTopContents(false);
+        e.target.value === '아우터' ? setOuterContents(true) : setOuterContents(false);
+        e.target.value === '하의' ? setBottomContents(true) : setBottomContents(false);
+        e.target.value === '신발' ? setShoesContents(true) : setShoesContents(false);
+        e.target.value === '가방' ? setBagContents(true) : setBagContents(false);
+        e.target.value === '악세사리' ? setAccessoryContents(true) : setAccessoryContents(false);
     }
 
     return (

@@ -84,7 +84,7 @@ const StyleRadio = () => {
         <div>
             <label>
                 <input
-                    id='radio1'
+                    id='casual'
                     type='radio'
                     value='캐주얼'
                     checked={radio === '캐주얼'}
@@ -95,7 +95,7 @@ const StyleRadio = () => {
 
             <label>
                 <input
-                    id='radio2'
+                    id='lovely'
                     type='radio'
                     value='러블리'
                     checked={radio === '러블리'}
@@ -106,7 +106,7 @@ const StyleRadio = () => {
 
             <label>
                 <input
-                    id='radio3'
+                    id='highteen'
                     type='radio'
                     value='하이틴'
                     checked={radio === '하이틴'}
@@ -116,7 +116,7 @@ const StyleRadio = () => {
             </label>
             <label>
                 <input
-                    id='radio4'
+                    id='spoty'
                     type='radio'
                     value='스포티'
                     checked={radio === '스포티'}
@@ -127,7 +127,7 @@ const StyleRadio = () => {
 
             <label>
                 <input
-                    id='radio5'
+                    id='street'
                     type='radio'
                     value='스트릿'
                     checked={radio === '스트릿'}
@@ -138,7 +138,7 @@ const StyleRadio = () => {
 
             <label>
                 <input
-                    id='radio5'
+                    id='modern'
                     type='radio'
                     value='모던'
                     checked={radio === '모던'}
@@ -149,7 +149,7 @@ const StyleRadio = () => {
 
             <label>
                 <input
-                    id='radio5'
+                    id='styleEtc'
                     type='radio'
                     value='스타일 기타'
                     checked={radio === '스타일 기타'}
@@ -183,7 +183,6 @@ const Accordion = () => {
                         tempCard[index].show = !tempCard[index].show;
                         setCardOnOff([...tempCard]);
                         console.log(text)
-                        // '필터 닫기'
                         text === '필터 열기' ? setText('필터 닫기') : setText('필터 열기')
                     }}>
                         {text}
