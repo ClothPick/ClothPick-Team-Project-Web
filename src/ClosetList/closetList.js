@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './closetList.css'
-import cloth1 from './img/cloth1.png'
-import ArrowLeft from './img/right.png'
-import ArrowRight from './img/left.png'
+import cloth1 from '../img/cloth1.png'
+import ArrowLeft from '../img/right.png'
+import ArrowRight from '../img/left.png'
 // import Pagination from './pagination';
 
 
-
 function ClosetList(){
+    const [textColor, setTextColor] = useState('black');
+
+    const handleChangeTextColor=(e)=>{
+        setTextColor(textColor== 'black'? '#CCCCCC' : 'black');
+}
+
     const [currentPage,setCurrentPage]=useState(1);
     const [postsPerPage, setPostsPerPage]=useState(6);
 
@@ -18,6 +23,8 @@ function ClosetList(){
     const oncheck =(data) => {
         console.log('확인' + data)
         setCurrentPage(data)
+        // toggleClass()
+        setTextColor('#CCCCC');
 
     }
 
@@ -219,8 +226,10 @@ function ClosetList(){
                     ))
                 }
                 <img src={ArrowLeft} onClick={()=>next()}alt=''/>
+
             </div>
         </div>
+
         </div>
     );
 }

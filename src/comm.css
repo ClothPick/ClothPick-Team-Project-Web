@@ -1,0 +1,37 @@
+.body{
+    width: auto;
+    height: auto;
+    display: flex;
+    margin: 0 auto;
+
+}
+.list{
+    width: 1350px;
+    height: 1000px;
+    /* background-color: antiquewhite; */
+}
+.rank{
+    /* background-color: aquamarine; */
+    width: 600px;
+}
+.search{
+    width: 1000px;
+    height: 80px;
+    margin-left:250px ;
+    margin-top: 20px
+}
+
+input{
+    width: 950px;
+    height: 70px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 25px;
+}
+
+.board{
+    background-color: antiquewhite;
+    width: auto;
+    margin-left:250px ;
+    margin-top: 20px
+}
