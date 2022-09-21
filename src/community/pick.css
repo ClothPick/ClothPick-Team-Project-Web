@@ -1,23 +1,40 @@
 .pick_total{
     margin-left: 30px;
 
+    width: 1500px;
+    display: flex;
+    justify-content: space-between
 
 }
 .pick_head{
-    background-color: yellow;
+
     display: flex;
     flex-wrap: wrap;
     width: 900px;
-}
-
-.pick_head{
     padding-top: 10px;
     font-size: 20px;
     font-weight: 700px;
+    background-color: #D2D5B8;
 }
 
-.pick_head> p{
+.pick_head1{
+    height: 222px;
+}
+
+.pick_head2{
+    display: flex;
+    background-color: antiquewhite;
+    width: 900px;
+}
+
+#clothes{
+    width: 70px;
+    height: 60px;
+}
+
+.pick_head2> p{
     padding-left: 20px;
+    font-weight: bold;
 }
 
 #pick_list>tr{
@@ -26,3 +43,49 @@
 #hr2{
     width: 100%;
 }
+
+.rank{
+    width: 450px;
+    background-color: #D2D5B8;
+    margin-right: 30px;
+    border-radius: 20px;
+}
+
+.rank_header{
+    margin: 15px;
+
+}
+
+#up{
+    margin-top: 9px;
+    margin-left: 20px;
+
+    height: 40px;
+}
+
+.rank_header > span{
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 1000px;
+
+}
+.pick_rank{
+    margin-left: 30px;
+}
+
+tr{
+    line-height: 2.5rem;
+}
+
+/* #rank_hr{
+    border: 0px;
+    border-top: 2px solid white;
+} */
+
+.pick_list{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+

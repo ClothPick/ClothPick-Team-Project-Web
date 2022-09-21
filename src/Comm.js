@@ -1,6 +1,6 @@
 import './comm.css';
 import React from 'react';
-import Pick from './community/pick'
+import Pick from './Community/Pick'
 
 function Comm(){
     return(
@@ -13,9 +13,9 @@ function Comm(){
                     <Pick/>
                 </div>
             </div>
-            <div className='rank'>
+            {/* <div className='rank'>
 
-            </div>
+            </div> */}
     </div>
     );
 }
