@@ -1,22 +1,18 @@
 import './comm.css';
 import React from 'react';
-import Pick from './Community/Pick'
+import Community from './Community/Community';
+import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
+
 
 function Comm(){
     return(
-        <div className='body'>
-            <div className="list">
-                <div className='search'>
-                    <input type="text" id='search' Placeholder="검색하세요."/>
-                </div>
-                <div className='board'>
-                    <Pick/>
-                </div>
+        <Router>
+            <div>
+               <Switch>
+               <Route exact path="/" component={Community}></Route>
+               </Switch>
             </div>
-            {/* <div className='rank'>
-
-            </div> */}
-    </div>
+    </Router>
     );
 }
 export default Comm;

@@ -13,6 +13,13 @@ const Pick=()=>{
         })
     },[]);
 
+    const [rank,setrank]=useState([]);
+    useEffect(()=>{
+        Axios.get("/api/clothesRank").then((response)=>{
+            setrank(response.data)
+        })
+    },[])
+
     return(
         <div className='pick_total'>
             <div className='pick_head1'>
@@ -61,20 +68,31 @@ const Pick=()=>{
                     <div className='pick_rank'>
                     <table id='pick_rank'>
                         <tr>
-                            <td>1. 가나</td>
+                            <td>1</td>
                         </tr>
                         <tr>
-                            <td>2. 다라</td>
+                            <td>2</td>
                         </tr>
                         <tr>
-                            <td>3. 마바사</td>
+                            <td>3</td>
                         </tr>
                         <tr>
-                            <td>4. 4위</td>
+                            <td>4</td>
                         </tr>
                         <tr>
-                            <td>5. 5위</td>
+                            <td>5</td>
                         </tr>
+                    </table>
+                    <table id='pick_rank_content'>
+                           <tbody>
+                            {
+                                rank.map((data)=>(
+                                    <tr id='rank1' key={data.id}>
+                                        <td>{data.content}</td>
+                                    </tr>
+                                ))
+                            }
+                           </tbody>
                     </table>
                 </div>
                 </div>
