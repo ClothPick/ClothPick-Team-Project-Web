@@ -1,0 +1,67 @@
+.text-margin-left-200 {
+    margin-left: 200px;
+    display: flex;
+}
+
+.text-margin-left-10 {
+    margin-left: 10px;
+}
+
+.text-margin-left-20 {
+    margin-left: 20px;
+}
+
+.text-margin-left-30 {
+    margin-left: 30px;
+}
+
+.text-margin-top-150 {
+    margin-top: 100px;
+}
+
+.flex {
+    display: flex;
+}
+
+.text-right {
+    margin-left: auto;
+}
+
+.text-margin-right-10 {
+    margin-right: 10px;
+}
+
+.text-top-1 {
+    margin-top: 14px;
+}
+
+.text-top-2 {
+    margin-top: 24px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+.noticeBoard {
+    background: white;
+    width: 35%;
+    height: 300px;
+    border-top: solid 2px gray;
+    border-right: none;
+    border-left: none;
+}
+
+.border-right {
+    border-right: solid 1px gray;
+}
+
+.scrap {
+    cursor:pointer;
+    transition: transform 300ms ease;
+}
+
+.scrap:hover {
+    transform: scale(1.1);
+}
