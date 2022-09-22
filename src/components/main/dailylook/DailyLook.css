@@ -1,0 +1,19 @@
+.dailybox{
+    width: 100%;
+}
+.imgblock{
+    min-height: 30%; max-width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: blur(0) grayscale(0%);
+    transition: 0.5s;
+}
+.textbox {
+        display: flex;
+        flex-direction: column;
+}
+
+.imgblock:hover{
+    filter: blur(3px) grayscale(100%);
+}

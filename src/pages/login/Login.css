@@ -1,0 +1,165 @@
+.loginbody{
+  /* flex-direction: column; */
+  background-color: #0043AF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.loginform{
+  /* margin: 0 auto; */
+  width: 420px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 15px;
+
+}
+.loginform > h2{
+  /* background-color: bisque; */
+  position: relative;
+  top: 50px;
+  margin-left: 25%;
+  margin-right: 25%;
+
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+}
+
+/* .validTest{
+  margin-bottom: 2%
+} */
+.emailBox {
+  width : 350px;
+  height: 50px;
+  margin-top: 150px;
+  margin-left: 8%;
+  margin-right: 8%;
+  border: none;
+  border-radius: 10px;
+  background-color: #F1F4F8;
+}
+.loginEmail{
+  width : 310px;
+  height: 50px;
+  padding-left: 2%;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #F1F4F8;
+  -webkit-appearance: none;
+}
+.loginEmail:focus{
+  outline: none;
+  text-align: left;
+}
+.loginPassword{
+  width: 280px;
+  height: 50px;
+  padding-left: 2%;
+  font-size: 15px;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  border: none;
+  background-color: #F1F4F8;
+
+}
+.passwordBox > input:focus{
+  outline: none;
+  text-align: left;
+}
+.passwordBox{
+  display: flex;
+  flex-direction: row;
+  width : 350px;
+  height: 50px;
+  margin-left: 8%;
+  margin-right: 8%;
+  border-radius: 10px;
+  background-color: #F1F4F8;
+  align-items: center;
+}
+.visibliltyicon {
+  margin: auto;
+}
+
+.EmailCheck{
+  text-align: right;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 2%;
+}
+.signinfo{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8%;
+    margin-left: 8%;
+    margin-right: 8%;
+    /* justify-content: space-between; */
+    
+}
+.signinfo > p {
+  margin-left: 1%;
+  font-size: 13px;
+  color: #1F6DE2;
+}
+
+.liA {
+  font-size: 12px;
+  color: #1F6DE2;
+  margin-left: auto;
+}
+input[type="checkbox"] {
+  display:none;
+  
+}
+input[type="checkbox"] +label {
+  width: 14px;
+  height: 14px;
+  background: #E2F1FF;
+  /* nonoFlex/primary */
+  
+  border: 2px solid #1F6DE2;
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  /* margin: 2%; */
+}
+input[type="checkbox"]:checked + label {
+  background: #1F6DE2;
+  border-radius: 6px;
+}
+
+.sign{
+  width: 200px;
+  height: 16px;
+  display: flex;
+  flex-direction:column;  
+  margin-left: auto;
+  
+}
+.submit{
+  width: 350px;
+  height: 50px;
+  margin-top: 8%;
+  margin-left: 8%;
+  margin-right: 8%;
+  background-color: #1F6DE2;
+  color: #fff;
+  border-radius: 10px;
+  border-color: #fff;
+}
+.submit :active{
+  background-color:black;
+}
+.EmailCheck {
+  height: 10px;
+  font-size: 8px;
+  color:red;
+}
+.EmailCheck2{
+  display:none;
+  font-size: 8px;
+  color:#fff;
+}

@@ -1,0 +1,124 @@
+
+.sidebar{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.closebox
+{
+    display: flex;
+    height: 120px;
+    align-items: center;
+
+}
+.closeicon{
+    margin-left: 80px;
+}
+.mainNav{
+    margin-left: 80px;
+}
+
+.focusmenu > li{
+    font-size: 28px;
+    margin-bottom: 2%;
+}
+
+.focusmenu > li > p {
+    display: inline-block;
+    position: relative;
+}
+.focusmenu > li > p:after {
+    content:"";
+    position: absolute;
+    left: 0%;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: aqua;
+    transition: all .5s;
+}
+.focusmenu > li > p:before {
+    content:"";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: aqua;
+    transition: all .5s;
+}
+.focusmenu > li > p:hover:after {
+    width: 100%
+}
+.focusmenu > li > p:hover:before {
+    width: 0%
+}
+
+.closetoggle:after {
+    content:"";
+    position: absolute;
+    left: 0%;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: aqua;
+    transition: all .5s;
+}
+.closetoggle:before {
+    content:"";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: aqua;
+    transition: all .5s;
+}
+.closetoggle:hover:after {
+    width: 100%
+}
+.closetoggle:hover:before {
+    width: 0%
+}
+
+.opentoggle{
+    text-decoration: underline aqua 4px;
+}
+.togglemenu{
+    margin-left: 10px;
+    animation-duration: .5s;
+    animation-name: toggleUp;
+    transition: all 0.5s;
+}
+.togglemenu >li{
+    display: flex;
+    flex-direction: row;
+}
+.togglemenu >li>img{
+    width: 31px;
+    height: 27px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+@keyframes toggleUp{
+    from {
+        transform: translateX(-5%);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+@keyframes slideUp{
+    from {
+        transform: translateX(-70%);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+.togglemenu >li > p{
+    font-size: 20px;
+}
+.togglemenu >li:hover img{opacity:1;
+    animation-duration: .5s;
+    animation-name: slideUp;}

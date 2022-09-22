@@ -1,0 +1,43 @@
+.overlays {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+
+.modalWraps {
+    width: 33%;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    animation-duration: 0.5s;
+    animation-name: slideUp;
+  }
+@keyframes slideUp{
+    from {
+        transform: translateX(-33%);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+.modalWraps.onClose{
+  animation-name: slideDown;
+}
+@keyframes slideDown{
+  from {
+      transform: translateX(0px);
+  }
+  to{
+      transform: translateX(-33%);
+  }
+}
+
+  .contents {
+    padding: 30px;
+  }
