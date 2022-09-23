@@ -41,16 +41,20 @@
 
 .box {
     display: flex;
-    justify-content: center;
+    /* flex: 1 1 40%; */
+    /* justify-content: center; */
 }
 
 .noticeBoard {
     background: white;
-    width: 35%;
+    width: 700px;
     height: 300px;
+    /* margin-left: 20%; */
+    /* margin-right: 20%; */
     border-top: solid 2px gray;
-    border-right: none;
-    border-left: none;
+    /* justify-content: center; */
+    /* border-right: none; */
+    /* border-left: none; */
 }
 
 .border-right {
@@ -64,4 +68,15 @@
 
 .scrap:hover {
     transform: scale(1.1);
+}
+
+.two-box {
+    margin-left: 180px;
+    display: inline-block;
+    width: 30%;
+    justify-content: center;
+}
+
+.inline-block {
+    display: inline-block;
 }
