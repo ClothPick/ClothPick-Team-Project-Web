@@ -1,3 +1,4 @@
+
 .fqa-parent {
     display: flex;
     align-items: center;
@@ -5,7 +6,9 @@
   }
 
   .faq-list {
-    width: 80%;
+    width: 60%;
+    display: flex;
+    margin-right: 300px;
   }
 
   .faq-card {
@@ -14,10 +17,9 @@
     width: 100%;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
-    /* border: 1px solid black;
-    border-radius: 20px; */
-    background-color: rgba(51, 64, 72, 0.5);
+    background-color: rgba(214, 176, 176, 0.5);
     flex-direction: column;
+
   }
 
   .faq-card-title {
@@ -29,7 +31,7 @@
   }
 
   .faq-card-answer {
-    position: relative;
+    position: flex;
     padding-top: 1rem;
     padding-bottom: 1.5rem;
     padding-right: 2rem;
@@ -39,5 +41,4 @@
 
   .faq-card-none {
     display: none;
-
   }
