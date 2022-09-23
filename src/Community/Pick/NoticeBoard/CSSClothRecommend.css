@@ -3,6 +3,14 @@
     display: flex;
 }
 
+.m-l-200 {
+    margin-left:200px;
+}
+
+.m-l-300 {
+    margin-left: 300px;
+}
+
 .text-margin-left-10 {
     margin-left: 10px;
 }
@@ -31,8 +39,16 @@
     margin-right: 10px;
 }
 
+.m-r-200 {
+    margin-right:200px;
+}
+
 .text-top-1 {
     margin-top: 14px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
 }
 
 .text-top-2 {
@@ -41,20 +57,13 @@
 
 .box {
     display: flex;
-    /* flex: 1 1 40%; */
-    /* justify-content: center; */
 }
 
 .noticeBoard {
     background: white;
     width: 700px;
     height: 300px;
-    /* margin-left: 20%; */
-    /* margin-right: 20%; */
     border-top: solid 2px gray;
-    /* justify-content: center; */
-    /* border-right: none; */
-    /* border-left: none; */
 }
 
 .border-right {
@@ -79,4 +88,26 @@
 
 .inline-block {
     display: inline-block;
+}
+
+.flex {
+    display: flex;
+}
+
+.line {
+    width: 90%;
+    border: 0px;
+    border-top: 2px dashed rgb(187, 187, 187);
+}
+
+.img-size {
+    width: 50%;
+    /* height: 55%; */
+    align-content: center;
+    justify-content: center;
+}
+
+.center {
+    justify-content: center;
+    text-align: center;
 }
