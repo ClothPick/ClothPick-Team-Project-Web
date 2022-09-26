@@ -78,11 +78,6 @@ tr{
     line-height: 2.5rem;
 }
 
-/* #rank_hr{
-    border: 0px;
-    border-top: 2px solid white;
-} */
-
 .pick_list{
     display: flex;
     justify-content: space-between;

@@ -64,6 +64,16 @@
     width: 700px;
     height: 300px;
     border-top: solid 2px gray;
+
+}
+
+.decoration {
+    text-decoration: none;
+    color: black;
+}
+
+.noticeBoard:hover {
+    background-color: rgb(234, 234, 234);
 }
 
 .border-right {
@@ -110,4 +120,39 @@
 .center {
     justify-content: center;
     text-align: center;
+}
+
+.round-box {
+    background-color: #67595E;
+    width: 200px;
+    height: 80px;
+    border-radius: 30px;
+    /* margin-top: 30px; */
+    margin: 50px auto ;
+}
+
+.text-recom {
+    margin-top: 10px;
+    font-size: 45px;
+    color: white;
+}
+
+.box-comment {
+    width: 1200px;
+    height: 120px;
+    /* margin-left: 100px; */
+    margin: 0 0 auto;
+    display: flex;
+    background-color: white;
+    border: solid 5px #E5E8CB;
+}
+
+.brown-round {
+    background-color: #67595E;
+    width: 80px;
+    height: 50px;
+    border-radius: 20px;
+    color: white;
+    /* justify-content: center; */
+    margin: auto;
 }
