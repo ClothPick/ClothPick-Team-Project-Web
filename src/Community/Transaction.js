@@ -1,14 +1,10 @@
 import './Transaction.css';
 import up from '../img/up.png'
 import hand from '../img/hand.png'
-import React,{useState,useEffect} from 'react'
-import Axios from 'axios'
+import React from 'react'
 
 const Transaction=()=>{
-    const [list,setList]=useState([]);
-    useEffect (()=>{
 
-    },[])
     return(
         <div className="trans_title">
             <div className="trans_list">

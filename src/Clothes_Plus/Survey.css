@@ -1,0 +1,26 @@
+.Stotal{
+    background-color: antiquewhite;
+}
+
+#choice{
+    width: 20px;
+    height: 40px;
+    text-align: center;
+    margin-left: 155px;
+    margin-top: 20px;
+}
+
+.step1{
+    margin-top: 20px;
+    height: 150px;
+}
+
+.step1 > label{
+    margin-left: 200px;
+    font-size: 30px;
+}
+
+span{
+    font-size: 25px;
+    margin-top: 0px;
+}
