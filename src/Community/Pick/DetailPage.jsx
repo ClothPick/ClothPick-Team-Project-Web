@@ -6,6 +6,7 @@ import './NoticeBoard/CSSClothRecommend.css'
 import { AiFillLike } from 'react-icons/ai'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import TestMethod from '../../Test/TestMethod';
+import Comment from './Comment'
 
 const DetailPage = () => {
     const [community, setCommunity] = useState([]);
@@ -13,7 +14,6 @@ const DetailPage = () => {
     const [scrapChecked, setScrapChecked] = useState(true);
     const [title, setTitle] = useState([]);
     const [click, setClick] = useState(true);
-
     const [recommend, setRecommend] = useState(0);
 
     useEffect(() => {
@@ -34,9 +34,6 @@ const DetailPage = () => {
         };
         getData();
     }, [click]);
-
-    // console.log('community : ', community);
-
 
     const handleScrapButton = () => {
         scrapChecked ? setScrapChecked(false) : setScrapChecked(true);
@@ -79,15 +76,17 @@ const DetailPage = () => {
             </div>
             <hr />
 
+
             {/* 댓글 */}
-            <form className='flex' >
+            <Comment />
+            {/* <form className='flex'>
                 <input
                     className='box-comment'
                     type="text"
                     placeholder='댓글을 남겨주세요.'
                 />
-                <button className='brown-round' type='submit'>등록</button>
-            </form>
+                <button className='brown-round scrap' type='submit'>등록</button>
+            </form> */}
         </div >
     );
 };
