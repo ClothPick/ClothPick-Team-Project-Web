@@ -1,11 +1,11 @@
 .Stotal{
-    background-color: antiquewhite;
+    background-color: white
 }
 
 #choice{
     width: 20px;
     height: 40px;
-    text-align: center;
+    /* text-align: center; */
     margin-left: 155px;
     margin-top: 20px;
 }
@@ -16,11 +16,158 @@
 }
 
 .step1 > label{
+    margin-left: 10px;
+    font-size: 30px;
     margin-left: 200px;
+}
+#step1{
+    margin-left: 150px;
+    font-size: 30px;
+}
+span{
+    font-size: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+
+
+
+.step2{
+    margin-top: 20px;
+    height: 230px;
+}
+
+#step2{
+    margin-left: 150px;
     font-size: 30px;
 }
 
-span{
-    font-size: 25px;
-    margin-top: 0px;
+.step2>label{
+    margin-left: 20px;
+    font-size: 20px;
 }
+
+.step3{
+    height: 230px;
+}
+#step3{
+    font-size: 30px;
+    margin-left: 150px;
+}
+
+#intro3{
+    margin-left: 150px;
+}
+.step4{
+    height: 350px;
+}
+#step4{
+    margin-left: 150px;
+    font-size: 30px;
+}
+
+#intro4{
+    margin-left: 150px;
+}
+.step5{
+    height: 300px;
+}
+
+#step5{
+    margin-left: 150px;
+    font-size: 30px;
+}
+
+#intro5{
+    margin-left: 150px;
+}
+
+.step6{
+    height: 230px;
+}
+
+#step6{
+    margin-left: 150px;
+    font-size: 30px;
+}
+
+#intro6{
+    margin-left: 150px;
+}
+
+.step7{
+    height: 300px;
+}
+
+#step7{
+    margin-left: 150px;
+    font-size: 30px;
+}
+
+#intro7{
+    margin-left: 150px;
+}
+
+.step8{
+    height: 250px;
+}
+
+#step8{
+    margin-left: 150px;
+    font-size: 30px;
+}
+
+#intro8{
+    margin-left: 150px;
+}
+
+#keyward{
+    width: 900px;
+    margin-left: 160px;
+}
+
+.step9{
+    height: 230px;
+}
+
+#step9{
+    margin-left: 150px;
+    font-size: 30px;
+}
+
+#intro9{
+    margin-left: 150px;
+}
+
+#pg{
+    width: 800px;
+    height: 50px;
+    margin-left: 200px;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    height: 100px;
+}
+
+#submit{
+    border-radius: 10px;
+    border: none;
+    background-color:#D2D5B8 ;
+    margin-right: 20px;
+    width: 80px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#cancel{
+    border-radius: 10px;
+    border: none;
+    background-color:#D2D5B8 ;
+    width: 80px;
+    height: 50px;
+    font-size: 20px;
+}
+
