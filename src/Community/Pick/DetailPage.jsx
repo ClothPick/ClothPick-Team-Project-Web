@@ -79,14 +79,6 @@ const DetailPage = () => {
 
             {/* 댓글 */}
             <Comment />
-            {/* <form className='flex'>
-                <input
-                    className='box-comment'
-                    type="text"
-                    placeholder='댓글을 남겨주세요.'
-                />
-                <button className='brown-round scrap' type='submit'>등록</button>
-            </form> */}
         </div >
     );
 };

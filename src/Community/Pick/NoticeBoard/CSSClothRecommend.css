@@ -3,6 +3,10 @@
     display: flex;
 }
 
+.m-l-100 {
+    margin-left: 100px;
+}
+
 .m-l-200 {
     margin-left:200px;
 }
@@ -192,4 +196,13 @@
     float: right;
     margin-top: 20px;
     margin-right: 30px;
+}
+
+.white-space {
+    padding: 200px;
+    margin-top: -120px;
+}
+
+.bold {
+    font-weight: bold;
 }

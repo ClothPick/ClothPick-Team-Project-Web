@@ -2,6 +2,7 @@
 import './community_header.css'
 import logo from '../../img/PICK.PNG'
 import { MdPersonOutline } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 
 function Community_header() {
@@ -18,7 +19,9 @@ function Community_header() {
                 </div>
                 <div className='button'>
                     <button id='mypage'><MdPersonOutline size="50" /></button>
-                    <button id='write'>글쓰기</button>
+                    <Link to='/write'>
+                        <button id='write'>글쓰기</button>
+                    </Link>
                 </div>
             </div>
             <hr></hr>
