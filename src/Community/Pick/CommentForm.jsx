@@ -4,7 +4,7 @@ import './NoticeBoard/CSSClothRecommend.css'
 class CommentForm extends Component {
     state = {
         name: "",
-        comment: ""
+        comment: "",
     };
 
     handleChange = (e) => {
