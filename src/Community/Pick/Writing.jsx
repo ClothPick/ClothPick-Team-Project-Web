@@ -104,7 +104,7 @@ const Writing = () => {
             </div>
 
             {/* 사진 띄우기 */}
-            <div>
+            <div className='center text-top-2'>
                 {
                     url.map((data, index) => (
                         <div key={index}>

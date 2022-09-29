@@ -39,7 +39,7 @@ const Freedom = () => {
             <div className='box inline-block'>
                 {community.map((data) => (
                     <div className='two-box'>
-                        <Link to="/detailpage" className='decoration'>
+                        <Link to="/detailpage/${data.id}" className='decoration'>
                             <div className='noticeBoard '>
                                 <div className='text-margin-left-10'>
                                     <tr key={data.id}>
