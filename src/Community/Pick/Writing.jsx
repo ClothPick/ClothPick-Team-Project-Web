@@ -3,7 +3,7 @@ import Header from '../Header/community_header'
 import './NoticeBoard/CSSClothRecommend.css'
 import Radio from '../Component/Radio';
 import RadioGroup from '../Component/RadioGroup';
-import empty from '../../img/empty.png';
+import { useHistory } from 'react-router-dom';
 
 const Writing = () => {
     // const [imageUrl, setImageUrl] = useState('');
@@ -31,8 +31,24 @@ const Writing = () => {
         console.log(url);
 
 
-
     };
+
+    const history = useHistory();
+
+    const Checking = () => {
+        var check = document.titles.title.value;
+        if (check === "" || check === null) {
+            alert('제목을 입력해주세요.');
+            document.titles.title.focus();
+            return;
+        }
+        else {
+            alert('등록되었습니다.');
+            history.push('/');
+        }
+    }
+
+
 
     return (
         <div>
@@ -60,13 +76,14 @@ const Writing = () => {
             </div>
 
             {/* 게시물 제목 */}
-            <div className='white-space m-t-50 center'>
+            <form name='titles' className='white-space m-t-50 center'>
                 <input
+                    name='title'
                     type='text'
                     className='inputField'
                     placeholder='제목'
                 />
-            </div>
+            </form>
 
             {/* 게시물 내용 */}
             <div className='white-space m-t-50 center'>
@@ -90,20 +107,25 @@ const Writing = () => {
 
             {/* 사진 첨부 */}
             <div className="white-space m-t-50 center input_image">
-                <p>
+                {/* <p> */}
+                {/* <div className='img-upload' ><span>+</span> */}
+                <div className='img-upload'>
                     <label htmlFor="file" onChange={(e) => { onChangeImage(e) }}>
-                        <img src={empty} alt="cimg" id="cimg" />
-
+                        <div className='img-upload' ><span>+</span></div>
+                        {/* <img src={empty} alt="cimg" id="cimg" /> */}
                     </label>
-                </p>
-                {/* accept='image/*' */}
+                </div>
                 <input type="file" onChange={(e) => { onChangeImage(e) }} id="file"></input>
 
             </div>
 
             {/* 버튼 */}
             <div className="white-space m-t-50 center">
-                <button className='brown-round scrap'>등록</button>
+
+                <button className='brown-round scrap'
+                    onClick={() => {
+                        Checking()
+                    }}>등록</button>
                 <button className='brown-round scrap'>취소</button>
             </div>
 

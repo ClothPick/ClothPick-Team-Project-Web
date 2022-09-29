@@ -245,11 +245,11 @@
     color: #b8b8b8;
 }
 
-#cimg{
+/* #cimg{
     width: 200px;
     height: 200px;
     text-align: center;
-}
+} */
 .input_image input[type="file"]{
     width: 0.1px;
 	height: 0.1px;
@@ -257,4 +257,34 @@
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
+}
+
+.img-upload {
+    background-color: #f9f9f9;
+    width: 200px;
+    height: 200px;
+    border: dashed 3px #e4e4e4;
+    margin: auto;
+    /* text-align: center; */
+}
+
+.input_image > label {
+    width: 200px;
+    height: 200px;
+    margin-left: 300px;
+    /* margin: auto; */
+}
+
+.img-upload > span {
+    color: #67595E;
+    font-size: 80px;
+    display: flex;
+    /* text-align: center; */
+    /* align-content: center; */
+    /* align-items: center; */
+    /* margin: auto; */
+    /* margin-bottom: 20px; */
+    margin-top: 40px;
+    margin-left: 75px;
+    font-weight: bold;
 }
