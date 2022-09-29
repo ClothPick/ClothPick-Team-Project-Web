@@ -19,12 +19,12 @@ const ContentsBlock = styled.div`
 
 // 상의 세부사항
 const TopContents = () => {
-    const [topRadio, setTopRadio] = useState([]);
+    const [radio, setRadio] = useState([]);
 
     const handleClickTopRadioButton = (e) => {
-        setTopRadio(e.target.value);
+        setRadio(e.target.value);
+        console.log(e.target.value);
     }
-
     return (
         <ContentsBlock>
             <h5 className='text-detail'>세부사항
@@ -32,7 +32,7 @@ const TopContents = () => {
                     <input
                         type='radio'
                         value='민소매'
-                        checked={topRadio === '민소매'}
+                        checked={radio === '민소매'}
                         onChange={handleClickTopRadioButton}
                     />
                     민소매
@@ -43,7 +43,7 @@ const TopContents = () => {
                     <input
                         type='radio'
                         value='반팔'
-                        checked={topRadio === '반팔'}
+                        checked={radio === '반팔'}
                         onChange={handleClickTopRadioButton}
                     />
                     반팔
@@ -53,7 +53,7 @@ const TopContents = () => {
                     <input
                         type='radio'
                         value='5부 반팔'
-                        checked={topRadio === '5부 반팔'}
+                        checked={radio === '5부 반팔'}
                         onChange={handleClickTopRadioButton}
                     />
                     5부 반팔
@@ -63,7 +63,7 @@ const TopContents = () => {
                     <input
                         type='radio'
                         value='긴팔'
-                        checked={topRadio === '긴팔'}
+                        checked={radio === '긴팔'}
                         onChange={handleClickTopRadioButton}
                     />
                     긴팔
@@ -72,8 +72,8 @@ const TopContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='기타'
-                        checked={topRadio === '상의 기타'}
+                        value='상의 기타'
+                        checked={radio === '상의 기타'}
                         onChange={handleClickTopRadioButton}
                     />
                     기타
@@ -296,7 +296,7 @@ const ShoesContents = () => {
                 <label className='radio-contents'>
                     <input
                         type='radio'
-                        value='기타'
+                        value='신발 기타'
                         checked={radio === '신발 기타'}
                         onChange={handleClickTopRadioButton}
                     />
@@ -482,7 +482,7 @@ const TypeRadio = () => {
 
     return (
         <div>
-            <label>
+            <label className='m-l-20'>
                 <input
                     id='top'
                     type='radio'
@@ -493,7 +493,7 @@ const TypeRadio = () => {
                 상의
             </label>
 
-            <label>
+            <label className='m-l-20'>
                 <input
                     id='outer'
                     type='radio'
@@ -504,7 +504,7 @@ const TypeRadio = () => {
                 아우터
             </label>
 
-            <label>
+            <label className='m-l-20'>
                 <input
                     id='bottom'
                     type='radio'
@@ -514,7 +514,7 @@ const TypeRadio = () => {
                 />
                 하의
             </label>
-            <label>
+            <label className='m-l-20'>
                 <input
                     id='shoes'
                     type='radio'
@@ -525,7 +525,7 @@ const TypeRadio = () => {
                 신발
             </label>
 
-            <label>
+            <label className='m-l-20'>
                 <input
                     id='bag'
                     type='radio'
@@ -536,7 +536,7 @@ const TypeRadio = () => {
                 가방
             </label>
 
-            <label>
+            <label className='m-l-20'>
                 <input
                     id='accessory'
                     type='radio'
@@ -547,7 +547,7 @@ const TypeRadio = () => {
                 악세사리
             </label>
 
-            <label>
+            <label className='m-l-20'>
                 <input
                     id='etc'
                     type='radio'

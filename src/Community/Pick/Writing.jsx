@@ -135,7 +135,7 @@ const Writing = () => {
                     onClick={() => {
                         Checking()
                     }}>등록</button>
-                <button className='brown-round scrap'>취소</button>
+                <button className='brown-round scrap' onClick={() => history.goBack()}>취소</button>
             </div>
 
         </div>

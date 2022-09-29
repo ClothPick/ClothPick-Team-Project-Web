@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useParams } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Header from '../Header/community_header'
 import { BiTime, BiMessage } from 'react-icons/bi'
 import { BsFillPencilFill } from 'react-icons/bs'
@@ -15,8 +16,9 @@ const DetailPage = () => {
     const [title, setTitle] = useState([]);
     const [click, setClick] = useState(true);
     const [recommend, setRecommend] = useState(0);
+    const [id, setId] = useState([]);
 
-    let { id } = useParams();
+    let { boardId } = useParams();
 
     useEffect(() => {
         const get = TestMethod.CommunityTestListGet();
@@ -25,13 +27,18 @@ const DetailPage = () => {
                 setCommunity(data);
                 console.log('data : ' + data);
 
+                // setId(data.boardId);
+
                 // --------- 테스트 코드 ---------
+                // console.log(index);
 
-                setTitle(data[id].title)
-                console.log('id번째 title : ' + data[id].title);
+                setTitle(data[boardId].boardTitle)
+                console.log('id번째 title : ' + data[boardId].boardTitle);
 
-                setContent(data[id].content);
-                console.log('id번째 content : ' + data[id].content);
+                setContent(data[boardId].boardContent);
+                console.log('id번째 content : ' + data[boardId].boardContent);
+
+
 
                 // --------- 테스트 코드 ---------
             });

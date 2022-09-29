@@ -7,7 +7,7 @@ import TestMethod from "../../../Test/TestMethod";
 import { Link } from 'react-router-dom';
 
 
-const Freedom = () => {
+const ClothRecommend = () => {
     const [scrapChecked, setScrapChecked] = useState(true);
 
     const [community, setCommunity] = useState([]);
@@ -37,20 +37,20 @@ const Freedom = () => {
             </div>
 
             <div className='box inline-block'>
-                {community.map((data) => (
+                {community.map((data, index) => (
                     <div className='two-box'>
-                        <Link to="/detailpage/${data.id}" className='decoration'>
-                            <div className='noticeBoard '>
+                        <Link to={"/detailpage/${data.boardId}"} className='decoration'>
+                            <div className='noticeBoard' key={index}>
                                 <div className='text-margin-left-10'>
-                                    <tr key={data.id}>
-                                        <tr><h2>{data.title}</h2></tr>
+                                    <div>
+                                        <li className='li-style'><h2>{data.boardTitle}</h2></li>
 
-                                        <tr><h3>{data.content}</h3></tr>
-                                    </tr>
+                                        <li className='li-style'><h3>{data.boardContent}</h3></li>
+                                    </div>
                                 </div>
 
 
-                                <h5 className='text-margin-left-10 text-margin-top-150'>작성자</h5>
+                                <h5 className='text-margin-left-10 text-margin-top-150'>{data.userName}</h5>
                             </div>
                         </Link>
                         <div className='text-margin-left-10 flex'>
@@ -72,4 +72,4 @@ const Freedom = () => {
     );
 };
 
-export default Freedom;
+export default ClothRecommend;

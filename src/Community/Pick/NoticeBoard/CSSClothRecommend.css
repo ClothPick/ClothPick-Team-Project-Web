@@ -278,3 +278,7 @@
     margin-left: 75px;
     font-weight: bold;
 }
+
+.li-style {
+    list-style: none;
+}

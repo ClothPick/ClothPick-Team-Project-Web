@@ -203,14 +203,13 @@ const Accordion = () => {
                     <div>
                         <p className="FAQ-card-answer">{item.type}</p>
                         <TypeRadio />
-
-                        <hr />
+                        <hr className="hr-style" />
                         <p className="FAQ-card-answer">{item.color}</p>
                         <ColorCheck />
-                        <hr />
+                        <hr className="hr-style" />
                         <p className="FAQ-card-answer">{item.texture}</p>
                         <TextureRadio />
-                        <hr />
+                        <hr className="hr-style" />
                         <p className="FAQ-card-answer">{item.style}</p>
                         <StyleRadio />
                     </div>
@@ -221,8 +220,8 @@ const Accordion = () => {
 
     return (
         <div>
-            <div className="fqa-parent">
-                <div className="faq-list">
+            <div className="fqa-parent ">
+                <div className="faq-list batch">
                     {showList.map((item, index) => getQnACard(item, index))}
                 </div>
             </div>
