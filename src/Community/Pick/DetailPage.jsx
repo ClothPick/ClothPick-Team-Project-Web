@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useParams } from 'react';
 import Header from '../Header/community_header'
 import { BiTime, BiMessage } from 'react-icons/bi'
 import { BsFillPencilFill } from 'react-icons/bs'
@@ -16,6 +16,8 @@ const DetailPage = () => {
     const [click, setClick] = useState(true);
     const [recommend, setRecommend] = useState(0);
 
+    let { id } = useParams();
+
     useEffect(() => {
         const get = TestMethod.CommunityTestListGet();
         const getData = () => {
@@ -23,13 +25,15 @@ const DetailPage = () => {
                 setCommunity(data);
                 console.log('data : ' + data);
 
-                setTitle(data[0].title)
-                console.log('0번째 title : ' + data[0].title);
+                // --------- 테스트 코드 ---------
 
-                setContent(data[0].content);
-                console.log('0번째 content : ' + data[0].content);
-                // setContent(community[0].content);
-                // console.log('community content : ' + community[0].content);
+                setTitle(data[id].title)
+                console.log('id번째 title : ' + data[id].title);
+
+                setContent(data[id].content);
+                console.log('id번째 content : ' + data[id].content);
+
+                // --------- 테스트 코드 ---------
             });
         };
         getData();

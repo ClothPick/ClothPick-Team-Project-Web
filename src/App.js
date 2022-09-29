@@ -14,7 +14,7 @@ function App() {
           <Route path="/closet" component={ClosetMain} />
           <Route exact path="/" component={Community} />
           <Route path="/test" component={Commu} />
-          <Route path="/detailpage" component={DetailPage} />
+          <Route path="/detailpage/:id" component={DetailPage} />
           <Route path="/write" component={Write} />
         </Switch>
       </div>
