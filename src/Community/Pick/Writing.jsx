@@ -4,13 +4,14 @@ import './NoticeBoard/CSSClothRecommend.css'
 import Radio from '../Component/Radio';
 import RadioGroup from '../Component/RadioGroup';
 import { useHistory } from 'react-router-dom';
+import TestMethod from '../../Test/TestMethod';
 
 const Writing = () => {
-    // const [imageUrl, setImageUrl] = useState('');
-    const [url, setUrl] = useState([]);
+    const [url, setUrl] = useState([]); // URL
     const [imgList, setImgList] = useState([]); // 서버로 보낼 데이터
     const [click, setClick] = useState(false); // 화면 렌더링
-    // const imgRef = useRef();
+    const [title, setTitle] = useState(""); // 제목
+    const [content, setContent] = useState(""); // 내용
 
     const onChangeImage = (e) => {
         const reader = new FileReader();
@@ -20,31 +21,36 @@ const Writing = () => {
 
         reader.readAsDataURL(file);
         reader.onloadend = () => {
-
-            // setImageUrl(reader.result); // 사진 표시
-
             url.push(reader.result);
             setClick(!click); // 사진 표시를 위한 렌더링
         };
-
-        // console.log(imageUrl);
         console.log(url);
-
-
     };
 
-    const history = useHistory();
+    const ontext = async () => {
+        await TestMethod.CommunityTestListPost(title, content)
+        if (click) {
+            setClick(false);
+        } else {
+            setClick(true);
+        }
+        setTitle("")
+        setContent("")
+    }
+
+    const history = useHistory(); // 등록 후 화면 이동
 
     const Checking = () => {
         var check = document.titles.title.value;
         if (check === "" || check === null) {
             alert('제목을 입력해주세요.');
-            document.titles.title.focus();
+            document.titles.title.focus(); // 마우스 커서 포커스 제목으로 이동
             return;
         }
         else {
             alert('등록되었습니다.');
-            history.push('/');
+            ontext();
+            history.replace('/');
         }
     }
 
@@ -79,17 +85,21 @@ const Writing = () => {
             <form name='titles' className='white-space m-t-50 center'>
                 <input
                     name='title'
+                    value={title}
                     type='text'
                     className='inputField'
                     placeholder='제목'
+                    onChange={({ target: { value } }) => setTitle(value)}
                 />
             </form>
 
             {/* 게시물 내용 */}
             <div className='white-space m-t-50 center'>
                 <textarea
+                    value={content}
                     className='inputContents'
                     placeholder='내용'
+                    onChange={({ target: { value } }) => setContent(value)}
                 ></textarea>
             </div>
 
@@ -101,7 +111,6 @@ const Writing = () => {
                             <img src={data} id="cimg" />
                         </div>
                     ))
-
                 }
             </div>
 
