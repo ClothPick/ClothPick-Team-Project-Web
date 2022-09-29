@@ -12,14 +12,16 @@
   }
 
   .faq-card {
-    display: flex;
+    /* margin: auto; */
+    /* justify-content: center;
+    align-content: center; */
+    /* display: flex; */
     margin-top: 10px;
     width: 100%;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
-    background-color: rgba(214, 176, 176, 0.5);
+    background-color: white;
     flex-direction: column;
-
   }
 
   .faq-card-title {
@@ -41,4 +43,17 @@
 
   .faq-card-none {
     display: none;
+  }
+
+  .batch {
+    margin: auto;
+    /* justify-content: center; */
+    /* align-content: center; */
+    /* margin-left: 300px; */
+  }
+
+  .hr-style {
+    margin-top: 40px;
+    width: 100%;
+    color: lightgray;
   }

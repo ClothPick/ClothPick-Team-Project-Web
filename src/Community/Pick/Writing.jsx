@@ -42,7 +42,7 @@ const Writing = () => {
 
     const Checking = () => {
         var check = document.titles.title.value;
-        if (check === "" || check === null) {
+        if (check.trim() === "" || check === null) {
             alert('제목을 입력해주세요.');
             document.titles.title.focus(); // 마우스 커서 포커스 제목으로 이동
             return;
@@ -135,7 +135,7 @@ const Writing = () => {
                     onClick={() => {
                         Checking()
                     }}>등록</button>
-                <button className='brown-round scrap'>취소</button>
+                <button className='brown-round scrap' onClick={() => history.goBack()}>취소</button>
             </div>
 
         </div>

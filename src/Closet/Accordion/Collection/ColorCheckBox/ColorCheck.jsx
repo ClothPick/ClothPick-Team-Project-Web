@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import CSSColorCheck from './CSSColorCheck'
+import '../TypeRadioButton/CSSContents.css'
 
 const ColorCheck = () => {
   const [white, setWhite] = useState(false);
@@ -84,7 +85,7 @@ const ColorCheck = () => {
 
   return (
     <>
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           checked={white}
           onChange={() => {
@@ -94,7 +95,7 @@ const ColorCheck = () => {
         <span name='white' text='white' style={{ marginLeft: 8 }}>흰색</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           black
           checked={black}
@@ -105,7 +106,7 @@ const ColorCheck = () => {
         <span name='black' text='black' style={{ marginLeft: 8 }}>검정</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           red
           checked={red}
@@ -116,7 +117,7 @@ const ColorCheck = () => {
         <span name='red' text='red' style={{ marginLeft: 8 }}>빨강</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           orange
           checked={orange}
@@ -127,7 +128,7 @@ const ColorCheck = () => {
         <span name='orange' text='orange' style={{ marginLeft: 8 }}>주황</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           yellow
           checked={yellow}
@@ -138,7 +139,7 @@ const ColorCheck = () => {
         <span name='yellow' text='yellow' style={{ marginLeft: 8 }}>노랑</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           green
           checked={green}
@@ -149,7 +150,7 @@ const ColorCheck = () => {
         <span name='green' text='green' style={{ marginLeft: 8 }}>초록</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           blue
           checked={blue}
@@ -160,7 +161,7 @@ const ColorCheck = () => {
         <span name='blue' text='blue' style={{ marginLeft: 8 }}>파랑</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           purple
           checked={purple}
@@ -171,7 +172,7 @@ const ColorCheck = () => {
         <span name='purple' text='purple' style={{ marginLeft: 8 }}>보라</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           pink
           checked={pink}
@@ -182,7 +183,7 @@ const ColorCheck = () => {
         <span name='pink' text='pink' style={{ marginLeft: 8 }}>분홍</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           beige
           checked={beige}
@@ -193,7 +194,7 @@ const ColorCheck = () => {
         <span name='beige' text='beige' style={{ marginLeft: 8 }}>베이지</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           brown
           checked={brown}
@@ -204,7 +205,7 @@ const ColorCheck = () => {
         <span name='brown' text='brown' style={{ marginLeft: 8 }}>갈색</span>
       </label>
 
-      <label>
+      <label className='m-l-20'>
         <CSSColorCheck
           gray
           checked={gray}

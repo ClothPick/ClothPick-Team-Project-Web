@@ -13,9 +13,7 @@ async function TestList() {
 
 async function CommunityTestListGet() {
   try {
-    const response = await Instance.get('/api/sample');
-
-    // console.log('id : ' + response.data[0].id); // id값 접근
+    const response = await Instance.get('/api/freeboard');
     console.log(response.data);
     return response.data;
   } catch (error) {
@@ -23,18 +21,19 @@ async function CommunityTestListGet() {
   }
 };
 
-async function CommunityTestListPost(titles, contents) {
+async function CommunityTestListPost(title, content) {
   try {
-    const response = await Instance.post('/api/communitytest', {
-      title: titles,
-      content: contents
+    const response = await Instance.post('/api/freeboard', {
+      boardTitle: title,
+      boardContent: content
     });
     console.log(response.data);
+    return response.data;
+    // 게시글 아이디 리턴
   } catch (error) {
     console.log(error);
   }
 };
-
 
 async function CommunityTestListPut(id, titles, contents) {
   try {
