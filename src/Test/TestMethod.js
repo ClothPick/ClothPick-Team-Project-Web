@@ -47,12 +47,23 @@ async function CommunityTestListPut(id, titles, contents) {
   }
 };
 
+async function BoardConnectImgGet(id) {
+  try {
+    const response = await Instance.get(`/api/imgconnect/${id}`);
+    // console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 const TestMethod = {
   TestList,
   CommunityTestListGet,
   CommunityTestListPost,
-  CommunityTestListPut
+  CommunityTestListPut,
+  BoardConnectImgGet
 }
 
 export default TestMethod;
