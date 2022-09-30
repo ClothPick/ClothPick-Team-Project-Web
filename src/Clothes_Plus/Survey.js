@@ -5,7 +5,7 @@ import Check from './Checkbox'
 const RadioInput=({label,value,checked,setter})=>{
     return(
         <label>
-            <input type="radio" id='choice' checked={checked==value}
+            <input type="radio" id='choice'  checked={checked==value}
                 onChange={() => setter(value)}/>
             <span>{label}</span>
         </label>
@@ -75,7 +75,7 @@ const Survey=props=>{
                     <span id='step2'>step2</span>
                     <br></br><br></br><br></br>
                     <div className='choice2'>
-                    <RadioInput label="상의" value="상의" onClick={top} checked={role} setter={setRole}/>
+                    <RadioInput label="상의" value="상의" checked={role} setter={setRole}/>
                     <RadioInput label="하의" value="하의" checked={role} setter={setRole}/>
                     <RadioInput label="신발" value="신발" checked={role} setter={setRole}/>
                     <br></br><br></br><br></br>
