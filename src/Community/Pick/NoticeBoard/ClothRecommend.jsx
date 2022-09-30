@@ -39,7 +39,7 @@ const ClothRecommend = () => {
             <div className='box inline-block'>
                 {community.map((data, index) => (
                     <div className='two-box'>
-                        <Link to={"/detailpage/${data.boardId}"} className='decoration'>
+                        <Link to={`/detailpage/${data.boardId}`} className='decoration'>
                             <div className='noticeBoard' key={index}>
                                 <div className='text-margin-left-10'>
                                     <div>
