@@ -35,6 +35,15 @@ async function CommunityTestListPost(title, content) {
   }
 };
 
+async function CommunityTestListDelete(id) {
+  try {
+    const response = await Instance.delete(`/api/freeboard/${id}`);
+    console.log(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 async function CommunityTestListPut(id, titles, contents) {
   try {
     const response = await Instance.post(`/api/communitytest/${id}`, {
@@ -47,10 +56,10 @@ async function CommunityTestListPut(id, titles, contents) {
   }
 };
 
-async function BoardConnectImgGet(id) {
+async function BoardConnectImgGet(board_id) {
   try {
-    const response = await Instance.get(`/api/imgconnect/${id}`);
-    // console.log(response.data);
+    const response = await Instance.get(`/api/imgconnect/${board_id}`);
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -63,7 +72,8 @@ const TestMethod = {
   CommunityTestListGet,
   CommunityTestListPost,
   CommunityTestListPut,
-  BoardConnectImgGet
+  BoardConnectImgGet,
+  CommunityTestListDelete
 }
 
 export default TestMethod;

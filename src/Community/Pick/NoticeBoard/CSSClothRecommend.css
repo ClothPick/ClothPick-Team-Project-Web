@@ -116,6 +116,10 @@
     display: flex;
 }
 
+.m-a {
+    margin: auto;
+}
+
 .line {
     width: 90%;
     border: 0px;
@@ -123,7 +127,7 @@
 }
 
 .img-size {
-    width: 50%;
+    width: 30%;
     /* height: 55%; */
     align-content: center;
     justify-content: center;
@@ -246,9 +250,9 @@
 }
 
 #cimg{
-    width: 400px;
-    height: 400px;
-
+    width: 15%;
+    /* height: 400px; */
+    /* display: flex; */
 }
 
 .input_image input[type="file"]{

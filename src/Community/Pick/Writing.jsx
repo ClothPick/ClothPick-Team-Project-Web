@@ -3,7 +3,7 @@ import Header from '../Header/community_header'
 import './NoticeBoard/CSSClothRecommend.css'
 import Radio from '../Component/Radio';
 import RadioGroup from '../Component/RadioGroup';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import TestMethod from '../../Test/TestMethod';
 
 const Writing = () => {
@@ -12,7 +12,11 @@ const Writing = () => {
     const [click, setClick] = useState(false); // 화면 렌더링
     const [title, setTitle] = useState(""); // 제목
     const [content, setContent] = useState(""); // 내용
-
+    const [type, setType] = useState(1);
+    const [boardid, setBoardId] = useState();
+    const [imgid, setImgId] = useState([]);
+    let get
+    let list = [];
     const onChangeImage = (e) => {
         const reader = new FileReader();
         const file = e.target.files[0];
@@ -22,38 +26,41 @@ const Writing = () => {
         reader.readAsDataURL(file);
         reader.onloadend = () => {
             url.push(reader.result);
+            // console.log(reader.result);
             setClick(!click); // 사진 표시를 위한 렌더링
         };
         console.log(url);
     };
 
     const ontext = async () => {
-        await TestMethod.CommunityTestListPost(title, content)
-        if (click) {
-            setClick(false);
-        } else {
-            setClick(true);
+        get = await TestMethod.CommunityTestListPost(title, content)
+        let formData = new FormData();
+        for (let i = 0; i < imgList.length; i++) {
+            formData.append('file', imgList[i])
         }
-        setTitle("")
-        setContent("")
+        list = await TestMethod.BoardImgPost(formData);
+
+        for (let i = 0; i < list.length; i++) {
+            await TestMethod.BoardConnectImgPost(type, get, list[i])
+            console.log("실행되나?")
+        }
     }
 
     const history = useHistory(); // 등록 후 화면 이동
 
-    const Checking = () => {
+    const Checking = async () => {
         var check = document.titles.title.value;
-        if (check.trim() === "" || check === null) {
+        if (check === "" || check === null) {
             alert('제목을 입력해주세요.');
             document.titles.title.focus(); // 마우스 커서 포커스 제목으로 이동
             return;
         }
         else {
+            await ontext();
             alert('등록되었습니다.');
-            ontext();
-            history.replace('/');
+            history.replace('/community');
         }
     }
-
 
 
     return (
@@ -104,10 +111,10 @@ const Writing = () => {
             </div>
 
             {/* 사진 띄우기 */}
-            <div className='center text-top-2'>
+            <div>
                 {
                     url.map((data, index) => (
-                        <div key={index}>
+                        <div key={index} className="center">
                             <img src={data} id="cimg" />
                         </div>
                     ))
@@ -135,7 +142,10 @@ const Writing = () => {
                     onClick={() => {
                         Checking()
                     }}>등록</button>
-                <button className='brown-round scrap' onClick={() => history.goBack()}>취소</button>
+
+                <Link to="/">
+                    <button className='brown-round scrap'>취소</button>
+                </Link>
             </div>
 
         </div>

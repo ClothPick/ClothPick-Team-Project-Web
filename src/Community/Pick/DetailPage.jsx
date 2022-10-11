@@ -9,7 +9,7 @@ import './NoticeBoard/CSSClothRecommend.css'
 import Header from '../Header/community_header'
 import TestMethod from '../../Test/TestMethod';
 import Comment from './Comment'
-import data from '../../Closet/Accordion/data';
+// import data from '../../Closet/Accordion/data';
 
 const DetailPage = () => {
     const [community, setCommunity] = useState([]);
@@ -19,7 +19,7 @@ const DetailPage = () => {
     const [userName, setUserName] = useState('');
     const [click, setClick] = useState(true);
     const [recommend, setRecommend] = useState(0);
-    const [id, setId] = useState([]);
+    const [img, setImg] = useState([]);
 
     // URL 주소값
     var url = window.location.pathname.split('/')[2];
@@ -48,7 +48,18 @@ const DetailPage = () => {
                 }
             });
         };
+
+        const getImg = TestMethod.BoardConnectImgGet(url);
+        const getImgData = () => {
+            getImg.then(data => {
+                setImg(data);
+                console.log("img : " + data);
+            });
+        }
+
         getData();
+        getImgData();
+
     }, [click]);
 
     const handleScrapButton = () => {
@@ -75,7 +86,8 @@ const DetailPage = () => {
                             <AiOutlineHeart size='35' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} /> :
                             <AiFillHeart size='35' color='red' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} />}
                         <h3>스크랩</h3>
-                        <BsFillPencilFill size='40' className='m-t-10 text-right m-r-200' />
+                        <button className='text-right m-r-20'>삭제하기</button>
+                        <BsFillPencilFill size='40' className='m-t-10 m-r-200' />
                     </div>
 
                     {/* 게시물 contents */}
@@ -83,7 +95,13 @@ const DetailPage = () => {
                 <hr className='line' />
                 <div className='text-top-2 center'>
                     <h1>{content}</h1>
-                    <img className='img-size' alt='' src={require('../../img/cloth1.png')} />
+                    {img.map((data) => (
+                        <div>
+                            <img className='img-size' alt='' src={`http://192.168.0.109:80/api/displayimg/${data}.jpg`} />
+                        </div>
+                    ))
+                    }
+                    {/* <img className='img-size' alt='' src={require('../../img/cloth1.png')} /> */}
                 </div>
 
                 {/* 추천 수 */}
@@ -97,7 +115,7 @@ const DetailPage = () => {
                 {/* 댓글 */}
                 <Comment />
             </div >
-        </div>
+        </div >
     );
 };
 
