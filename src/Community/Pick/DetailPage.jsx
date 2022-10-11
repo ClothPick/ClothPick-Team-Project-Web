@@ -86,8 +86,8 @@ const DetailPage = () => {
                             <AiOutlineHeart size='35' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} /> :
                             <AiFillHeart size='35' color='red' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} />}
                         <h3>스크랩</h3>
-                        <button className='text-right m-r-20'>삭제하기</button>
-                        <BsFillPencilFill size='40' className='m-t-10 m-r-200' />
+                        <button className='text-right m-r-20 del-btn'>삭제</button>
+                        <BsFillPencilFill size='40' className='m-t-10 m-r-200 update-btn' />
                     </div>
 
                     {/* 게시물 contents */}

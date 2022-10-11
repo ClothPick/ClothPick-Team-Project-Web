@@ -286,3 +286,18 @@
 .li-style {
     list-style: none;
 }
+
+.del-btn {
+    width: 70px;
+    font-size: 15px;
+    border: solid 1px #67595E;
+    border-radius: 20px;
+}
+
+.del-btn:hover {
+    border: solid 3px #67595E;
+}
+
+.update-btn:hover {
+    color: #865a3c;
+}
