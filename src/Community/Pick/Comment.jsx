@@ -1,31 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
+import { useState } from "react";
 import CommentForm from "./CommentForm";
 import CommentTableList from "./CommentTableList";
 
-class Comment extends Component {
-    id = 0;
+function Comment() {
+    // const [id, setId] = useState(0);
 
-    state = {
-        users: []
-    };
+    const [users, setUsers] = useState([])
 
-    handleCreate = (data) => {
-        this.setState({
-            users: this.state.users.concat({
-                ...data,
-                id: this.id++
-            })
-        });
+    const handleCreate = (data) => {
+        // setId(id + 1);
+        // setUsers(users.concat(data, id));
+        setUsers(users.concat(data));
+
         console.log(data);
+        // console.log(id);
     };
-    render() {
-        return (
-            <>
-                <CommentForm onCreate={this.handleCreate} />
-                <CommentTableList users={this.state.users} />
-            </>
-        );
-    }
+    return (
+        <>
+            <CommentForm onCreate={handleCreate} />
+            <CommentTableList users={users} />
+        </>
+    );
 }
 
 export default Comment;

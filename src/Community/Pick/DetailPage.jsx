@@ -38,7 +38,7 @@ const DetailPage = () => {
 
                 // URL 주소값과 boardId의 값이 같으면 그 정보를 화면에 띄운다.
                 for (var i = 0; i < data.length; i++) {
-                    if (url == data[i].boardId) {
+                    if (url === data[i].boardId) {
                         setTitle(data[i].boardTitle);
                         setContent(data[i].boardContent);
 
@@ -95,8 +95,8 @@ const DetailPage = () => {
                 <hr className='line' />
                 <div className='text-top-2 center'>
                     <h1>{content}</h1>
-                    {img.map((data) => (
-                        <div>
+                    {img.map((data =>
+                        <div key={data}>
                             <img className='img-size' alt='' src={`http://192.168.0.109:80/api/displayimg/${data}.jpg`} />
                         </div>
                     ))

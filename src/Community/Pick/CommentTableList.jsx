@@ -1,15 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import CommentTable from "./CommentTable";
 
-class CommentTableList extends Component {
-    render() {
-        const { users } = this.props;
-        return (
-            <>
-                {users && users.map((user) => <CommentTable key={user.id} user={user} />)}
-            </>
-        );
-    }
+function CommentTableList(props) {
+    const { users } = props;
+    console.log(users);
+    return (
+        <>
+            {users && users.map((user =>
+                <div key={users.id} >
+                    <CommentTable user={user} />
+                </div>))}
+        </>
+    );
 }
 
 export default CommentTableList;
