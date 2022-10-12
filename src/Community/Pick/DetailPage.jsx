@@ -38,7 +38,7 @@ const DetailPage = () => {
 
                 // URL 주소값과 boardId의 값이 같으면 그 정보를 화면에 띄운다.
                 for (var i = 0; i < data.length; i++) {
-                    if (url == data[i].boardId) {
+                    if (url === data[i].boardId) {
                         setTitle(data[i].boardTitle);
                         setContent(data[i].boardContent);
 
@@ -86,8 +86,8 @@ const DetailPage = () => {
                             <AiOutlineHeart size='35' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} /> :
                             <AiFillHeart size='35' color='red' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} />}
                         <h3>스크랩</h3>
-                        <button className='text-right m-r-20'>삭제하기</button>
-                        <BsFillPencilFill size='40' className='m-t-10 m-r-200' />
+                        <button className='text-right m-r-20 del-btn'>삭제</button>
+                        <BsFillPencilFill size='40' className='m-t-10 m-r-200 update-btn' />
                     </div>
 
                     {/* 게시물 contents */}
@@ -95,8 +95,8 @@ const DetailPage = () => {
                 <hr className='line' />
                 <div className='text-top-2 center'>
                     <h1>{content}</h1>
-                    {img.map((data) => (
-                        <div>
+                    {img.map((data =>
+                        <div key={data}>
                             <img className='img-size' alt='' src={`http://192.168.0.109:80/api/displayimg/${data}.jpg`} />
                         </div>
                     ))

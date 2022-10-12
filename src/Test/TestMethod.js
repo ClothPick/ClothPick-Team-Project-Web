@@ -1,16 +1,6 @@
 import Instance from "./TestInstance";
 
-async function TestList() {
-
-  try {
-    const response = await Instance.get('/api/list');
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
+// 게시물 전체 조회
 async function CommunityTestListGet() {
   try {
     const response = await Instance.get('/api/freeboard');
@@ -21,6 +11,7 @@ async function CommunityTestListGet() {
   }
 };
 
+// 게시물 작성
 async function CommunityTestListPost(title, content) {
   try {
     const response = await Instance.post('/api/freeboard', {
@@ -35,6 +26,8 @@ async function CommunityTestListPost(title, content) {
   }
 };
 
+
+// 게시물 삭제
 async function CommunityTestListDelete(id) {
   try {
     const response = await Instance.delete(`/api/freeboard/${id}`);
@@ -44,6 +37,7 @@ async function CommunityTestListDelete(id) {
   }
 };
 
+// 게시물 수정 - 수정 필요
 async function CommunityTestListPut(id, titles, contents) {
   try {
     const response = await Instance.post(`/api/communitytest/${id}`, {
@@ -56,6 +50,7 @@ async function CommunityTestListPut(id, titles, contents) {
   }
 };
 
+// 게시물 이미지 id 조회
 async function BoardConnectImgGet(board_id) {
   try {
     const response = await Instance.get(`/api/imgconnect/${board_id}`);
@@ -68,7 +63,6 @@ async function BoardConnectImgGet(board_id) {
 
 
 const TestMethod = {
-  TestList,
   CommunityTestListGet,
   CommunityTestListPost,
   CommunityTestListPut,
