@@ -5,19 +5,19 @@ import { AiFillSkin, AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { BiMessage } from 'react-icons/bi';
 import TestMethod from "../../../Test/TestMethod";
 import { Link } from 'react-router-dom';
-
+import ConvenMethod from '../../../Test/ConvenMethod';
 
 const ClothRecommend = () => {
     const [scrapChecked, setScrapChecked] = useState(true);
 
     const [community, setCommunity] = useState([]);
     const [click, setClick] = useState(true);
+
     useEffect(() => {
         const get = TestMethod.CommunityTestListGet();
         const getData = () => {
             get.then(data => {
                 setCommunity(data);
-                // setTitle(get.data[0].title)
             });
         };
         getData();
@@ -27,8 +27,18 @@ const ClothRecommend = () => {
         scrapChecked ? setScrapChecked(false) : setScrapChecked(true);
     }
 
+    // const timeHandler = async (createAt) => {
+    //     var text = ConvenMethod.handleTime(createAt);
+    //     return (
+    //         <div>
+    //             {text}
+    //         </div>
+    //     );
+    // }
+
 
     return (
+
         <div>
             <Header />
             <div className='text-margin-left-200'>
@@ -56,17 +66,15 @@ const ClothRecommend = () => {
                         <div className='text-margin-left-10 flex'>
                             <BiMessage size='20' className='text-top-2' />
                             <h4 className='text-margin-left-10'>3</h4>
-                            <h4 className='text-margin-left-30'>3분 전</h4>
+                            <h4 className='text-margin-left-30'>{ConvenMethod.handleTime(data.createAt)}</h4>
 
                             {scrapChecked ?
                                 <AiOutlineHeart size='35' className='text-top-1 text-right scrap' onClick={handleScrapButton} /> :
                                 <AiFillHeart size='35' color='red' className='text-top-1 text-right scrap' onClick={handleScrapButton} />}
                         </div>
                     </div>
-
-
-
                 ))}
+
             </div>
         </div >
     );

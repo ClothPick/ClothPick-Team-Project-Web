@@ -13,6 +13,7 @@ function App() {
         <Switch>
           <Route path="/closet" component={ClosetMain} />
           <Route exact path="/" component={Community} />
+          <Route path="/community" component={Community} />
           <Route path="/test" component={Commu} />
           <Route path="/detailpage/:boardId" component={DetailPage} />
           <Route path="/write" component={Write} />

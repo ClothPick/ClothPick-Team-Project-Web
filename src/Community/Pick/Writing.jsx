@@ -34,15 +34,17 @@ const Writing = () => {
 
     const ontext = async () => {
         get = await TestMethod.CommunityTestListPost(title, content)
-        let formData = new FormData();
-        for (let i = 0; i < imgList.length; i++) {
-            formData.append('file', imgList[i])
-        }
-        list = await TestMethod.BoardImgPost(formData);
+        if (imgList.length > 0) {
+            let formData = new FormData();
+            for (let i = 0; i < imgList.length; i++) {
+                formData.append('file', imgList[i])
+            }
+            list = await TestMethod.BoardImgPost(formData);
 
-        for (let i = 0; i < list.length; i++) {
-            await TestMethod.BoardConnectImgPost(type, get, list[i])
-            console.log("실행되나?")
+            for (let i = 0; i < list.length; i++) {
+                await TestMethod.BoardConnectImgPost(type, get, list[i])
+                console.log("실행되나?")
+            }
         }
     }
 
