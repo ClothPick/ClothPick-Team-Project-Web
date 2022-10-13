@@ -30,8 +30,9 @@
 span{
     font-size: 20px;
     margin-top: 0px;
-    margin-left: 20px;
+    margin-left: 10px;
     align-items:center;
+
 }
 #outer{
     margin-left: 130px;
@@ -47,17 +48,36 @@ span{
     font-size: 30px;
 }
 
+#ckbox1{
+    width: 20px;
+    height: 40px;
+
+    position: relative;
+    top: 8.5px;
+}
 .step2>label{
     margin-left: 20px;
+    width: 200px;
     font-size: 20px;
 }
 
 .choice2{
-    margin-left: 170px;
+    margin-left: 55px;
+    display: flex;
+    justify-content: space-between;
 }
-
+.choice2>span{
+    margin-right: 20px;
+}
+.detail{
+    width: 900px;
+    margin-left: 80px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
 .step3{
-    height: 230px;
+    height: 260px;
 }
 #step3{
     font-size: 30px;
@@ -166,6 +186,7 @@ span{
     width: 800px;
     height: 50px;
     margin-left: 200px;
+
 }
 
 .btn{
@@ -194,7 +215,17 @@ span{
     font-size: 20px;
 }
 
-.num{
-    margin-left: 55px;
+
+
+#top{
+    text-align: center;
 }
 
+.bet1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.num1{
+    width: auto;
+}

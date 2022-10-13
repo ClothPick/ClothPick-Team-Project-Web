@@ -3,36 +3,71 @@ import styled from "styled-components";
 
 const Checkbox=(props)=>{
     return(
+        <>
         <Styletotal>
-        <StyledLabel>
+            <StyledLabel>
             <StyledInput type="checkbox" id='white' name='white' color='white'/>
             <StyledP>흰색</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <Styled type="checkbox" id='black' name='black' color='black'/>
             <StyledP>검정</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <StyledInput type="checkbox" id='red' name='red' color='red'/>
             <StyledP>빨강</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <StyledInput type="checkbox" id='orange' name='orange' color='orange'/>
             <StyledP>주황</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <StyledInput type="checkbox" id='yellow' name='yellow' color='yellow'/>
             <StyledP>노랑</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <StyledInput type="checkbox" id='green' name='green' color='green'/>
             <StyledP>초록</StyledP>
-        </StyledLabel>
-        <StyledLabel>
+            </StyledLabel>
+            </Styletotal>
+
+            <Styletotal>
+            <StyledLabel>
             <Styled type="checkbox" id='blue' name='blue' color='blue'/>
             <StyledP>파랑</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <Styled type="checkbox" id='purple' name='purple' color='purple'/>
             <StyledP>보라</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <StyledInput type="checkbox" id='pink' name='pink' color='pink'/>
             <StyledP>분홍</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <StyledInput type="checkbox" id='beige' name='beige' color='Beige'/>
             <StyledP>베이지</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <Styled type="checkbox" id='brown' name='brown' color='brown'/>
             <StyledP>갈색</StyledP>
+            </StyledLabel>
+
+            <StyledLabel>
             <Styled type="checkbox" id='gray' name='gray' color='gray'/>
             <StyledP>회색</StyledP>
-        </StyledLabel>
+            </StyledLabel>
         </Styletotal>
+        </>
     );
 }
 export default Checkbox;
@@ -82,10 +117,12 @@ const StyledLabel = styled.label`
 `;
 
 const StyledP=styled.p`
-
+    margin-left:10px
 `;
 
 const Styletotal=styled.div`
     width:900px;
     margin-left:150px;
+    display:flex;
+    justify-content: space-around;
 `;
