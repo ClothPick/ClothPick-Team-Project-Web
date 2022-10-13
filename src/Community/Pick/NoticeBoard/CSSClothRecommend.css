@@ -1,5 +1,5 @@
 .text-margin-left-200 {
-    margin-left: 200px;
+    margin-left: 350px;
     display: flex;
 }
 
@@ -71,10 +71,15 @@
     display: flex;
 }
 
+.p-l-300 {
+    padding-left: 300px;
+    /* padding-right: 150px; */
+}
+
 .noticeBoard {
     background: white;
-    width: 700px;
-    height: 300px;
+    width: 400px;
+    height:270px;
     border-top: solid 2px gray;
 
 }
@@ -88,8 +93,10 @@
     background-color: rgb(234, 234, 234);
 }
 
-.border-right {
-    border-right: solid 1px gray;
+.border-side {
+    border-right: dashed 0.1px gray;
+    border-left: dashed 0.1px gray;
+    padding: 20px;
 }
 
 .scrap {
@@ -110,6 +117,7 @@
 
 .inline-block {
     display: inline-block;
+    /* flex-wrap: wrap; */
 }
 
 .flex {
@@ -311,7 +319,9 @@
 
 .del-btn {
     width: 70px;
+    height: 40px;
     font-size: 15px;
+    margin-top: 15px;
     border: solid 1px #67595E;
     border-radius: 20px;
 }

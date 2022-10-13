@@ -8,19 +8,21 @@ import { Link } from 'react-router-dom';
 function Community_header() {
     return (
         <>
-            <div className="header">
-                <div className="logo"><img src={logo} id='logo2' alt='logo'></img> </div>
+            <div className="commu-header">
+                <Link to="/community">
+                    <div className="logo"><img src={logo} id='logo2' alt='logo'></img> </div>
+                </Link>
                 <div className='catalog'>
-                    <a id='clothes' >옷 추천 </a>
-                    <a id='bar'>|</a>
-                    <a id="second">중고거래</a>
-                    <a id='bar'>|</a>
-                    <a id='free'>자유 게시판</a>
+                    <span>옷 추천 </span>
+                    <span id='bar'>|</span>
+                    <span>중고거래</span>
+                    <span id='bar'>|</span>
+                    <span>자유 게시판</span>
                 </div>
                 <div className='button'>
-                    <button id='mypage'><MdPersonOutline size="50" /></button>
+                    <button className='mypage'><MdPersonOutline size="50" /></button>
                     <Link to='/write'>
-                        <button id='write'>글쓰기</button>
+                        <button className='write'>글쓰기</button>
                     </Link>
                 </div>
             </div>
