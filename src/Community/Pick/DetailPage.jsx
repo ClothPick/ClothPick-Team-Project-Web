@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
 import { BiTime, BiMessage } from 'react-icons/bi'
 import { BsFillPencilFill } from 'react-icons/bs'
 import { AiFillLike, AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
@@ -9,7 +7,8 @@ import './NoticeBoard/CSSClothRecommend.css'
 import Header from '../Header/community_header'
 import TestMethod from '../../Test/TestMethod';
 import Comment from './Comment'
-// import data from '../../Closet/Accordion/data';
+
+import ConvenMethod from '../../Test/ConvenMethod';
 
 const DetailPage = () => {
     const [community, setCommunity] = useState([]);
@@ -17,6 +16,7 @@ const DetailPage = () => {
     const [scrapChecked, setScrapChecked] = useState(true);
     const [title, setTitle] = useState([]);
     const [userName, setUserName] = useState('');
+    const [createAt, setCreateAt] = useState("");
     const [click, setClick] = useState(true);
     const [recommend, setRecommend] = useState(0);
     const [img, setImg] = useState([]);
@@ -41,9 +41,11 @@ const DetailPage = () => {
                     if (url === data[i].boardId) {
                         setTitle(data[i].boardTitle);
                         setContent(data[i].boardContent);
+                        setCreateAt(ConvenMethod.handleTime(data[i].createAt));
 
                         console.log(data[i].boardTitle);
                         console.log(data[i].boardContent);
+                        console.log(data[i].createAt);
                     }
                 }
             });
@@ -78,7 +80,7 @@ const DetailPage = () => {
                     <h2>{userName}</h2>
                     <div className='flex'>
                         <BiTime size='40' className='m-t-10' />
-                        <h3>3분 전</h3>
+                        <h3>{createAt}</h3>
                         <BiMessage size='40' className='m-t-10 text-margin-left-30' />
                         <h3>3</h3>
                         {/* <AiOutlineHeart size='40' className='m-t-10 text-margin-left-30' onClick={handleScrapButton} /> */}
