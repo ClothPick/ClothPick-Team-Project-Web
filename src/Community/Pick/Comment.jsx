@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import './NoticeBoard/CSSClothRecommend.css'
+import './NoticeBoard/CSSNoticeBoard.css'
 import uuid from "react-uuid";
 import { FaTrashAlt } from 'react-icons/fa'
 

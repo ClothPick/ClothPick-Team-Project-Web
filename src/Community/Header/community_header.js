@@ -3,6 +3,7 @@ import './community_header.css'
 import logo from '../../img/PICK.PNG'
 import { MdPersonOutline } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 
 function Community_header() {
@@ -10,18 +11,27 @@ function Community_header() {
         <>
             <div className='header-bar'></div>
             <div className="commu-header">
-                <Link to="/community">
+                <AiOutlineMenu size='40' className="menu" />
+                <Link to="/recommend">
                     <div className="logo"><img src={logo} id='logo2' alt='logo'></img> </div>
                 </Link>
                 <div className='catalog'>
-                    <span>옷 추천 </span>
+                    <Link to="/recommend" className='line-none'>
+                        <span>옷 추천 </span>
+                    </Link>
                     <span id='bar'>|</span>
-                    <span>중고거래</span>
+
+                    <Link to="/usedtrade" className='line-none'>
+                        <span>중고거래</span>
+                    </Link>
                     <span id='bar'>|</span>
-                    <span>자유 게시판</span>
+
+                    <Link to="/freedom" className='line-none'>
+                        <span>자유 게시판</span>
+                    </Link>
                 </div>
                 <div className='button'>
-                    <button className='mypage'><MdPersonOutline size="50" /></button>
+                    <button className='mypage'><MdPersonOutline size="30" /></button>
                     <Link to='/write'>
                         <button className='write'>글쓰기</button>
                     </Link>

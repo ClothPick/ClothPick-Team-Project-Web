@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Header from '../Header/community_header'
-import './NoticeBoard/CSSClothRecommend.css'
+import './NoticeBoard/CSSNoticeBoard.css'
 import Radio from '../Component/Radio';
 import RadioGroup from '../Component/RadioGroup';
 import { useHistory, Link } from 'react-router-dom';
