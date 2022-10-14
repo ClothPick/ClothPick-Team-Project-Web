@@ -19,13 +19,16 @@ const RadioInput=({label,value,checked,setter})=>{
         </label>
     )
 }
-const Survey=props=>{
+const Survey=(props)=>{
     const [gender,setGender]=React.useState();
-    const [kind,setKind] = React.useState();
-    const [detail,setDetail]=React.useState();
+    const [kind,setKind] = React.useState("");
+    const[detail,setDetail]=useState();
+    const [color,setColor]=React.useState([]);
     const [pattern,setPattern]=React.useState();
     const [material,setMaterial]=React.useState();
     const [style,setStyle]=React.useState();
+    const [keyward,setKeyward]=React.useState("");
+    const [pro,setPro]=React.useState(0);
 
     const [top,Showtop]=useState(false);
     const [bottom,Showbottom]=useState(false);
@@ -34,19 +37,21 @@ const Survey=props=>{
     const [outer,Showouter]=useState(false);
     const [ac, Showac]=useState(false);
 
-
     const handleSubmit=e=>{
         e.preventDefault();
-        const data={gender,kind,detail,pattern,material,style};
+        const data={gender,kind,detail,color,pattern,material,style,keyward,pro};
         const json=JSON.stringify(data,null,10);
-        console.clear();
+
+        // console.clear();
         console.log(json);
     };
 
+    var val;
 
-    function reset(){
-        var value;
+    const onChange=(e)=>{
+        setKeyward(e.target.value);
     }
+
     return(
         <form onSubmit={handleSubmit}>
             <div className="Stotal">
@@ -65,28 +70,32 @@ const Survey=props=>{
                     <div className='choice2'>
                     <div className='detail'>
                     <label id="top">
-                        <input type="radio" name="ckbox" id="ckbox1" value="상의"  onClick={(e)=>{Showtop(true); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false)}} />
+                        <input type="radio" name="ckbox" id="ckbox1" value="상의"  onClick={(e)=>{Showtop(true); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false);  val="상의"; setKind(val);}} />
                         <span>상의</span>
                     </label>
                     <label>
-                        <input type="radio" name="ckbox" id="ckbox1" value="" onClick={(e)=>{Showbottom(true); Showtop(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false)}}/>
+                        <input type="radio" name="ckbox" id="ckbox1" value="하의" onClick={(e)=>{Showbottom(true); Showtop(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false);  val="하의"; setKind(val);}}/>
                         <span>하의</span>
                     </label>
                     <label>
-                        <input type="radio" name="ckbox" id="ckbox1" value="" onClick={(e)=>{Showtop(false); Showbottom(false); Showshoes(true); Showbag(false); Showac(false); Showouter(false)}}/>
+                        <input type="radio" name="ckbox" id="ckbox1" value="신발" onClick={(e)=>{Showtop(false); Showbottom(false); Showshoes(true); Showbag(false); Showac(false); Showouter(false);  val="신발"; setKind(val);}}/>
                         <span>신발</span>
                     </label>
                     <label>
-                        <input type="radio" name="ckbox" id="ckbox1" value="" onClick={(e)=>{Showtop(false); Showbottom(false); Showshoes(false); Showbag(true); Showac(false); Showouter(false)}}/>
+                        <input type="radio" name="ckbox" id="ckbox1" value="가방" onClick={(e)=>{Showtop(false); Showbottom(false); Showshoes(false); Showbag(true); Showac(false); Showouter(false); val="가방"; setKind(val); }}/>
                         <span>가방</span>
                     </label>
                     <label>
-                        <input type="radio" name="ckbox" id="ckbox1" value="" onClick={(e)=>{Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(true); Showouter(false)}}/>
+                        <input type="radio" name="ckbox" id="ckbox1" value="악세사리" onClick={(e)=>{Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(true); Showouter(false);  val="악세사리"; setKind(val);}}/>
                         <span>악세사리</span>
                     </label>
                     <label>
-                        <input type="radio" name="ckbox" id="ckbox1" value="" onClick={(e)=>{Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(true)}}/>
+                        <input type="radio" name="ckbox" id="ckbox1" value="아우터" onClick={(e)=>{Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(true);  val="아우터"; setKind(val);}}/>
                         <span>아우터</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="ckbox" id="ckbox1" value="기타" onClick={(e)=>{Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false);  val="기타"; setKind(val);}}/>
+                        <span>기타</span>
                     </label>
                     </div>
                     </div>
@@ -100,12 +109,12 @@ const Survey=props=>{
                     <span id='intro3'>세부사항</span>
                     <br></br><br></br>
                     <div className='bet1'>
-                        {top?<Top />: <Blank/> }
-                        {bottom? <Bottom />:<Blank/>}
-                        {shoes? <Shoes />:<Blank/>}
-                        {bag? <Bag/>: <Blank />}
-                        {ac? <Ac/>:<Blank/>}
-                        {outer? <Outer/>:<Blank/>}
+                        {top?<Top setDetail={setDetail} detail={detail} />: <Blank/> }
+                        {bottom? <Bottom setDetail={setDetail} detail={detail}/>:<Blank/>}
+                        {shoes? <Shoes setDetail={setDetail} detail={detail}/>:<Blank/>}
+                        {bag? <Bag setDetail={setDetail} detail={detail}/>: <Blank />}
+                        {ac? <Ac setDetail={setDetail} detail={detail}/>:<Blank/>}
+                        {outer? <Outer setDetail={setDetail} detail={detail}/>:<Blank/>}
                     </div>
                     {/* <div className='bet2'></div> */}
                 </div>
@@ -114,7 +123,7 @@ const Survey=props=>{
                     <hr></hr>
                     <span id='step4'>step4</span><br></br><br></br>
                     <span id='intro4'>색상</span><br></br><br></br>
-                    <Check />
+                    <Check setColor={setColor} color={color}/>
 
                 </div>
 
@@ -166,7 +175,7 @@ const Survey=props=>{
                     <hr></hr>
                     <span id='step8'>step8</span><br></br><br></br>
                     <span id='intro8'>옷 키워드</span><br></br><br></br>
-                    <input type="text" id="keyward"></input>
+                    <input type="text" id="keyward" onChange={onChange} value={keyward} ></input>
                 </div>
 
                 <div className='step9'>
@@ -175,14 +184,14 @@ const Survey=props=>{
                     <span id='intro9'>선호도</span><br></br><br></br>
 
                     <br></br>
-                    <Bar/>
+                    <Bar setPro={setPro} pro={pro}/>
                 </div>
 
                 <br></br><br></br>
                 <div className='btn'>
 
                     <button id='submit' onClick={handleSubmit}>저장</button>
-                    <button id='cancel' onClick={reset}>취소</button>
+                    <button id='cancel'>취소</button>
                 </div>
             </div>
         </form>

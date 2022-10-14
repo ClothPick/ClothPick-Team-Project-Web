@@ -10,23 +10,24 @@ import Ggo from './Community/Ggol';
 
 function App() {
   return (
-    // <div>
-    //   {/* <Header/>
-    //   <Sidebar/>
-    //   <ClothList/> */}
-    //   <Comm/>
-    //</div>
-    // <Router>
-    //         <div>
-    //            <Switch>
-    //            <Route exact path="/" component={Ggo}></Route>
-    //            </Switch>
-    //         </div>
-    // </Router>
-    <div>
-      <Plus />
+    <>
+    {/* <div>
+      <Header/>
+      <Sidebar/>
+      <ClothList/>
+      <Comm/>
     </div>
-
+    <Router>
+            <div>
+               <Switch>
+               <Route exact path="/" component={Ggo}></Route>
+               </Switch>
+            </div>
+    </Router> */}
+     <div>
+      <Plus />
+     </div>
+    </>
 
   );
 }

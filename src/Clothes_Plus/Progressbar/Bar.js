@@ -2,55 +2,74 @@ import React,{useState} from "react";
 import styled from "styled-components";
 import './Pd.css';
 
-function Bar(){
+function Bar(props){
     const[count, setCount]=useState(0);
 
-    function add_count(){
-        if(count==4){
+    function add_count(props){
+        if(count>=4){
             setCount(0);
+
         }
         else{
             setCount(count+1);
+
         }
     }
 
-    function num1(){
+    function add(props){
+        if(count>3){
+            props.setPro(0);
+        }
+    }
+
+
+    const num1=()=>{
+
+
         setCount(0);
-        <Progress width={(count*1)}/>
+        <Progress width={(count*1)}  />
+
+
     }
 
     function num2(){
         setCount(1);
-        <Progress width={(count*1)}/>
+        <Progress width={(count)} />
+
     }
 
     function num3(){
         setCount(2);
-        <Progress width={(count*1)}/>
+        <Progress width={(count*1)} />
+
     }
 
     function num4(){
         setCount(3);
-        <Progress width={(count*1)}/>
+        <Progress width={(count*1)} />
+
     }
 
     function num5(){
         setCount(4);
-        <Progress width={(count*1)}/>
+        <Progress width={(count*1)}
+        />
 
     }
     return(
         <div className="preference">
         <div className='pre'>
-        <span id='1' onClick={num1} >완전 별로</span>
+                    <span id='1' onClick={num1} >완전 별로</span>
                     <span id='2' onClick={num2} >별로</span>
                     <span id='3' onClick={num3}>보통</span>
                     <span id='4' onClick={num4}>좋아</span>
                     <span id='5' onClick={num5}>완전 좋아</span>
                     </div>
         <div className="bar">
-        <Container onClick={()=>{add_count()}}>
-            <Progress width={(count/4)*100+"%"}/>
+        <Container onClick={()=>{add_count();}}>
+
+            <Progress width={(count/4)*100+"%"} onChange={props.setPro(count)}/>
+
             <Dot/>
         </Container>
         </div>

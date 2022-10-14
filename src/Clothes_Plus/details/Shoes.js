@@ -9,19 +9,19 @@ const RadioInput=({label,value,checked,setter})=>{
         </label>
     )
 }
-function Shoes(){
-    const [detail,setDetail]=React.useState();
+function Shoes(props){
+
 
     return(
         <div className='Shoes'>
 
-            <RadioInput label="슬리퍼/쪼리" value="슬리퍼/쪼리" checked={detail} setter={setDetail}/>
-            <RadioInput label="샌들" value="샌들" checked={detail} setter={setDetail}/>
-            <RadioInput label="플랫/로퍼" value="플랫/로퍼" checked={detail} setter={setDetail}/>
+            <RadioInput label="슬리퍼/쪼리" value="슬리퍼/쪼리" checked={props.detail} setter={props.setDetail}/>
+            <RadioInput label="샌들" value="샌들" checked={props.detail} setter={props.setDetail}/>
+            <RadioInput label="플랫/로퍼" value="플랫/로퍼" checked={props.detail} setter={props.setDetail}/>
             <br></br><br></br><br></br>
-            <RadioInput label="스니커즈" value="스니커즈" checked={detail} setter={setDetail}/>
-            <RadioInput label="운동화" value="운동화" checked={detail} setter={setDetail}/>
-            <RadioInput label="기타" value="기타" checked={detail} setter={setDetail}/>
+            <RadioInput label="스니커즈" value="스니커즈" checked={props.detail} setter={props.setDetail}/>
+            <RadioInput label="운동화" value="운동화" checked={props.detail} setter={props.setDetail}/>
+            <RadioInput label="기타" value="기타" checked={props.detail} setter={props.setDetail}/>
         </div>
     )
 }
