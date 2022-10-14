@@ -7,7 +7,8 @@ const Picture = (props) =>{
     const [imageUrl,setImageUrl]=useState(null);
     const imgRef=useRef();
 
-    const onChangeImage=()=>{
+
+    const onChangeImage=(props)=>{
         const reader=new FileReader();
         const file=imgRef.current.files[0];
         console.log(file);
@@ -16,7 +17,9 @@ const Picture = (props) =>{
         reader.onloadend=()=>{
             setImageUrl(reader.result);
             console.log("이미지 주소",reader.result);
+
         };
+
     };
 
     // const onClickFileBtn=(e)=>{
@@ -26,9 +29,9 @@ const Picture = (props) =>{
     return(
             <div className="input_image">
                 <img src={imageUrl ? imageUrl : empty} alt="cimg" id="cimg"></img>
-                <label for="file" ref={imgRef} onChange={onChangeImage}>파일 선택</label>
+                <label for="file" ref={imgRef} onChange={()=>{onChangeImage();  }}>파일 선택</label>
                 <br></br>
-                <input type="file" ref={imgRef} onChange={onChangeImage} id="file"></input>
+                <input type="file" ref={imgRef} onChange={()=>{onChangeImage();  }} id="file"></input>
                 {/* <button onClick={()=>{
                     onClickFileBtn();
                 }}

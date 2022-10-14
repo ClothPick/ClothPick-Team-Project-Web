@@ -1,5 +1,6 @@
 import './Survey.css'
 import React, { useState }  from 'react'
+import Picture from './Picture'
 import Check from './Checkbox'
 import Top from './details/Top'
 import Bottom from './details/Bottom'
@@ -20,6 +21,7 @@ const RadioInput=({label,value,checked,setter})=>{
     )
 }
 const Survey=(props)=>{
+    const [picture,setPicture]=React.useState();
     const [gender,setGender]=React.useState();
     const [kind,setKind] = React.useState("");
     const[detail,setDetail]=useState();
@@ -39,7 +41,7 @@ const Survey=(props)=>{
 
     const handleSubmit=e=>{
         e.preventDefault();
-        const data={gender,kind,detail,color,pattern,material,style,keyward,pro};
+        const data={picture,gender,kind,detail,color,pattern,material,style,keyward,pro};
         const json=JSON.stringify(data,null,10);
 
         // console.clear();
@@ -55,6 +57,7 @@ const Survey=(props)=>{
     return(
         <form onSubmit={handleSubmit}>
             <div className="Stotal">
+                <Picture setPicture={setPicture} picture={picture} />
                 <div className="step1">
                     <span id='step1'>step1</span>
                     <br></br><br></br>
