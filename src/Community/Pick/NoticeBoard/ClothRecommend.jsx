@@ -8,10 +8,16 @@ import { Link } from 'react-router-dom';
 import ConvenMethod from '../../../Test/ConvenMethod';
 
 const ClothRecommend = () => {
-    const [scrapChecked, setScrapChecked] = useState(true);
-
+    // const [scrapChecked, setScrapChecked] = useState(true);
     const [community, setCommunity] = useState([]);
     const [click, setClick] = useState(true);
+
+    const [test, setTest] = useState({
+        noScrap: <AiOutlineHeart size='35' className='text-top-1 m-l-300 scrap' />,
+        scrap: <AiFillHeart size='35' color='red' className='text-top-1 text-right scrap' />,
+        // showScrap: false,
+        // clickScrap: true,
+    })
 
     useEffect(() => {
         const get = TestMethod.CommunityTestListGet();
@@ -23,9 +29,23 @@ const ClothRecommend = () => {
         getData();
     }, [click]);
 
-    const handleScrapButton = () => {
-        scrapChecked ? setScrapChecked(false) : setScrapChecked(true);
+    const isLogin = (index) => {
+        // boardType이 1번인 경우만 Scrap 버튼을 활성화시킨다.
+        if (index === '1') {
+            return (
+                <>
+                    {test.noScrap}
+                </>
+            );
+        }
+
+        // 스크랩 버튼이 보여지면 빈 하트를 세팅한다.
+        // test.showScrap ? <div>{test.noScrap}</div> : <></>
     }
+
+    // const handleScrapButton = () => {
+    //     scrapChecked ? setScrapChecked(false) : setScrapChecked(true);
+    // }
 
     return (
 
@@ -34,7 +54,7 @@ const ClothRecommend = () => {
             <div className='text-margin-left-200'>
                 {/* <div className=''> */}
                 <AiFillSkin size="80" color='#BDC2BB' />
-                <h1 className='text-margin-left-10 '>옷 추천</h1>
+                <h2 className='text-margin-top-30 text-margin-left-10'>옷 추천</h2>
             </div>
 
             <div className='box inline-block p-l-300'>
@@ -42,10 +62,10 @@ const ClothRecommend = () => {
                     <div className='inline-block border-side'>
                         <Link to={`/detailpage/${data.boardId}`} className='decoration'>
                             <div className='noticeBoard' key={index}>
+                                {/* {console.log("index : " + index)} */}
                                 <div className='text-margin-left-10'>
                                     <div>
                                         <li className='li-style'><h2>{data.boardTitle}</h2></li>
-
                                         <li className='li-style'><h3>{data.boardContent}</h3></li>
                                     </div>
                                 </div>
@@ -58,10 +78,14 @@ const ClothRecommend = () => {
                             <BiMessage size='20' className='text-top-2' />
                             <h4 className='text-margin-left-10'>3</h4>
                             <h4 className='text-margin-left-30'>{ConvenMethod.handleTime(data.createAt)}</h4>
+                            {/* {console.log("index : " + index)} */}
 
-                            {scrapChecked ?
-                                <AiOutlineHeart size='35' className='text-top-1 text-right scrap' onClick={handleScrapButton} /> :
-                                <AiFillHeart size='35' color='red' className='text-top-1 text-right scrap' onClick={handleScrapButton} />}
+                            <div>
+                                {isLogin(data.boardType)}
+                            </div>
+                            {/* {scrapChecked ?
+                                <AiOutlineHeart size='35' className='text-top-1 text-right scrap' onClick={() => handleScrapButton()} /> :
+                                <AiFillHeart size='35' color='red' className='text-top-1 text-right scrap' onClick={() => handleScrapButton()} />} */}
                         </div>
                     </div>
                 ))}

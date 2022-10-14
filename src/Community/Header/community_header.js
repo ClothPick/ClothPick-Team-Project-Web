@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 function Community_header() {
     return (
         <>
+            <div className='header-bar'></div>
             <div className="commu-header">
                 <Link to="/community">
                     <div className="logo"><img src={logo} id='logo2' alt='logo'></img> </div>

@@ -1,24 +1,29 @@
+.header-bar {
+    width: auto;
+    height: 30px;
+    background-color: #67595e;
+}
+
 .commu-header{
     display: flex;
-    /* flex-flow: row nowrap; */
-    /* justify-content: space-between; */
     width: auto;
+    height: 100px;
     justify-content: space-evenly;
 
 }
 
 #logo2{
-    margin-top: 30px;
-    width: 200px;
+    margin-top: 15px;
+    width: 150px;
 }
 
 .catalog{
     justify-content: space-evenly;
-    margin-top: 60px;
+    margin-top: 15px;
 }
 
 .catalog> span{
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
 }
 
@@ -30,8 +35,7 @@
     margin-right: 100px;
 }
 .button{
-    width: auto;
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
 }
 
