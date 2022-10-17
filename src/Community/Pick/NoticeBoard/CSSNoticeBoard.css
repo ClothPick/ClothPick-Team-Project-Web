@@ -1,3 +1,7 @@
+div {
+    margin: 0;
+}
+
 .text-margin-left-200 {
     margin-left: 300px;
     display: flex;
@@ -121,6 +125,15 @@
     border-right: dashed 0.1px gray;
     border-left: dashed 0.1px gray;
     padding: 20px;
+
+}
+
+.commu-type {
+    max-width: 1140px;
+}
+
+.margin {
+    margin: auto;
 
 }
 
@@ -263,14 +276,13 @@
     margin-right: 30px;
 }
 
-.white-space {
-    padding-left: 200px;
-    padding-right: 200px;
-    /* margin-top: -120px; */
-}
-
 .bold {
     font-weight: bold;
+}
+
+.white-space {
+    max-width: 1140px;
+    margin: auto;
 }
 
 .inputField {

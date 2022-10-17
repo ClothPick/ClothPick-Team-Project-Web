@@ -28,9 +28,9 @@ const ClothRecommend = () => {
     return (
         <div>
             <Header />
-            <div className='text-margin-left-200'>
+            <div className='flex commu-type margin'>
                 <AiFillSkin size="80" color='#BDC2BB' />
-                <h2 className='text-margin-top-30 text-margin-left-10'>옷 추천</h2>
+                <h2 className='text-margin-top-30 text-margin-left-10 '>옷 추천</h2>
             </div>
 
             {/* box */}
