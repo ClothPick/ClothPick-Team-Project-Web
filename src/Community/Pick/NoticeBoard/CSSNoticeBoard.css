@@ -77,14 +77,16 @@
 	margin: 0 -5px; /* 너비간 10px 간격을 만들기 위해 남은 5px을 양옆으로 땡겨줌 */
 }
 
-.max-size {
+.max-size:nth-child(2n) {
     max-width: 50%;
     /* padding-left: 250px; */
+    float:left;
 
 }
 
 .web-size {
     max-width: 1140px;
+    margin: 0 auto;
 }
 
 .noticeBoard {
@@ -104,6 +106,13 @@
     flex-direction: column;
 }
 
+.second-sep {
+    width: 50%;
+    /* margin: 0 auto; */
+    float:left;
+
+}
+
 .noticeBoard:hover {
     background-color: rgb(234, 234, 234);
 }
@@ -112,6 +121,7 @@
     border-right: dashed 0.1px gray;
     border-left: dashed 0.1px gray;
     padding: 20px;
+
 }
 
 .scrap {
@@ -124,13 +134,13 @@
 }
 
 .inline-block {
-    display: inline-block;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     margin: 0 auto;
     overflow: hidden;
     /* margin: 0 auto; */
+
 }
 
 .flex {
