@@ -68,25 +68,40 @@
 }
 
 .box {
-    display: flex;
+    /* float: left;
+	width: 50%;
+	box-sizing: border-box; */
+    display: block;
+    /* width: 50%; */
+	/* font-size: 0; 가장 중요한 font-size: 0; 속성 */
+	margin: 0 -5px; /* 너비간 10px 간격을 만들기 위해 남은 5px을 양옆으로 땡겨줌 */
 }
 
-.p-l-300 {
-    padding-left: 250px;
-    /* padding-right: 150px; */
+.max-size {
+    max-width: 50%;
+    /* padding-left: 250px; */
+
+}
+
+.web-size {
+    max-width: 1140px;
 }
 
 .noticeBoard {
     background: white;
-    width: 500px;
-    height:270px;
+    /* height:270px; */
     border-top: solid 2px gray;
-
+	box-sizing: border-box;
+    /* width: 50%; */
 }
 
 .decoration {
     text-decoration: none;
     color: black;
+    /* width: 50%; */
+    /* width: 500px; */
+    display: flex;
+    flex-direction: column;
 }
 
 .noticeBoard:hover {
@@ -108,16 +123,14 @@
     transform: scale(1.1);
 }
 
-.two-box {
-    margin-left: 180px;
-    display: inline-block;
-    width: 30%;
-    justify-content: center;
-}
-
 .inline-block {
     display: inline-block;
-    /* flex-wrap: wrap; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    overflow: hidden;
+    /* margin: 0 auto; */
 }
 
 .flex {
