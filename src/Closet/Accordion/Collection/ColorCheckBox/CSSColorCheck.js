@@ -45,49 +45,49 @@ const StyledCheckbox = styled.div`
   ${(props) =>
     props.red &&
     css`
-      background-color: red;
+      background-color: #f2596b;
     `
   }
 
   ${(props) =>
     props.orange &&
     css`
-      background-color: orange;
+      background-color: #fdae61;
     `
   }
 
 ${(props) =>
     props.yellow &&
     css`
-      background-color: yellow;
+      background-color: #fff783;
     `
   }
 
 ${(props) =>
     props.green &&
     css`
-      background-color: green;
+      background-color: #74c493;
     `
   }
 
 ${(props) =>
     props.blue &&
     css`
-      background-color: blue;
+      background-color: #85c2ff;
     `
   }
 
 ${(props) =>
     props.purple &&
     css`
-      background-color: purple;
+      background-color: #9a6cf8;
     `
   }
 
 ${(props) =>
     props.pink &&
     css`
-      background-color: pink;
+      background-color: #f2e0f5;
     `
   }
 
@@ -101,7 +101,7 @@ ${(props) =>
 ${(props) =>
     props.brown &&
     css`
-      background-color: brown;
+      background-color: #DE844F;
     `
   }
 

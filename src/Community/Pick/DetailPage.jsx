@@ -7,7 +7,6 @@ import './NoticeBoard/CSSNoticeBoard.css'
 import Header from '../Header/community_header'
 import TestMethod from '../../Test/TestMethod';
 import Comment from './Comment'
-
 import ConvenMethod from '../../Test/ConvenMethod';
 
 const DetailPage = () => {

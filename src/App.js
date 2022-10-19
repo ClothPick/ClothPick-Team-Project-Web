@@ -7,23 +7,26 @@ import Freedom from './Community/Pick/NoticeBoard/Freedom'
 import Commu from './Test/Community'
 import DetailPage from "./Community/Pick/DetailPage";
 import Write from './Community/Pick/Writing';
-
+import AddCloth from "./Closet/AddCloth/Plus"
+import CommunityMain from "./Community/Main/Ggol"
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/closet" component={ClosetMain} />
-          <Route exact path="/" component={Recommend} />
+          {/* ------------ 옷장 ------------ */}
+          <Route path="/closet" component={ClosetMain} /> {/* 옷장 메인 페이지 */}
+          <Route path="/addcloth" component={AddCloth} /> {/* 옷 추가 페이지 */}
 
-          <Route path="/recommend" component={Recommend} />
-          <Route path="/usedtrade" component={UsedTrade} />
-          <Route path="/freedom" component={Freedom} />
-          <Route path="/detailpage/:boardId" component={DetailPage} />
-          <Route path="/write" component={Write} />
-
-          <Route path="/test" component={Commu} />
+          {/* ------------ 픽뮤니티 게시판 ------------ */}
+          <Route exact path="/" component={CommunityMain} /> {/* 게시판 메인 페이지 */}
+          <Route path="/communitymain" component={CommunityMain} /> {/* 게시판 메인 페이지 */}
+          <Route path="/recommend" component={Recommend} /> {/* 옷 추천 게시판 */}
+          <Route path="/usedtrade" component={UsedTrade} /> {/* 중고거래 게시판 */}
+          <Route path="/freedom" component={Freedom} /> {/* 자유게시판 */}
+          <Route path="/detailpage/:boardId" component={DetailPage} /> {/* 게시물 상세 페이지 */}
+          <Route path="/write" component={Write} /> {/* 글쓰기 페이지 */}
         </Switch>
       </div>
     </Router>

@@ -12,7 +12,7 @@ function Community_header() {
             <div className='header-bar'></div>
             <div className="commu-header">
                 <AiOutlineMenu size='40' className="menu" />
-                <Link to="/recommend">
+                <Link to="/communitymain">
                     <div className="logo"><img src={logo} id='logo2' alt='logo'></img> </div>
                 </Link>
                 <div className='catalog'>
