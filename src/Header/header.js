@@ -1,20 +1,21 @@
 import logo from '../img/PICK.PNG'
 import './header.css';
-import menubar from '../img/Vector.png'
-import human from '../img/human.png'
-import alarm from '../img/Alarm.png'
+import { AiOutlineMenu } from 'react-icons/ai';
+import { MdPersonOutline } from 'react-icons/md';
+
+
 
 
 function header() {
     return (
         <div>
+            <div className='header-bar'></div>
             <div className='header'>
-                <div class="item"><img src={menubar} alt="menu" id="menubar"></img></div>
+                <AiOutlineMenu size='40' className="menu" />
                 <div class="item"><img src={logo} alt="logo" id="logo"></img></div>
 
                 <div className="item">
-                    <img src={alarm} alt="logo" id="alarm"></img>
-                    <img src={human} alt="logo" id="human"></img>
+                    <MdPersonOutline size="35"></MdPersonOutline>
                 </div>
             </div>
             <hr></hr>

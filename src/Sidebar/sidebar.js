@@ -1,17 +1,20 @@
 import './sidebar.css'
 import Arrow from '../img/arrow.png'
+import { IoMdArrowDropright } from "react-icons/io"
 
 function sidebar() {
     return (
         <div className='sidebar'>
             <h4>내 옷장</h4>
             <hr></hr>
-            <p></p>
-            <span>옷 추가하기 </span>
-            <img src={Arrow} alt='side' id='arrow'></img>
-            <p></p>
-            <span>코디 추천 </span>
-            <img src={Arrow} alt='side' id='arrow'></img>
+            <p>
+                <span>옷 추가하기 </span>
+                <IoMdArrowDropright id='arrow'></IoMdArrowDropright>
+            </p>
+            <p>
+                <span>코디 추천 </span>
+                <IoMdArrowDropright id='arrow'></IoMdArrowDropright>
+            </p>
         </div>
     )
 

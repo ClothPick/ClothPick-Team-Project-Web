@@ -13,10 +13,7 @@ function ClosetMain() {
       <div className="closet-body">
         <div className="flex"><Sidebar /></div>
         <div className="flex"><ClosetList /></div>
-
       </div>
-
-
     </div>
 
   );

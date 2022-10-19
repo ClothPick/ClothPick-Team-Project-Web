@@ -1,6 +1,7 @@
 .text-detail {
     display: flex;
     margin: 30px 15px auto;
+    font-weight: 500;
 }
 
 .radio-contents {
