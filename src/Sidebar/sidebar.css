@@ -1,13 +1,29 @@
 .sidebar{
-    width: 130px;
+    /* width: 130px; */
     height: 600px;
     padding-top: 170px;
     padding-left: 40px;
     float: left;
+    font-size: 20px;
+
 }
 
 #arrow{
     width: 20px;
     height: 15px;
     padding-top: 10px;
+}
+
+.deco {
+    text-decoration: none;
+    color: black;
+}
+
+.deco:hover {
+    color: #A1A584;
+
+}
+
+.deco > span {
+    font-size: 15px;
 }

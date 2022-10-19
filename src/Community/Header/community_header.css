@@ -1,24 +1,34 @@
+body, div {
+    margin: 0;
+}
+
+.header-bar {
+    width: auto;
+    height: 30px;
+    background-color: #67595e;
+}
+
 .commu-header{
     display: flex;
-    /* flex-flow: row nowrap; */
-    /* justify-content: space-between; */
-    width: auto;
-    justify-content: space-evenly;
+    max-width: 1400px;
+    margin: auto;
+    height: 100px;
+    justify-content: space-around;
 
 }
 
 #logo2{
-    margin-top: 30px;
-    width: 200px;
+    margin-top: 15px;
+    width: 150px;
 }
 
 .catalog{
     justify-content: space-evenly;
-    margin-top: 60px;
+    margin-top: 15px;
 }
 
 .catalog> span{
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
 }
 
@@ -30,8 +40,7 @@
     margin-right: 100px;
 }
 .button{
-    width: auto;
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
 }
 
@@ -39,7 +48,7 @@
     margin-right: 10px;
     border-radius: 5px;
     /* border: 1px solid gray; */
-    height: 50px;
+    height: 40px;
 }
 
 .mypage:hover {
@@ -52,12 +61,22 @@
     background-color: #D2D5B8;
     /* border: 1px solid gray; */
     border-radius: 5px;
-    width: 100px;
-    height: 50px;
+    width: 80px;
+    /* height: 30px; */
     font-size: 20px;
 }
 
 .write:hover {
     border-radius: 5px;
     border: 3px dashed rgb(37, 39, 55);
+}
+
+.line-none {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.menu {
+    margin-top: 40px;
 }

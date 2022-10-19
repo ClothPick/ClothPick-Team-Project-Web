@@ -1,5 +1,9 @@
+div {
+    margin: 0;
+}
+
 .text-margin-left-200 {
-    margin-left: 350px;
+    margin-left: 300px;
     display: flex;
 }
 
@@ -68,25 +72,49 @@
 }
 
 .box {
-    display: flex;
+    /* float: left;
+	width: 50%;
+	box-sizing: border-box; */
+    display: block;
+    /* width: 50%; */
+	/* font-size: 0; 가장 중요한 font-size: 0; 속성 */
+	margin: 0 -5px; /* 너비간 10px 간격을 만들기 위해 남은 5px을 양옆으로 땡겨줌 */
 }
 
-.p-l-300 {
-    padding-left: 300px;
-    /* padding-right: 150px; */
+.max-size:nth-child(2n) {
+    max-width: 50%;
+    /* padding-left: 250px; */
+    float:left;
+
+}
+
+.web-size {
+    max-width: 1140px;
+    margin: 0 auto;
 }
 
 .noticeBoard {
     background: white;
-    width: 400px;
-    height:270px;
+    /* height:270px; */
     border-top: solid 2px gray;
-
+	box-sizing: border-box;
+    /* width: 50%; */
 }
 
 .decoration {
     text-decoration: none;
     color: black;
+    /* width: 50%; */
+    /* width: 500px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.second-sep {
+    width: 50%;
+    /* margin: 0 auto; */
+    float:left;
+
 }
 
 .noticeBoard:hover {
@@ -97,6 +125,16 @@
     border-right: dashed 0.1px gray;
     border-left: dashed 0.1px gray;
     padding: 20px;
+
+}
+
+.commu-type {
+    max-width: 1140px;
+}
+
+.margin {
+    margin: auto;
+
 }
 
 .scrap {
@@ -108,16 +146,14 @@
     transform: scale(1.1);
 }
 
-.two-box {
-    margin-left: 180px;
-    display: inline-block;
-    width: 30%;
-    justify-content: center;
-}
-
 .inline-block {
-    display: inline-block;
-    /* flex-wrap: wrap; */
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; */
+    margin: 0 auto;
+    overflow: hidden;
+    /* margin: 0 auto; */
+
 }
 
 .flex {
@@ -240,14 +276,13 @@
     margin-right: 30px;
 }
 
-.white-space {
-    padding-left: 200px;
-    padding-right: 200px;
-    /* margin-top: -120px; */
-}
-
 .bold {
     font-weight: bold;
+}
+
+.white-space {
+    max-width: 1140px;
+    margin: auto;
 }
 
 .inputField {

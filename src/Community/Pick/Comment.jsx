@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import './NoticeBoard/CSSClothRecommend.css'
+import './NoticeBoard/CSSNoticeBoard.css'
 import uuid from "react-uuid";
 import { FaTrashAlt } from 'react-icons/fa'
 
@@ -11,9 +11,6 @@ function Comment() {
         comment: "",
         id: uuid().split("-")[0],
     })
-    // const [name, setName] = useState("");
-    // const [comment, setComment] = useState("");
-    // const [id, setId] = useState(uuid());
 
     const [showButton, setShowButton] = useState(false); // 삭제 버튼
     const [users, setUsers] = useState([]) // 댓글 추가 배열
@@ -22,30 +19,18 @@ function Comment() {
         // 입력한 value값을 각각 name과 comment에 저장한다.
         // console.log(e.target.value);
         console.log(e.target.name);
-        // console.log(e.target.comment);
 
         if (e.target.name === "name") {
-            // setInfo((info) => {
-            //     return { ...info, [e.target.name]: e.target.value };
-            // })
             setInfo({
                 ...info,
                 [e.target.name]: e.target.value,
             });
-            // setInfo(e.target.value);
-            // setName(e.target.value);
         }
         else if (e.target.name === "comment") {
-            // setInfo((info) => {
-            //     return { ...info, [e.target.comment]: e.target.value };
-            // })
             setInfo({
                 ...info,
                 [e.target.name]: e.target.value,
             });
-
-            // setInfo(e.target.value);
-            // setComment(e.target.value);
         }
     }
 
@@ -106,8 +91,6 @@ function Comment() {
                     </div>
                 ))}
             </div>
-            {/* <CommentForm onCreate={handleCreate} users={users} /> */}
-            {/* <CommentTableList users={users} /> */}
         </>
     );
 }

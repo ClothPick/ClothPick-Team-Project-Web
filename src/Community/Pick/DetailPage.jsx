@@ -3,11 +3,10 @@ import { BiTime, BiMessage } from 'react-icons/bi'
 import { BsFillPencilFill } from 'react-icons/bs'
 import { AiFillLike, AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
-import './NoticeBoard/CSSClothRecommend.css'
+import './NoticeBoard/CSSNoticeBoard.css'
 import Header from '../Header/community_header'
 import TestMethod from '../../Test/TestMethod';
 import Comment from './Comment'
-
 import ConvenMethod from '../../Test/ConvenMethod';
 
 const DetailPage = () => {

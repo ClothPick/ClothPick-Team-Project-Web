@@ -4,7 +4,7 @@ import './CSSContents.css'
 
 // Contents 함수에서 사용하는 styles
 const ContentsBlock = styled.div`
-        width: 700px;
+        width: 750px;
         height: 80px;
         background: white;
         border-radius: 8px;
@@ -493,9 +493,9 @@ const TypeRadio = () => {
                 상의
             </label>
 
-            <label className='m-l-20'>
+            <label className=''>
                 <input
-                    id='outer'
+                    // id='outer'
                     type='radio'
                     value='아우터'
                     checked={radio === '아우터'}

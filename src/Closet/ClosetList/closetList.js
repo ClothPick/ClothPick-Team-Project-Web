@@ -1,19 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './closetList.css'
 import cloth1 from '../../img/cloth1.png'
-import ArrowLeft from '../../img/right.png'
-import ArrowRight from '../../img/left.png'
 import Accordion from '../Accordion/Accordion';
 import "../Accordion/Accordion.css";
-// import Pagination from './pagination';
+import { IoMdArrowDropleftCircle } from "react-icons/io"
+import { IoMdArrowDroprightCircle } from "react-icons/io"
 
 
 function ClosetList() {
     const [textColor, setTextColor] = useState('black');
-
-    const handleChangeTextColor = (e) => {
-        setTextColor(textColor == 'black' ? '#CCCCCC' : 'black');
-    }
 
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(6);
@@ -49,142 +44,143 @@ function ClosetList() {
     const list = [
         {
             id: 1,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
+
         },
         {
             id: 2,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '체크 난방'
         },
         {
             id: 3,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '내가 좋아하는 니트'
         },
         {
             id: 4,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '디스 이즈'
         },
         {
             id: 5,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '베이지 반팔티'
         },
         {
             id: 6,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '푸마 반팔'
         },
         {
             id: 7,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '반팔인데 로고 민트 7'
         },
         {
             id: 8,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '언제 샀는지 기억 안나  8'
         },
         {
             id: 9,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '커버낫123 9'
         },
         {
             id: 10,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '커버낫'
         },
         {
             id: 11,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 12,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 13,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 14,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 15,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 16,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 17,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 18,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 19,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 20,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 21,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 22,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 23,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 24,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 25,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 26,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 27,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         },
         {
             id: 28,
-            img: <img src={cloth1}></img>,
+            img: <img src={cloth1} alt=""></img>,
             explain: '기모 긴팔 티'
         }
 
@@ -203,23 +199,20 @@ function ClosetList() {
 
     return (
         <div className='root'>
-            <div className='fil'>
-                <Accordion />
-            </div>
-            {/* <hr></hr> */}
-            <div className='mypage'>
+            <Accordion />
+            <div>
                 <div className='itemlist'>
                     {
                         onepage.map((data) => (
-                            <div className='itemone' key={data.id}>
-                                <div className='iteming'>{data.img}</div>
+                            <div key={data.id}>
+                                <div className='itemimg'>{data.img}</div>
                                 <div className='itemname'>{data.explain}</div>
                             </div>
                         ))
                     }
                 </div>
                 <div className='num'>
-                    <img src={ArrowRight} onClick={() => prev()} alt='' />
+                    <IoMdArrowDropleftCircle size="35" color="#67595e" className="circle-btn" onClick={() => prev()} />
                     {
                         pageNumbers.map((data) => (
                             <div className='pagenumBox' key={data.id}>
@@ -227,7 +220,7 @@ function ClosetList() {
                             </div>
                         ))
                     }
-                    <img src={ArrowLeft} onClick={() => next()} alt='' />
+                    <IoMdArrowDroprightCircle size="35" color="#67595e" className="circle-btn" onClick={() => next()} />
 
                 </div>
             </div>

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import data from './data'
-import { BiSearchAlt2 } from 'react-icons/bi';
+// import { BiSearchAlt2 } from 'react-icons/bi';
 import TypeRadio from "./Collection/TypeRadioButton/TypeRadio";
 import ColorCheck from "./Collection/ColorCheckBox/ColorCheck";
+import "./Accordion.css"
+import './Collection/TypeRadioButton/CSSContents.css'
 
 // [내 옷장] Filter 구성 요소
 
@@ -16,7 +18,7 @@ const TextureRadio = () => {
     }
     return (
         <div>
-            <label>
+            <label className="m-l-20">
                 <input
                     id='radio1'
                     type='radio'
@@ -27,7 +29,7 @@ const TextureRadio = () => {
                 면
             </label>
 
-            <label>
+            <label className="m-l-20">
                 <input
                     id='radio2'
                     type='radio'
@@ -38,7 +40,7 @@ const TextureRadio = () => {
                 니트
             </label>
 
-            <label>
+            <label className="m-l-20">
                 <input
                     id='radio3'
                     type='radio'
@@ -48,7 +50,7 @@ const TextureRadio = () => {
                 />
                 벨벳
             </label>
-            <label>
+            <label className="m-l-20">
                 <input
                     id='radio4'
                     type='radio'
@@ -59,7 +61,7 @@ const TextureRadio = () => {
                 합성섬유
             </label>
 
-            <label>
+            <label className="m-l-20">
                 <input
                     id='radio5'
                     type='radio'
@@ -82,7 +84,7 @@ const StyleRadio = () => {
     }
     return (
         <div>
-            <label>
+            <label className="m-l-20">
                 <input
                     id='casual'
                     type='radio'
@@ -93,7 +95,7 @@ const StyleRadio = () => {
                 캐주얼
             </label>
 
-            <label>
+            <label className="m-l-20">
                 <input
                     id='lovely'
                     type='radio'
@@ -104,7 +106,7 @@ const StyleRadio = () => {
                 러블리
             </label>
 
-            <label>
+            <label className="m-l-20">
                 <input
                     id='highteen'
                     type='radio'
@@ -114,7 +116,7 @@ const StyleRadio = () => {
                 />
                 하이틴
             </label>
-            <label>
+            <label className="m-l-20">
                 <input
                     id='spoty'
                     type='radio'
@@ -125,7 +127,7 @@ const StyleRadio = () => {
                 스포티
             </label>
 
-            <label>
+            <label className="m-l-20">
                 <input
                     id='street'
                     type='radio'
@@ -136,7 +138,7 @@ const StyleRadio = () => {
                 스트릿
             </label>
 
-            <label>
+            <label className="m-l-20">
                 <input
                     id='modern'
                     type='radio'
@@ -147,7 +149,7 @@ const StyleRadio = () => {
                 모던
             </label>
 
-            <label>
+            <label className="m-l-20">
                 <input
                     id='styleEtc'
                     type='radio'
@@ -165,35 +167,31 @@ const Accordion = () => {
 
     const [cardOnOff, setCardOnOff] = useState(data);
     const showList = data;
-    const [search, setSearch] = useState('');
+    // const [search, setSearch] = useState('');
     const [text, setText] = useState('필터 열기'); // 필터 열기/닫기 state
 
-    const onChange = (e) => {
-        setSearch(e.target.value)
-    }
 
     const getQnACard = (item, index) => {
         return (
             <div className="faq-card" key={index}>
-                <div
-                    className="faq-card-title"
-                >
-                    <button onClick={() => {
-                        let tempCard = cardOnOff;
-                        tempCard[index].show = !tempCard[index].show;
-                        setCardOnOff([...tempCard]);
-                        console.log(text)
-                        text === '필터 열기' ? setText('필터 닫기') : setText('필터 열기')
-                    }}>
+                <div>
+                    <button
+                        className="filter-btn"
+                        onClick={() => {
+                            let tempCard = cardOnOff;
+                            tempCard[index].show = !tempCard[index].show;
+                            setCardOnOff([...tempCard]);
+                            console.log(text)
+                            text === '필터 열기' ? setText('필터 닫기') : setText('필터 열기')
+                        }}>
                         {text}
                     </button>
 
-
-                    <BiSearchAlt2 />
-                    <input type='text' value={search} onChange={onChange} />
-
+                    {/* <BiSearchAlt2 className="search-item" />
+                    <input type='text' value={search} onChange={onChange} /> */}
                 </div>
                 <div
+
                     className={
                         data[index].show
                             ? "faq-card-answer"
@@ -201,16 +199,17 @@ const Accordion = () => {
                     }
                 >
                     <div>
-                        <p className="FAQ-card-answer">{item.type}</p>
+                        <hr className="hr-gray" />
+                        <p className="bold">{item.type}</p>
                         <TypeRadio />
                         <hr className="hr-style" />
-                        <p className="FAQ-card-answer">{item.color}</p>
+                        <p className="bold">{item.color}</p>
                         <ColorCheck />
                         <hr className="hr-style" />
-                        <p className="FAQ-card-answer">{item.texture}</p>
+                        <p className="bold">{item.texture}</p>
                         <TextureRadio />
                         <hr className="hr-style" />
-                        <p className="FAQ-card-answer">{item.style}</p>
+                        <p className="bold">{item.style}</p>
                         <StyleRadio />
                     </div>
                 </div>
@@ -224,7 +223,9 @@ const Accordion = () => {
                 <div className="faq-list batch">
                     {showList.map((item, index) => getQnACard(item, index))}
                 </div>
+
             </div>
+            <hr />
         </div>
     );
 };
