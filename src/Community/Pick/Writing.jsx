@@ -12,11 +12,10 @@ const Writing = () => {
     const [click, setClick] = useState(false); // 화면 렌더링
     const [title, setTitle] = useState(""); // 제목
     const [content, setContent] = useState(""); // 내용
-    const [type, setType] = useState(1);
-    const [boardid, setBoardId] = useState();
-    const [imgid, setImgId] = useState([]);
-    let get
-    let list = [];
+    // const [type, setType] = useState(1);
+    // const [boardid, setBoardId] = useState();
+    // const [imgid, setImgId] = useState([]);
+    // let list = [];
     const onChangeImage = (e) => {
         const reader = new FileReader();
         const file = e.target.files[0];
@@ -33,17 +32,11 @@ const Writing = () => {
     };
 
     const ontext = async () => {
-        get = await TestMethod.CommunityTestListPost(title, content)
+        await TestMethod.CommunityTestListPost(title, content)
         if (imgList.length > 0) {
             let formData = new FormData();
             for (let i = 0; i < imgList.length; i++) {
                 formData.append('file', imgList[i])
-            }
-            list = await TestMethod.BoardImgPost(formData);
-
-            for (let i = 0; i < list.length; i++) {
-                await TestMethod.BoardConnectImgPost(type, get, list[i])
-                console.log("실행되나?")
             }
         }
     }
@@ -117,7 +110,7 @@ const Writing = () => {
                 {
                     url.map((data, index) => (
                         <div key={index} className="center">
-                            <img src={data} id="cimg" />
+                            <img src={data} id="cimg" alt='' />
                         </div>
                     ))
                 }

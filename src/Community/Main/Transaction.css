@@ -1,6 +1,7 @@
 .trans_title{
+    /* max-width: 1200px; */
     margin-left: 30px;
-    width: 1500px;
+    width: 1200px;
     display: flex;
     margin-top: 120px;
     justify-content: space-between;
@@ -13,7 +14,7 @@
 
 .list_head{
     display: flex;
-    width: 900px;
+    /* width: 500px; */
 }
 
 .list_head > span{
@@ -23,7 +24,7 @@
 }
 
 .listt{
-    width: 900px;
+    width: 600px;
     height: auto;
     display: flex;
     justify-content: space-between;
@@ -39,11 +40,13 @@
 }
 
 .trans_rank{
-    width: 450px;
-    background-color: #D2D5B8;
-    margin-right: 30px;
-    border-radius: 20px;
-    height: 323px;
+    width: 300px;
+    height: 350px;
+    background-color: #e1e2d6;
+    /* margin-right: 30px; */
+    border-radius: 5px;
+    /* height: 323px; */
+    margin: 0 auto;
 }
 
 #number{

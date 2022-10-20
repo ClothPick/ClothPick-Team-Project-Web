@@ -8,7 +8,6 @@ import ConvenMethod from '../../../Test/ConvenMethod';
 
 
 const ListBox = (props) => {
-
     const [scrapChecked, setScrapChecked] = useState(true);
     const [community, setCommunity] = useState([]);
 
@@ -16,11 +15,9 @@ const ListBox = (props) => {
         const get = TestMethod.BoardConnectImgGet(props.boardId);
         const getData = () => {
             get.then(data => {
-
-                setCommunity(data)
-
-                console.log(props.boardId)
-                console.log(data)
+                setCommunity(data);
+                console.log(props.boardId);
+                console.log(data);
             });
         };
         getData();

@@ -11,10 +11,11 @@ const Transaction = () => {
         <div className="trans_title">
             <div className="trans_list">
                 <div className="list_head">
-                    <FaRegHandshake id="hand"></FaRegHandshake>
+                    <FaRegHandshake size="70" id="hand"></FaRegHandshake>
                     <span>중고거래</span>
                 </div>
-                <hr id="hr2"></hr>
+                {/* <hr id="hr2"></hr> */}
+                <hr />
                 <div className="listt">
                     <table id="trans_list">
                         <tbody>

@@ -210,6 +210,13 @@ span{
     width: 60px;
     height: 40px;
     font-size: 15px;
+
+    cursor:pointer;
+    transition: transform 300ms ease;
+}
+
+#submit:hover {
+    transform: scale(1.1);
 }
 
 #cancel{
@@ -219,9 +226,14 @@ span{
     width: 60px;
     height: 40px;
     font-size: 15px;
+
+    cursor:pointer;
+    transition: transform 300ms ease;
 }
 
-
+#cancel:hover {
+    transform: scale(1.1);
+}
 
 #top{
     text-align: center;

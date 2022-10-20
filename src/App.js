@@ -4,7 +4,6 @@ import ClosetMain from "./Closet/ClosetMain";
 import Recommend from './Community/Pick/NoticeBoard/ClothRecommend';
 import UsedTrade from './Community/Pick/NoticeBoard/UsedTrade'
 import Freedom from './Community/Pick/NoticeBoard/Freedom'
-import Commu from './Test/Community'
 import DetailPage from "./Community/Pick/DetailPage";
 import Write from './Community/Pick/Writing';
 import AddCloth from "./Closet/AddCloth/Plus"

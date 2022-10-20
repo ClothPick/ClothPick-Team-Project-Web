@@ -9,12 +9,7 @@ function Plus() {
                 <img src={logo} alt="logo" id='plusLogo'></img>
             </div>
             <div className="total_list">
-                {/* <Picture /> */}
                 <Survey />
-
-
-
-
             </div>
         </div>
     )
