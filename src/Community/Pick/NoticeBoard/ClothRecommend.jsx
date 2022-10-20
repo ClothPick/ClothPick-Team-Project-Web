@@ -3,7 +3,7 @@ import Header from '../../Header/community_header'
 import './CSSNoticeBoard.css'
 import { AiFillSkin } from 'react-icons/ai';
 import TestMethod from "../../../Test/TestMethod";
-import ListBox from "./ListBox";
+// import ListBox from "./ListBox";
 
 const ClothRecommend = () => {
     const [community, setCommunity] = useState([]);

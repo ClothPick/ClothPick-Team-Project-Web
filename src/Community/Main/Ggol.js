@@ -11,9 +11,10 @@ function Ggol() {
         <div>
             <Community_header />
             <div className='body'>
-                <div>
+                {/* 검색 기능 */}
+                {/* <div>
                     <input type="text" id='search' />
-                </div>
+                </div> */}
                 <div className='board'>
                     <Pick />
                     <Transaction />

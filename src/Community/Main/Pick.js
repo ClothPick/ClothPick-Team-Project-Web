@@ -29,15 +29,13 @@ const Pick = () => {
                 <hr />
                 <div className='pick_list'>
                     <table id='pick_list'>
-                        <tbody>
                             {
                                 list.map((data) => (
-                                    <tr className='content1' key={data.id}>
-                                        <td>{data.title}</td>
-                                    </tr>
+                                        <tr className='content1' key={data.id}>
+                                            <td>{data.title}</td>
+                                        </tr>
                                 ))
                             }
-                        </tbody>
                     </table>
 
                     <div className='choice'>

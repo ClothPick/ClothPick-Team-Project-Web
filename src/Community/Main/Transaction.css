@@ -21,6 +21,7 @@
     margin-top: 20px;
     margin-left: 20px;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .listt{
@@ -43,14 +44,13 @@
     width: 300px;
     height: 350px;
     background-color: #e1e2d6;
-    /* margin-right: 30px; */
     border-radius: 5px;
-    /* height: 323px; */
     margin: 0 auto;
 }
 
 #number{
     margin-left: 50px;
+    font-size: 20px;
 }
 
 #number>tr{

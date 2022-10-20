@@ -9,7 +9,7 @@ function Back() {
         <div className='free_total'>
             <div className='free'>
                 <div className='free_head'>
-                    <AiOutlineAliwangwang></AiOutlineAliwangwang>
+                    <AiOutlineAliwangwang size="70px"></AiOutlineAliwangwang>
                     <span>자유 게시판</span>
                 </div>
                 <hr id='hr2'></hr>
