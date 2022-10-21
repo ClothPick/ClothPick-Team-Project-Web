@@ -203,7 +203,7 @@ function ClosetList() {
             <div>
                 <div className='itemlist'>
                     {
-                        onepage.map((data) => (
+                        onepage.map(data => (
                             <div key={data.id}>
                                 <div className='itemimg'>{data.img}</div>
                                 <div className='itemname'>{data.explain}</div>

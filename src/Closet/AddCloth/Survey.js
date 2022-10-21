@@ -58,25 +58,40 @@ const Survey = () => {
 
 
     const handleSubmit = async (e) => {
+        // ------ 옷 정보 추가 ------
         e.preventDefault();
         const data = { clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref };
         const json = JSON.stringify(data, null, 8);
         console.log(json); // 저장 파일
 
-        await ClosetMethod.ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref);
+        let clothId = await ClosetMethod.ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref);
 
+        // ------ 옷 정보, 옷 이미지 추가 -------
         console.log("img인데요 : ", img);
+
         if (img.length > 0) {
             let formData = new FormData();
             console.log("img : ", img[0]);
             formData.append("file", img[0]);
 
-            await ClosetMethod.ClosetImgUpload(formData);
+            let imgName = await ClosetMethod.ClosetImgUpload(formData);
 
             console.log("등록 완료");
+
+
+            console.log("imgName", imgName);
+            console.log("clothId", clothId);
+            // ------- 옷, 이미지 연결 server로 post --------
+            await ClosetMethod.ConnectClosetImgPost(imgName, clothId);
+
             alert("등록되었습니다.");
             history.replace("/closet");
         }
+        else {
+            alert("이미지를 추가하세요.");
+        }
+
+
 
     };
 
