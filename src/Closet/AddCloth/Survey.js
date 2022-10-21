@@ -1,7 +1,9 @@
 import './Survey.css'
+import './Picture.css'
+
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import Picture from './Picture'
+// import Picture from './Picture'
 import Check from './Checkbox'
 import Top from './details/Top'
 import Bottom from './details/Bottom'
@@ -12,9 +14,12 @@ import Ac from './details/Ac'
 import Outer from './details/Outer'
 import Bar from './Progressbar/Bar'
 import ClosetMethod from '../../Test/ClosetMethod'
+import empty from '../../img/empty.PNG'
 
-const Survey = (props) => {
-    const [picture, setPicture] = React.useState();
+
+
+const Survey = () => {
+    // const [picture, setPicture] = React.useState();
     const [clothType, setKind] = React.useState("");
     const [clothDetail, setDetail] = useState();
     const [clothColor, setColor] = React.useState([]);
@@ -31,13 +36,24 @@ const Survey = (props) => {
     const [outer, Showouter] = useState(false);
     const [ac, Showac] = useState(false);
 
-    // user 외래키 임의 값
-    let username = "admin";
-    let userNickname = "관리자";
-    let userId = "1";
+    const [imageUrl, setImageUrl] = useState(null);
+    const [img, setImg] = useState([]);
 
-    //-----------------------
-    //-----------------------
+
+    const onChangeImage = (e) => {
+        const reader = new FileReader();
+        const file = e.target.files[0];
+        img.push(file);
+        console.log("img임 : ", img);
+        console.log(file);
+
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setImageUrl(reader.result);
+        };
+
+    };
+
     const history = useHistory(); // 등록 후 화면 이동
 
 
@@ -45,12 +61,23 @@ const Survey = (props) => {
         e.preventDefault();
         const data = { clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref };
         const json = JSON.stringify(data, null, 8);
-
-        await ClosetMethod.ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref, username, userNickname, userId);
-        // console.log(get);
         console.log(json); // 저장 파일
-        // alert("등록되었습니다.");
-        // history.replace("/closet");
+
+        await ClosetMethod.ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref);
+
+        console.log("img인데요 : ", img);
+        if (img.length > 0) {
+            let formData = new FormData();
+            console.log("img : ", img[0]);
+            formData.append("file", img[0]);
+
+            await ClosetMethod.ClosetImgUpload(formData);
+
+            console.log("등록 완료");
+            alert("등록되었습니다.");
+            history.replace("/closet");
+        }
+
     };
 
     var val;
@@ -72,13 +99,14 @@ const Survey = (props) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="Stotal">
-                <Picture setPicture={setPicture} picture={picture} />
-                {/* <div className="step1">
-                    <span id='step1'>step1</span>
-                    <br></br><br></br>
-                    <RadioInput label="남성" value="남성" checked={gender} setter={setGender} />
-                    <RadioInput label="여성" value="여성" checked={gender} setter={setGender} />
-                </div> */}
+                <div className="input_image">
+                    <img src={imageUrl ? imageUrl : empty} alt="cimg" id="cimg"></img>
+                    <label htmlFor="file" name="file" onChange={(e) => { onChangeImage(e); console.log() }}>파일 선택</label>
+                    <br></br>
+                    <input type="file" name="file" onChange={(e) => { onChangeImage(e); }} id="file"></input>
+
+                </div>
+                {/* <Picture setPicture={setPicture} picture={picture} /> */}
 
                 <div className='step2'>
 

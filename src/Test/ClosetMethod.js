@@ -32,9 +32,24 @@ async function ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, 
     }
 };
 
+// 옷 이미지 업로드
+async function ClosetImgUpload(formData) {
+    try {
+        const response = await Instance.post("/api/v1/closetimgupload", formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const ClosetMethod = {
     ClosetInfoGet,
     ClosetInfoPost,
+    ClosetImgUpload,
 }
 
 export default ClosetMethod;

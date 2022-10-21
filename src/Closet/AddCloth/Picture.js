@@ -1,41 +1,37 @@
-import React from "react";
-import empty from '../../img/empty.PNG'
-import './Picture.css'
-import { useState, useRef } from "react";
+// import React from "react";
+// import empty from '../../img/empty.PNG'
+// import './Picture.css'
+// import { useState } from "react";
 
-const Picture = (props) => {
-    const [imageUrl, setImageUrl] = useState(null);
-    const imgRef = useRef();
+// const Picture = () => {
+//     const [imageUrl, setImageUrl] = useState(null);
 
 
-    const onChangeImage = (props) => {
-        const reader = new FileReader();
-        const file = imgRef.current.files[0];
-        console.log(file);
+//     const onChangeImage = async (e) => {
+//         const reader = new FileReader();
 
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setImageUrl(reader.result);
-            console.log("이미지 주소", reader.result);
-        };
+//         const file = e.target.files[0];
+//         console.log(file);
 
-    };
+//         reader.readAsDataURL(file);
+//         reader.onloadend = () => {
+//             setImageUrl(reader.result);
+//             // console.log("이미지 주소", reader.result);
+//         };
 
-    // const onClickFileBtn=(e)=>{
-    //     imgRef.current.click();
-    // };
 
-    return (
-        <div className="input_image">
-            <img src={imageUrl ? imageUrl : empty} alt="cimg" id="cimg"></img>
-            <label htmlFor="file" ref={imgRef} onChange={() => { onChangeImage(); console.log() }}>파일 선택</label>
-            <br></br>
-            <input type="file" ref={imgRef} onChange={() => { onChangeImage(); }} id="file"></input>
-            {/* <button onClick={()=>{
-                    onClickFileBtn();
-                }}
-            >이미지 업로드</button> */}
-        </div>
-    )
-}
-export default Picture;
+//     };
+
+//     return (
+//         <form method="post" action="/api/v1/closetimgupload" encType="multipart/form-data">
+//             <div className="input_image">
+//                 <img src={imageUrl ? imageUrl : empty} alt="cimg" id="cimg"></img>
+//                 <label htmlFor="file" name="file" onChange={(e) => { onChangeImage(e); console.log() }}>파일 선택</label>
+//                 <br></br>
+//                 <input type="file" name="file" onChange={(e) => { onChangeImage(e); }} id="file"></input>
+
+//             </div>
+//         </form>
+//     )
+// }
+// export default Picture;
