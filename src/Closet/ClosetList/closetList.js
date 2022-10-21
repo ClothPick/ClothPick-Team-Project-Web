@@ -5,6 +5,7 @@ import Accordion from '../Accordion/Accordion';
 import "../Accordion/Accordion.css";
 import { IoMdArrowDropleftCircle } from "react-icons/io"
 import { IoMdArrowDroprightCircle } from "react-icons/io"
+import ClosetMethod from '../../Test/ClosetMethod';
 
 
 function ClosetList() {
@@ -16,13 +17,43 @@ function ClosetList() {
     const [onepage, setOnepae] = useState([]);
     const [pageNumbers, setPageNumbers] = useState([]);
 
+    const [clothImg, setClothImg] = useState([]);
+
+    useEffect(() => {
+        const get = ClosetMethod.ConnectClosetImgGet();
+        const abc = [];
+
+        const getData = () => {
+            get.then(data => {
+                setClothImg(data);
+                console.log(data);
+
+                setOnepae(clothImg.slice((currentPage - 1) * 6, (currentPage - 1) * 6 + 6));
+                for (var i = 1; i <= Math.ceil(clothImg.length / postsPerPage); i++) {
+                    abc.push(i);
+                }
+                setPageNumbers(abc);
+            });
+        };
+        getData();
+    }, [currentPage]);
+
+    // useEffect(() => {
+
+    //     const abc = [];
+    //     setOnepae(list.slice((currentPage - 1) * 6, (currentPage - 1) * 6 + 6))
+    //     for (var i = 1; i <= Math.ceil(list.length / postsPerPage); i++) {
+    //         abc.push(i);
+    //     }
+    //     setPageNumbers(abc)
+    // }, [currentPage]);
+
+
 
     const oncheck = (data) => {
-        console.log('확인' + data)
-        setCurrentPage(data)
-        // toggleClass()
+        console.log('확인' + data);
+        setCurrentPage(data);
         setTextColor('#CCCCC');
-
     }
 
     const next = () => {
@@ -187,16 +218,6 @@ function ClosetList() {
 
     ];
 
-    useEffect(() => {
-        const abc = [];
-        setOnepae(list.slice((currentPage - 1) * 6, (currentPage - 1) * 6 + 6))
-        for (var i = 1; i <= Math.ceil(list.length / postsPerPage); i++) {
-            abc.push(i);
-        }
-        setPageNumbers(abc)
-    }, [currentPage]);
-    console.log(pageNumbers)
-
     return (
         <div className='root'>
             <Accordion />
@@ -204,11 +225,16 @@ function ClosetList() {
                 <div className='itemlist'>
                     {
                         onepage.map(data => (
-                            <div key={data.id}>
-                                <div className='itemimg'>{data.img}</div>
-                                <div className='itemname'>{data.explain}</div>
-                            </div>
+                            // <div key={data.clothImgName}>
+                            // </div>
+                            <img alt='' src={`http://192.168.0.109:80/api/displayimg/${data.clothImgName}.jpg`} />
                         ))
+                        // onepage.map(data => (
+                        //     <div key={data.id}>
+                        //         <div className='itemimg'>{data.img}</div>
+                        //         <div className='itemname'>{data.explain}</div>
+                        //     </div>
+                        // ))
                     }
                 </div>
                 <div className='num'>
@@ -225,7 +251,7 @@ function ClosetList() {
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 }
 

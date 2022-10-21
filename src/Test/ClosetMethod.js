@@ -60,11 +60,23 @@ async function ConnectClosetImgPost(imgName, clothId) {
     }
 }
 
+// 옷, 이미지 연결 get
+async function ConnectClosetImgGet() {
+    try {
+        const response = await Instance.get("/api/v1/clothimglist")
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const ClosetMethod = {
     ClosetInfoGet,
     ClosetInfoPost,
     ClosetImgUpload,
     ConnectClosetImgPost,
+    ConnectClosetImgGet,
 }
 
 export default ClosetMethod;
