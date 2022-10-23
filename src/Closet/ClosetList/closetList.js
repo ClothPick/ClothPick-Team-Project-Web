@@ -5,8 +5,6 @@ import "../Accordion/Accordion.css";
 import { IoMdArrowDropleftCircle } from "react-icons/io"
 import { IoMdArrowDroprightCircle } from "react-icons/io"
 import ClosetMethod from '../../Test/ClosetMethod';
-import data from '../Accordion/data';
-
 
 function ClosetList() {
     const [textColor, setTextColor] = useState('black');
@@ -23,7 +21,7 @@ function ClosetList() {
     useEffect(() => {
         const get = ClosetMethod.ConnectClosetImgGet();
         const closetInfo = ClosetMethod.ClosetInfoGet();
-        const abc = [];
+        const page = [];
 
         const getData = () => {
             get.then(data => {
@@ -32,9 +30,10 @@ function ClosetList() {
 
                 setOnepae(clothImg.slice((currentPage - 1) * 6, (currentPage - 1) * 6 + 6));
                 for (var i = 1; i <= Math.ceil(clothImg.length / postsPerPage); i++) {
-                    abc.push(i);
+                    page.push(i);
+                    console.log("page : " + page);
                 }
-                setPageNumbers(abc);
+                setPageNumbers(page);
             });
 
             closetInfo.then(data => {
@@ -65,25 +64,42 @@ function ClosetList() {
         }
     }
 
+    // 키워드가 같을 경우
+    // const filterKeyword = () => {
+    //     for (var i = 0; i < clothInfo.length; i++) {
+    //         if (clothInfo[i].clothKeyword == clothInfo[i + 1].clothKeyword) {
+    //             keyword = clothInfo[i].clothKeyword;
+    //             i++;
+    //         }
+    //     }
+    // }
+
+    const connectKeyword = (clothId) => {
+        const keywords = clothInfo
+            .filter((connect) =>
+                connect.clothId === clothId)
+        console.log(keywords[0].clothKeyword);
+
+        return (
+            <span>{keywords[0].clothKeyword}</span>
+        );
+    }
+
     return (
         <div className='root'>
             <Accordion />
             <div>
                 <div className='itemlist'>
                     {
-                        onepage.map(data => (
-                            <span key={data.clothImgName}>
-                                <img alt="" className="" src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${data.clothImgName}`} />
-                            </span>
-                        ))
-                    }
-
-                    {
-                        clothInfo.map(data => (
-                            <span key={data.clothId}>
-                                <h3>{data.clothKeyword}</h3>
-                            </span>
-                        ))
+                        // 이미지 map
+                        clothImg.map((img) => {
+                            return (
+                                <div>
+                                    <img className="closet-img" src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${img.clothImgName}`} alt="" />
+                                    <span className='img-text'>{connectKeyword(img.clothId)}</span>
+                                </div>
+                            );
+                        })
                     }
                 </div>
                 <div className='num'>
