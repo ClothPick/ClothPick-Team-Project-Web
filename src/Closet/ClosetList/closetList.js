@@ -18,6 +18,8 @@ function ClosetList() {
     const [clothImg, setClothImg] = useState([]);
     const [clothInfo, setClothInfo] = useState([]);
 
+    var keywords = [];
+
     useEffect(() => {
         const get = ClosetMethod.ConnectClosetImgGet();
         const closetInfo = ClosetMethod.ClosetInfoGet();
@@ -40,7 +42,9 @@ function ClosetList() {
                 setClothInfo(data);
                 console.log(data);
             });
+
         };
+
         getData();
     }, [currentPage]);
 
@@ -64,27 +68,6 @@ function ClosetList() {
         }
     }
 
-    // 키워드가 같을 경우
-    // const filterKeyword = () => {
-    //     for (var i = 0; i < clothInfo.length; i++) {
-    //         if (clothInfo[i].clothKeyword == clothInfo[i + 1].clothKeyword) {
-    //             keyword = clothInfo[i].clothKeyword;
-    //             i++;
-    //         }
-    //     }
-    // }
-
-    const connectKeyword = (clothId) => {
-        const keywords = clothInfo
-            .filter((connect) =>
-                connect.clothId === clothId)
-        console.log(keywords[0].clothKeyword);
-
-        return (
-            <span>{keywords[0].clothKeyword}</span>
-        );
-    }
-
     return (
         <div className='root'>
             <Accordion />
@@ -93,10 +76,19 @@ function ClosetList() {
                     {
                         // 이미지 map
                         clothImg.map((img) => {
+                            onepage.map(() => (
+                                <></>
+                            ))
                             return (
                                 <div>
                                     <img className="closet-img" src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${img.clothImgName}`} alt="" />
-                                    <span className='img-text'>{connectKeyword(img.clothId)}</span>
+                                    <div className='img-text'>
+                                        {
+                                            // 옷 키워드 출력 코드. clothKeyword 를 가져올 수 없다고 표시됨 -- 해결방안은?
+                                            // clothInfo.filter((connect) =>
+                                            //     connect.clothId === img.clothId)[0].clothKeyword
+                                        }
+                                    </div>
                                 </div>
                             );
                         })

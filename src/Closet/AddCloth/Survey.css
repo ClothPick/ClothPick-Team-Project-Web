@@ -171,8 +171,11 @@ span{
 }
 
 #keyward{
-    width: 600px;
+    width: 500px;
+    height: 50px;
     margin-left: 180px;
+    padding: 10px;
+    font-size: 20px;
 }
 
 .step9{
