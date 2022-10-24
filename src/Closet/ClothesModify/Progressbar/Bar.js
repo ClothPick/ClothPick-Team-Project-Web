@@ -1,85 +1,85 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import './Pd.css';
 
-function Bar(props){
-    const[count, setCount]=useState(0);
+function Bar(props) {
+    const [count, setCount] = useState(0);
 
-    function add_count(props){
-        if(count>=4){
+    function add_count(props) {
+        if (count >= 4) {
             setCount(0);
 
         }
-        else{
-            setCount(count+1);
+        else {
+            setCount(count + 1);
 
         }
     }
 
-    function add(props){
-        if(count>3){
+    function add(props) {
+        if (count > 3) {
             props.setPro(0);
         }
     }
 
 
-    const num1=()=>{
+    const num1 = () => {
 
 
         setCount(0);
-        <Progress width={(count*1)}  />
+        <Progress width={(count * 1)} />
 
 
     }
 
-    function num2(){
+    function num2() {
         setCount(1);
         <Progress width={(count)} />
 
     }
 
-    function num3(){
+    function num3() {
         setCount(2);
-        <Progress width={(count*1)} />
+        <Progress width={(count * 1)} />
 
     }
 
-    function num4(){
+    function num4() {
         setCount(3);
-        <Progress width={(count*1)} />
+        <Progress width={(count * 1)} />
 
     }
 
-    function num5(){
+    function num5() {
         setCount(4);
-        <Progress width={(count*1)}
+        <Progress width={(count * 1)}
         />
 
     }
-    return(
+    return (
         <div className="prefer">
-        <div className='pr'>
-                    <span id='a' onClick={num1} >완전 별로</span>
-                    <span id='b' onClick={num2} >별로</span>
-                    <span id='c' onClick={num3}>보통</span>
-                    <span id='d' onClick={num4}>좋아</span>
-                    <span id='e' onClick={num5}>완전 좋아</span>
-                    </div>
+            <div className='pr'>
+                <span id='a' onClick={num1} >완전 별로</span>
+                <span id='b' onClick={num2} >별로</span>
+                <span id='c' onClick={num3}>보통</span>
+                <span id='d' onClick={num4}>좋아</span>
+                <span id='e' onClick={num5}>완전 좋아</span>
+            </div>
 
-        <div className="barr">
-        <Container onClick={()=>{add_count();}}>
+            <div className="barr">
+                <Container onClick={() => { add_count(); }}>
 
-            <Progress width={(count/4)*100+"%"} onChange={props.setPro(count)}/>
+                    <Progress width={(count / 4) * 100 + "%"} onChange={props.setPro(count)} />
 
-            <Dot/>
-        </Container>
-        </div>
+                    <Dot />
+                </Container>
+            </div>
         </div>
     )
 }
 export default Bar;
 
-const Container=styled.div`
+const Container = styled.div`
 margin-top:50px;
 margin-left:160px;
 background-color: #eee;

@@ -1,12 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ClosetMain from "./Closet/ClosetMain";
+import AddCloth from "./Closet/AddCloth/Plus"
+import ModifyCloth from "./Closet/ClothesModify/Modify_main"
+
 import Recommend from './Community/Pick/NoticeBoard/ClothRecommend';
 import UsedTrade from './Community/Pick/NoticeBoard/UsedTrade'
 import Freedom from './Community/Pick/NoticeBoard/Freedom'
+
 import DetailPage from "./Community/Pick/DetailPage";
 import Write from './Community/Pick/Writing';
-import AddCloth from "./Closet/AddCloth/Plus"
 import CommunityMain from "./Community/Main/Ggol"
 
 function App() {
@@ -17,6 +20,7 @@ function App() {
           {/* ------------ 옷장 ------------ */}
           <Route path="/closet" component={ClosetMain} /> {/* 옷장 메인 페이지 */}
           <Route path="/addcloth" component={AddCloth} /> {/* 옷 추가 페이지 */}
+          <Route path="/modifycloth" component={ModifyCloth} /> {/* 옷 변경 페이지 */}
 
           {/* ------------ 픽뮤니티 게시판 ------------ */}
           <Route exact path="/" component={CommunityMain} /> {/* 게시판 메인 페이지 */}

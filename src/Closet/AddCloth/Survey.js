@@ -56,7 +56,6 @@ const Survey = () => {
 
     const history = useHistory(); // 등록 후 화면 이동
 
-
     const handleSubmit = async (e) => {
         // ------ 옷 정보 추가 ------
         e.preventDefault();
@@ -85,7 +84,7 @@ const Survey = () => {
             await ClosetMethod.ConnectClosetImgPost(imgName, clothId);
 
             alert("등록되었습니다.");
-            history.replace("/closet");
+            history.push("/closet");
         }
         else {
             alert("이미지를 추가하세요.");

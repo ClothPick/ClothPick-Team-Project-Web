@@ -3,7 +3,7 @@ import { useState } from "react";
 import './Modify_choice.css'
 import Top from './Mdetail/MTop'
 import Bottom from './Mdetail/MBottom'
-import Blank from '../Clothes_Plus/details/Blank'
+import Blank from "../AddCloth/details/Blank"
 import Shoes from './Mdetail/MShoes'
 import Bag from './Mdetail/MBag'
 import Ac from './Mdetail/MAc'
