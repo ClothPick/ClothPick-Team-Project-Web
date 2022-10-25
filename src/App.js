@@ -1,8 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ClosetMain from "./Closet/ClosetMain";
-import AddCloth from "./Closet/AddCloth/Plus"
-import ModifyCloth from "./Closet/ClothesModify/Modify_main"
+// import ClosetMain from "./Closet/ClosetMain";
+import ClosetMain from "./Closet/closetMain/Main"
+// import AddCloth from "./Closet/AddCloth/Plus"
+import AddCloth from "./Closet/closetSidebar/closetAddCloth/AddCloth"
+// import ModifyCloth from "./Closet/ClothesModify/Modify_main"
+import ModifyCloth from "./Closet/closetMain/clothModify/ModifyMain"
 
 import Recommend from './Community/Pick/NoticeBoard/ClothRecommend';
 import UsedTrade from './Community/Pick/NoticeBoard/UsedTrade'
