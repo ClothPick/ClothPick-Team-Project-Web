@@ -7,13 +7,13 @@ import AddCloth from "./Closet/closetSidebar/closetAddCloth/AddCloth"
 // import ModifyCloth from "./Closet/ClothesModify/Modify_main"
 import ModifyCloth from "./Closet/closetMain/clothModify/ModifyMain"
 
-import Recommend from './Community/Pick/NoticeBoard/ClothRecommend';
-import UsedTrade from './Community/Pick/NoticeBoard/UsedTrade'
-import Freedom from './Community/Pick/NoticeBoard/Freedom'
+import Recommend from "./Community/Pick/noticeBoardType/1-clothRecommendNoticeBoard/ClothRecommend"
+import Freedom from "./Community/Pick/noticeBoardType/2-freedomNoticeBoard/Freedom"
+import UsedTrade from "./Community/Pick/noticeBoardType/3-usedTradeNoticeBoard/UsedTrade";
 
-import DetailPage from "./Community/Pick/DetailPage";
-import Write from './Community/Pick/Writing';
-import CommunityMain from "./Community/Main/Ggol"
+import DetailPage from "./Community/Pick/noticeBoardComponent/DetailPage"
+import Write from "./Community/Pick/noticeBoardComponent/Writing"
+import CommunityMain from "./Community/communityMain/Main"
 
 function App() {
   return (

@@ -1,5 +1,5 @@
 import logo from '../img/PICK.PNG'
-import './header.css';
+import './Header.css';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { MdPersonOutline } from 'react-icons/md';
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './CSSNoticeBoard.css'
+import "../noticeBoardType/NoticeBoard.css"
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { BiMessage } from 'react-icons/bi';
 import TestMethod from "../../../Test/TestMethod";

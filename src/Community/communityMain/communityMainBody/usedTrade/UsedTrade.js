@@ -1,12 +1,16 @@
-import { AiOutlineAliwangwang, AiFillLike } from 'react-icons/ai'
+import { useState, useEffect } from 'react';
+import TestMethod from '../../../../Test/TestMethod';
+import './UsedTrade.css';
+// import { AiFillSkin } from 'react-icons/ai';
+import { FaRegHandshake } from 'react-icons/fa'
+import { AiFillLike } from 'react-icons/ai';
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import TestMethod from '../../Test/TestMethod';
 
-import './Back.css'
 
-function Back() {
+import React from 'react'
+
+const Transaction = () => {
     const [community, setCommunity] = useState([]);
     const [click, setClick] = useState(true);
 
@@ -26,7 +30,7 @@ function Back() {
         var count = 1;
         for (var i = 0; i < community.length; i++) {
             if (count < 7) { // 게시물 개수가 1~6개일 때까지만 실행
-                if (community[i].boardType === '3') { // 게시판이 자유게시판일 경우
+                if (community[i].boardType === '2') { // 게시판이 중고거래 게시판일 경우
                     arr.push(
                         <div>
                             <tr className='content2'>
@@ -45,32 +49,32 @@ function Back() {
     }
 
     return (
-        <div className='free_total'>
-            <div className='free'>
-                <div className='free_head'>
-                    <AiOutlineAliwangwang size="70px"></AiOutlineAliwangwang>
-                    <span>자유 게시판</span>
-                    <Link to="/freedom" className="etc">
+        <div className="trans_title">
+            <div className="trans_list">
+                <div className="list_head">
+                    <FaRegHandshake size="70" id="hand"></FaRegHandshake>
+                    <span>중고거래</span>
+                    <Link to="/usedtrade" className="etc">
                         <p>더보기<RiArrowRightSLine /></p>
                     </Link>
 
                 </div>
-                <hr id='hr2'></hr>
+                <hr />
                 <div className='pick_list'>
-                    <table id='freelist'>
+                    <table id='trans_list'>
                         {showTitle()}
                     </table>
                 </div>
-
             </div>
-            <div className='free_rank'>
-                <div className='rank_head'>
+
+            <div className="trans_rank">
+                <div className="rank_header">
                     <AiFillLike id="up"></AiFillLike>
-                    <span>자유 게시판 랭킹</span>
+                    <span>중고거래 랭킹</span>
                     <hr></hr>
                 </div>
-                <div className='rank_list'>
-                    <table id='number'>
+                <div className="rank_list">
+                    <table id="number">
                         <tr>
                             <td>1</td>
                         </tr>
@@ -87,27 +91,27 @@ function Back() {
                             <td>5</td>
                         </tr>
                     </table>
-                    <table id='content'>
+
+                    <table id="content">
                         <tr>
-                            <td>집</td>
+                            <td>하이</td>
                         </tr>
                         <tr>
-                            <td>집</td>
+                            <td>ㅎㅎ</td>
                         </tr>
                         <tr>
-                            <td>집</td>
+                            <td>띠롱</td>
                         </tr>
                         <tr>
-                            <td>집</td>
+                            <td>ㅎㅎ</td>
                         </tr>
                         <tr>
-                            <td>집</td>
+                            <td>ㅋㅋ</td>
                         </tr>
                     </table>
                 </div>
             </div>
-
         </div>
     )
 }
-export default Back;
+export default Transaction;

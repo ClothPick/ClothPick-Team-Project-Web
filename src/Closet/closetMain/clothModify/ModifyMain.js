@@ -2,8 +2,8 @@ import React from "react";
 import './ModifyMain.css';
 import ModifyPicture from "../clothModify/picture/ModifyPicture"
 import Modify_choice from "../clothModify/type-pattern-texture-style/ModifyChoice"
-import Side from "../../closetSidebar/sidebar"
-import Header from "../../../Header/header"
+import Side from "../../closetSidebar/Sidebar"
+import Header from "../../../Header/communityHeader/Header"
 
 function Modify_main() {
 

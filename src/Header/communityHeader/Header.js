@@ -1,5 +1,5 @@
 // import logo from '../img/PICK.PNG'
-import './community_header.css'
+import './Header.css'
 import logo from '../../img/PICK.PNG'
 import { MdPersonOutline } from 'react-icons/md';
 import { Link } from 'react-router-dom';

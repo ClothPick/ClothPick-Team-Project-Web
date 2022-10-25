@@ -1,10 +1,9 @@
 import React from "react"
-import Pick from './Pick';
-import Transaction from './Transaction';
-import Cfree from './Back';
-import Community_header from "../Header/community_header";
-// import Community_header from '../Community_header/Community_header';
-import './Ggol.css'
+import Pick from "../communityMain/communityMainBody/clothRecommend/ClothRecommend"
+import Transaction from "../communityMain/communityMainBody/usedTrade/UsedTrade"
+import Cfree from "./communityMainBody/freedom/Freedom"
+import Community_header from "../../Header/communityHeader/Header"
+import './Main.css'
 
 function Ggol() {
     return (

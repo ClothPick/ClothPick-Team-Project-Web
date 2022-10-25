@@ -1,10 +1,10 @@
-import './Pick.css'
+import './ClothRecommend.css'
 import { AiFillSkin, AiFillLike } from 'react-icons/ai';
 import React, { useState, useEffect } from 'react'
 // import Axios from 'axios'
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import TestMethod from '../../Test/TestMethod';
+import TestMethod from '../../../../Test/TestMethod';
 
 
 
@@ -27,6 +27,7 @@ const Pick = () => {
         var arr = [];
         var count = 1;
         for (var i = 0; i < community.length; i++) {
+            // console.log("length", community.length);
             if (count < 7) { // 게시물 개수가 1~6개일 때까지만 실행
                 if (community[i].boardType === '1') { // 게시판이 옷 추천 게시판일 경우
                     arr.push(

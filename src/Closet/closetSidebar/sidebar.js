@@ -1,4 +1,4 @@
-import './sidebar.css'
+import './Sidebar.css'
 import { IoMdArrowDropright } from "react-icons/io"
 import { Link } from 'react-router-dom';
 

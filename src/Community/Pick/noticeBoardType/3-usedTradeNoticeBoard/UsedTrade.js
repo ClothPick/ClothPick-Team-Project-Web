@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './CSSNoticeBoard.css'
-import Header from '../../Header/community_header'
-import TestMethod from "../../../Test/TestMethod";
-import { AiOutlineAliwangwang } from 'react-icons/ai'
-import ListBox from "./ListBox";
+import '../NoticeBoard.css'
+import Header from "../../../../Header/communityHeader/Header"
+import TestMethod from "../../../../Test/TestMethod";
+import { FaRegHandshake } from 'react-icons/fa'
+import ListBox from "../../noticeBoardComponent/MainPostComponent";
 
 
-const Freedom = () => {
+const UsedTrade = () => {
     const [community, setCommunity] = useState([]);
     const [click, setClick] = useState(true);
 
@@ -24,13 +24,13 @@ const Freedom = () => {
         <div>
             <Header />
             <div className='flex commu-type margin'>
-                <AiOutlineAliwangwang size="80" color='#BDC2BB' />
+                <FaRegHandshake size="80" color='#BDC2BB' />
                 <h2 className='text-margin-top-30 text-margin-left-10 '>옷 추천</h2>
             </div>
 
             {/* box */}
             {community && community
-                .filter((data) => data.boardType === '3')
+                .filter((data) => data.boardType === '2')
                 .map((data) => (
                     <ListBox
                         key={data.boardId}
@@ -47,4 +47,4 @@ const Freedom = () => {
     );
 };
 
-export default Freedom;
+export default UsedTrade;

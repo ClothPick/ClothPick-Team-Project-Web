@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react';
-import TestMethod from '../../Test/TestMethod';
-import './Transaction.css';
-// import { AiFillSkin } from 'react-icons/ai';
-import { FaRegHandshake } from 'react-icons/fa'
-import { AiFillLike } from 'react-icons/ai';
+import { AiOutlineAliwangwang, AiFillLike } from 'react-icons/ai'
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import TestMethod from '../../../../Test/TestMethod';
+import "./Freedom.css"
 
-
-import React from 'react'
-
-const Transaction = () => {
+function Back() {
     const [community, setCommunity] = useState([]);
     const [click, setClick] = useState(true);
 
@@ -30,7 +25,7 @@ const Transaction = () => {
         var count = 1;
         for (var i = 0; i < community.length; i++) {
             if (count < 7) { // 게시물 개수가 1~6개일 때까지만 실행
-                if (community[i].boardType === '2') { // 게시판이 중고거래 게시판일 경우
+                if (community[i].boardType === '3') { // 게시판이 자유게시판일 경우
                     arr.push(
                         <div>
                             <tr className='content2'>
@@ -49,32 +44,32 @@ const Transaction = () => {
     }
 
     return (
-        <div className="trans_title">
-            <div className="trans_list">
-                <div className="list_head">
-                    <FaRegHandshake size="70" id="hand"></FaRegHandshake>
-                    <span>중고거래</span>
-                    <Link to="/usedtrade" className="etc">
+        <div className='free_total'>
+            <div className='free'>
+                <div className='free_head'>
+                    <AiOutlineAliwangwang size="70px"></AiOutlineAliwangwang>
+                    <span>자유 게시판</span>
+                    <Link to="/freedom" className="etc">
                         <p>더보기<RiArrowRightSLine /></p>
                     </Link>
 
                 </div>
-                <hr />
+                <hr id='hr2'></hr>
                 <div className='pick_list'>
-                    <table id='trans_list'>
+                    <table id='freelist'>
                         {showTitle()}
                     </table>
                 </div>
-            </div>
 
-            <div className="trans_rank">
-                <div className="rank_header">
+            </div>
+            <div className='free_rank'>
+                <div className='rank_head'>
                     <AiFillLike id="up"></AiFillLike>
-                    <span>중고거래 랭킹</span>
+                    <span>자유 게시판 랭킹</span>
                     <hr></hr>
                 </div>
-                <div className="rank_list">
-                    <table id="number">
+                <div className='rank_list'>
+                    <table id='number'>
                         <tr>
                             <td>1</td>
                         </tr>
@@ -91,27 +86,27 @@ const Transaction = () => {
                             <td>5</td>
                         </tr>
                     </table>
-
-                    <table id="content">
+                    <table id='content'>
                         <tr>
-                            <td>하이</td>
+                            <td>집</td>
                         </tr>
                         <tr>
-                            <td>ㅎㅎ</td>
+                            <td>집</td>
                         </tr>
                         <tr>
-                            <td>띠롱</td>
+                            <td>집</td>
                         </tr>
                         <tr>
-                            <td>ㅎㅎ</td>
+                            <td>집</td>
                         </tr>
                         <tr>
-                            <td>ㅋㅋ</td>
+                            <td>집</td>
                         </tr>
                     </table>
                 </div>
             </div>
+
         </div>
     )
 }
-export default Transaction;
+export default Back;
