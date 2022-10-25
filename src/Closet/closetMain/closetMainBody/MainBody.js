@@ -6,6 +6,7 @@ import { IoMdArrowDropleftCircle } from "react-icons/io"
 import { IoMdArrowDroprightCircle } from "react-icons/io"
 import ClosetMethod from '../../../Test/ClosetMethod';
 import { Link } from "react-router-dom"
+import ModifyPicture from '../clothModify/picture/ModifyPicture';
 
 function ClosetList() {
     const [textColor, setTextColor] = useState('black');
@@ -77,22 +78,18 @@ function ClosetList() {
                     {
                         // 이미지 map
                         onepage && onepage.map((img, index) => {
-
                             return (
                                 <div key={index}>
-                                    <Link to="/modifycloth">
+                                    <Link to={`/modifycloth/${img.clothImgName}`} className="img-text" >
                                         <img className="closet-img" src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${img.clothImgName}`} alt="" />
+                                        <div className='img-text'>
+                                            {
+                                                clothInfo && clothInfo.length > 0 ?
+                                                    clothInfo.filter((connect) =>
+                                                        connect.clothId === img.clothId)[0].clothKeyword : <p></p>
+                                            }
+                                        </div>
                                     </Link>
-                                    <div className='img-text'>
-                                        {
-                                            // console.log(clothInfo)
-                                            // 옷 키워드 출력 코드. clothKeyword 를 가져올 수 없다고 표시됨 -- 해결방안은?
-                                            clothInfo && clothInfo.length > 0 ?
-                                                clothInfo.filter((connect) =>
-                                                    connect.clothId === img.clothId)[0].clothKeyword : <p></p>
-
-                                        }
-                                    </div>
                                 </div>
                             );
                         })

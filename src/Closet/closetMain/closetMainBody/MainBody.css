@@ -58,4 +58,6 @@
 .img-text {
     text-align-last: center;
     font-weight: bold;
+    text-decoration: none;
+    color: black;
 }

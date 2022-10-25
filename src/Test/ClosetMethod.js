@@ -32,6 +32,17 @@ async function ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, 
     }
 };
 
+// 옷 이미지 조회
+// async function ClosetImgGet(clothImgName) {
+//     try {
+//         const response = await Instance.get(`/api/v1/closetimg/${clothImgName}`)
+//         console.log(response.data);
+//         return response.data;
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
 // 옷 이미지 업로드
 async function ClosetImgUpload(formData) {
     try {

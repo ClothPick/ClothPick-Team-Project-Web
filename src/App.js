@@ -23,7 +23,7 @@ function App() {
           {/* ------------ 옷장 ------------ */}
           <Route path="/closet" component={ClosetMain} /> {/* 옷장 메인 페이지 */}
           <Route path="/addcloth" component={AddCloth} /> {/* 옷 추가 페이지 */}
-          <Route path="/modifycloth" component={ModifyCloth} /> {/* 옷 변경 페이지 */}
+          <Route path="/modifycloth/:clothImgName" component={ModifyCloth} /> {/* 옷 변경 페이지 */}
 
           {/* ------------ 픽뮤니티 게시판 ------------ */}
           <Route exact path="/" component={CommunityMain} /> {/* 게시판 메인 페이지 */}
