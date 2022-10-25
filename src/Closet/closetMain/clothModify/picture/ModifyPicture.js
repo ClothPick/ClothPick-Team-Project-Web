@@ -7,7 +7,7 @@ import ClosetMethod from '../../../../Test/ClosetMethod';
 const ModifyPicture = (props) => {
 
     var url = window.location.pathname.split("/")[2];
-    console.log("url:", url);
+    // console.log("url:", url);
 
     const [mimageUrl, setmoImageUrl] = useState(null);
     const [click, setClick] = useState(true);
@@ -40,7 +40,7 @@ const ModifyPicture = (props) => {
                 for (var i = 0; i < data.length; i++) {
                     if (url === data[i].clothImgName) {
                         setImg(data[i].clothImgName);
-                        console.log(data[i].clothImgName);
+                        // console.log(data[i].clothImgName);
                     }
                 }
             })
@@ -52,11 +52,6 @@ const ModifyPicture = (props) => {
     return (
         <>
             <div className="modify_image">
-                {
-                    // clothImg
-                    // .filter((cloth) => cloth.clothId == )
-                    // .map(<img id="mimg" src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${clothImg.clothImgName}`} alt="" />)
-                }
                 <img src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${img}`} alt="" id="mimg"></img>
                 <br></br><br></br>
                 <label for="file" ref={imgReff} onChange={() => { onModifyImage(); console.log() }}>사진 변경하기</label>

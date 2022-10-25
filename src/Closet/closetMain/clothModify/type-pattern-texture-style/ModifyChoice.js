@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import './ModifyChoice.css'
 import Top from '../clothModifyDetail/top/Top'
@@ -10,6 +10,7 @@ import Ac from '../clothModifyDetail/accessory/Accessory'
 import Outer from '../clothModifyDetail/outer/Outer'
 import Check from '../color/Color'
 import Bar from '../preference/Preference'
+import ClosetMethod from "../../../../Test/ClosetMethod";
 
 const RadioInput = ({ label, value, checked, setter }) => {
     return (
@@ -21,7 +22,10 @@ const RadioInput = ({ label, value, checked, setter }) => {
     )
 }
 
-const Modify_choice = (props) => {
+const Modify_choice = () => {
+
+    var url = window.location.pathname.split("/")[2];
+    // console.log("url:", url);
 
     const [clothType, setKind] = React.useState("");
     const [clothDetail, setDetail] = useState();
@@ -39,6 +43,11 @@ const Modify_choice = (props) => {
     const [outer, Showouter] = useState(false);
     const [ac, Showac] = useState(false);
 
+    //----------db------------
+    const [clothId, setClothId] = useState([]);
+    const [clothInfo, setClothInfo] = useState([]);
+
+
     const handleSubmit = e => {
         e.preventDefault();
         const data = { clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref };
@@ -51,20 +60,47 @@ const Modify_choice = (props) => {
 
     const onChange = (e) => {
         setKeyward(e.target.value);
+        console.log(e.target.value);
     }
 
+    useEffect(() => {
+        // 옷-이미지 연결 테이블 정보 get
+        const get = ClosetMethod.ConnectClosetImgGet();
+        // 옷 정보 테이블 get
+        const clothGet = ClosetMethod.ClosetInfoGet();
+
+        const getData = () => {
+            get.then(data => {
+
+                // url주소에 있는 clothImgName와 동일한 이름 찾기
+                for (var i = 0; i < data.length; i++) {
+                    if (url === data[i].clothImgName) {
+                        // url clothImgName과 동일한 데이터가 저장되어있는 clothId값 저장
+                        setClothId(data[i].clothId);
+                        console.log(data[i].clothId);
+                    }
+                }
+            })
+
+            clothGet.then(data => {
+                setClothInfo(data);
+                console.log(data);
+            })
+        };
+        getData();
+    }, [])
+
+    const ShowData = () => {
+        for (var i = 0; i < clothInfo.length; i++) {
+            if (clothId === clothInfo[i].clothId) {
+                setKeyward(clothInfo[i].clothKeyword);
+            }
+        }
+    }
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="modtotal">
-                {/* <div className="quest1">
-                    <span id='quest1'>성별</span>
-
-                    <div className="quest1_answer">
-                    <RadioInput label="남성" value="남성" checked={gender} setter={setGender}/>
-                    <RadioInput label="여성" value="여성" checked={gender} setter={setGender}/>
-                    </div>
-                </div> */}
 
                 <div className="quest2">
                     <span id='quest2'>종류</span>
@@ -161,6 +197,8 @@ const Modify_choice = (props) => {
 
             <div className='quest8'>
                 <span id='quest8'>옷 키워드</span><br></br><br></br>
+                <ShowData />
+                {/* <input type="text" id="mkeyward" value={clothKeyword} ></input> */}
                 <input type="text" id="mkeyward" onChange={onChange} value={clothKeyword} ></input>
             </div>
 
@@ -174,8 +212,7 @@ const Modify_choice = (props) => {
             <div className='BTN'>
                 <br></br><br></br><br></br><br></br><br></br>
                 <button id='submit' onClick={handleSubmit}>저장</button>
-                <button id='cancel' >취소</button>
-
+                <button id='cancel'>취소</button>
             </div>
         </form>
     )
