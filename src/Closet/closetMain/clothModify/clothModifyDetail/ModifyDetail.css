@@ -1,0 +1,14 @@
+#mchoice{
+    width: 15px;
+    vertical-align: middle;
+}
+
+.ac{
+    display: flex;
+    width: 1000px;
+    /* justify-content: space-evenly; */
+}
+
+.ac>label>span{
+    font-size: 15px;
+}

@@ -1,0 +1,45 @@
+#ccimg{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin-left: 90px;
+}
+
+.input_image{
+    text-align: center;
+    padding-top: 30px;
+}
+
+.input_image input[type="file"]{
+    /* border: none;
+    padding-top: 20px;
+    font-size: 20px;
+    margin: auto 0;
+    width: 300px;
+    height: 50px; */
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+input{
+    margin-left: 20px;
+}
+
+.input_image label{
+    background-color: #D2D5B8;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 400px;
+    height: 500px;
+    border: 1px solid #d9e1e8;
+    font-weight: 500;
+    box-shadow: 1px 2px 3px 0px #f2f2f2;
+    outline: none;
+    font-size: 12px;
+    clear: both;
+}

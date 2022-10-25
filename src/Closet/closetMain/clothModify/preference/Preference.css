@@ -1,0 +1,18 @@
+.prefer{
+    width: 900;
+
+    margin: 0 auto;
+}
+.pr{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 120px;
+    width: 700px;
+
+}
+
+.pr> span{
+    font-size: 15px;
+    margin-right: 20px;
+
+}
