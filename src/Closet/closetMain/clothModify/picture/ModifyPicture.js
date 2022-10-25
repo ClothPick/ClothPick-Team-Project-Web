@@ -13,7 +13,7 @@ const ModifyPicture = (props) => {
     const [click, setClick] = useState(true);
     const imgReff = useRef();
     const [clothImg, setClothImg] = useState([]);
-    const [img, setImg] = useState([]);
+    const [detailImg, setDetailImg] = useState([]);
 
 
     const onModifyImage = (props) => {
@@ -39,7 +39,7 @@ const ModifyPicture = (props) => {
 
                 for (var i = 0; i < data.length; i++) {
                     if (url === data[i].clothImgName) {
-                        setImg(data[i].clothImgName);
+                        setDetailImg(data[i].clothImgName);
                         // console.log(data[i].clothImgName);
                     }
                 }
@@ -52,9 +52,9 @@ const ModifyPicture = (props) => {
     return (
         <>
             <div className="modify_image">
-                <img src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${img}`} alt="" id="mimg"></img>
+                <img src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${detailImg}`} alt="" id="mimg"></img>
                 <br></br><br></br>
-                <label for="file" ref={imgReff} onChange={() => { onModifyImage(); console.log() }}>사진 변경하기</label>
+                <label htmlFor="file" ref={imgReff} onChange={() => { onModifyImage(); console.log() }}>사진 변경하기</label>
                 <br></br>
                 <input type="file" ref={imgReff} onChange={() => { onModifyImage(); }} id="file"></input>
             </div>

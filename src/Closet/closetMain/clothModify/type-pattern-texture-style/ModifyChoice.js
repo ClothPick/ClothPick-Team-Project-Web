@@ -11,6 +11,7 @@ import Outer from '../clothModifyDetail/outer/Outer'
 import Check from '../color/Color'
 import Bar from '../preference/Preference'
 import ClosetMethod from "../../../../Test/ClosetMethod";
+import { data } from "jquery";
 
 const RadioInput = ({ label, value, checked, setter }) => {
     return (
@@ -46,6 +47,7 @@ const Modify_choice = () => {
     //----------db------------
     const [clothId, setClothId] = useState([]);
     const [clothInfo, setClothInfo] = useState([]);
+    const [realKeyword, setRealKeyword] = useState([]);
 
 
     const handleSubmit = e => {
@@ -58,10 +60,22 @@ const Modify_choice = () => {
 
     var vall;
 
+    //----------------------
     const onChange = (e) => {
         setKeyward(e.target.value);
         console.log(e.target.value);
+        // console.log(document.getElementById("mkeyward").value)
+
+        // for (var i = 0; i < clothInfo.length; i++) {
+        //     if (clothId === clothInfo[i].clothId) {
+        //         setKeyward(clothInfo[i].clothKeyword);
+        //     }
+        // }
+
+
     }
+    //----------------------
+
 
     useEffect(() => {
         // 옷-이미지 연결 테이블 정보 get
@@ -90,18 +104,38 @@ const Modify_choice = () => {
         getData();
     }, [])
 
-    const ShowData = () => {
-        for (var i = 0; i < clothInfo.length; i++) {
-            if (clothId === clothInfo[i].clothId) {
-                setKeyward(clothInfo[i].clothKeyword);
-            }
-        }
+    // const ShowData = () => {
+    //     for (var i = 0; i < clothInfo.length; i++) {
+    //         if (clothId === clothInfo[i].clothId) {
+    //             setRealKeyword(clothInfo[i].clothKeyword);
+    //         }
+    //     }
+    // }
+
+    let newClothInfo = [];
+
+    // 옷 데이터에서 중복 값 제거 하는 함수 -- 키워드를 위한 함수
+    const removeDuple = () => {
+        let result = clothInfo.filter((item, i) => {
+            return (
+                clothInfo.findIndex((item2, j) => {
+                    return item.clothId === item2.clothId;
+                }) === i
+            );
+        })
+        console.log(result);
+
+        let result2 = result.map(data => (
+            clothId === data.clothId ?
+                <input type="text" id="mkeyward" onChange={(e) => onChange(e)} defaultValue={data.clothKeyword}></input>
+                : null
+        ))
+        return result2;
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="modtotal">
-
                 <div className="quest2">
                     <span id='quest2'>종류</span>
                     <br></br><br></br>
@@ -149,7 +183,6 @@ const Modify_choice = () => {
                     {ac ? <Ac setDetail={setDetail} detail={clothDetail} /> : <Blank />}
                     {outer ? <Outer setDetail={setDetail} detail={clothDetail} /> : <Blank />}
                 </div>
-                {/* <div className='bet2'></div> */}
             </div>
 
             <div className='quest4'>
@@ -197,9 +230,8 @@ const Modify_choice = () => {
 
             <div className='quest8'>
                 <span id='quest8'>옷 키워드</span><br></br><br></br>
-                <ShowData />
-                {/* <input type="text" id="mkeyward" value={clothKeyword} ></input> */}
-                <input type="text" id="mkeyward" onChange={onChange} value={clothKeyword} ></input>
+                {/* 키워드 추가(clothId 중복제거) */}
+                {removeDuple()}
             </div>
 
             <div className='quest9'>
