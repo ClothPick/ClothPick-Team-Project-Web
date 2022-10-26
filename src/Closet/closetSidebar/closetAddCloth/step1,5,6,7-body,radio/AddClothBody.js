@@ -1,9 +1,9 @@
 import './AddClothBody.css'
-import '../step1-picture/Picture.css'
+import '../step0-picture/Picture.css'
 
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import Check from "../step4-color/Color"
+import Check from "../step3-color/Color"
 import Top from '../step3-details/top/Top'
 import Bottom from '../step3-details/bottom/Bottom'
 import Blank from '../step3-details/DetailBlank'
@@ -14,6 +14,7 @@ import Outer from '../step3-details/outer/Outer'
 import Bar from '../step8-preference/Bar'
 import ClosetMethod from '../../../../Test/ClosetMethod'
 import empty from "../../../../img/empty.png"
+import "../../../../Community/Pick/noticeBoardComponent/Writing.css"
 
 
 
@@ -113,13 +114,21 @@ const Survey = () => {
         <form onSubmit={handleSubmit}>
             <div className="Stotal">
                 <div className="input_image">
-                    <img src={imageUrl ? imageUrl : empty} alt="cimg" id="ccimg"></img>
+                    {/* <img src={imageUrl ? imageUrl : empty} alt="cimg" id="ccimg"></img>
                     <label htmlFor="file" name="file" onChange={(e) => { onChangeImage(e); console.log() }}>파일 선택</label>
                     <br></br>
-                    <input type="file" name="file" onChange={(e) => { onChangeImage(e); }} id="file"></input>
+                    <input type="file" name="file" onChange={(e) => { onChangeImage(e); }} id="file"></input> */}
+                    <div className='img-upload'>
+                        <label htmlFor="file" onChange={(e) => { onChangeImage(e) }}>
+                            <span>+</span>
+                            <img src={imageUrl} alt="" id='ccimg' />
+                            {/* <div className='img-upload' ><span>+</span></div> */}
+                        </label>
+                        <input type="file" onChange={(e) => { onChangeImage(e) }} id="file"></input>
+                    </div>
+
 
                 </div>
-                {/* <Picture setPicture={setPicture} picture={picture} /> */}
 
                 <div className='step2'>
 

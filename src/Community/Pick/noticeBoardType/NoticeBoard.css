@@ -320,14 +320,6 @@ div {
     /* display: flex; */
 }
 
-.input_image input[type="file"]{
-    width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
 
 .img-upload {
     background-color: #f9f9f9;
@@ -335,16 +327,18 @@ div {
     height: 200px;
     border: dashed 3px #e4e4e4;
     margin: auto;
-    display: flex;
+    position: relative;
+    /* display: flex; */
     /* text-align: center; */
 }
 
 .img-upload > span {
     color: #67595E;
     font-size: 80px;
-    display: flex;
-    margin-top: 40px;
-    margin-left: 75px;
+    /* display: flex; */
+    position: relative;
+    /* margin-top: 40px; */
+    /* margin-left: -75px; */
     font-weight: bold;
 }
 
