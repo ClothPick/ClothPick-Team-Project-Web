@@ -47,13 +47,10 @@ const Modify_choice = () => {
     //----------db------------
     const [clothId, setClothId] = useState([]);
     const [clothInfo, setClothInfo] = useState([]);
-    const [pickClothInfo, setPickClothInfo] = useState([]);
     const [dbType, setDbType] = useState([]);
 
     const [checked, setChecked] = useState(false);
 
-    // useEffect의 감시대상
-    const [monitor, setMonitor] = useState(false); // useState로 변하는 변수만 useEffect에 사용
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -70,7 +67,7 @@ const Modify_choice = () => {
         console.log(e.target.value);
     }
 
-    // setMonitor(true);
+
     useEffect(() => {
         // 옷-이미지 연결 테이블 정보 get
         const get = ClosetMethod.ConnectClosetImgGet();
@@ -93,31 +90,23 @@ const Modify_choice = () => {
             clothGet.then(data => {
                 setClothInfo(data);
                 console.log(data);
+
+                // 만약 clothInfo가 undefined가 아니고 null이 아니면
+                if (clothInfo != "undefined" && clothInfo != null) {
+                    let result = clothInfo.filter((info) => { // clothId와 동일한 값을 찾아서
+                        return info.clothId === clothId;
+                    });
+                    console.log(result[0].clothType); // clothId와 동일한 데이터를 검색한다.
+                    // setDbType(result[0].clothType);
+                }
+                else {
+                    console.log("안돼요");
+                }
             })
         };
 
-        const checkId = () => {
-            // 만약 clothInfo가 undefined가 아니고 null이 아니면
-            let result = clothInfo.filter((info) => {
-                return info.clothId === clothId;
-            })
-            setPickClothInfo(result);
-            console.log(pickClothInfo);
-            // if (clothInfo != "undefined" && clothInfo != null) {
-            //     let result = clothInfo.filter((info) => { // clothId와 동일한 값을 찾아서
-            //         return info.clothId === clothId;
-            //     });
-            //     console.log(result[0].clothType); // clothId와 동일한 데이터를 검색한다.
-            //     // setDbType(result[0].clothType);
-            // }
-            // else {
-            //     console.log("안돼요");
-            // }
-        }
-
         getData();
-        checkId();
-    }, [monitor])
+    }, [clothId])
 
     // 옷 데이터에서 중복 값 제거 하는 함수 -- 키워드를 위한 함수
     const removeDuple = () => {

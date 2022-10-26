@@ -1,0 +1,18 @@
+.text-detail {
+    display: flex;
+    margin: 30px 15px auto;
+    font-weight: 500;
+}
+
+.radio-contents {
+    display: flex;
+    margin-left: 20px;
+}
+
+.m-l-20 {
+    margin-left: 20px;
+}
+
+.m-t-20 {
+    margin-top: 20px;
+}
