@@ -1,0 +1,44 @@
+.mentire{
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.mtotal{
+    width: 1100px;
+    height: auto;
+    /* background-color: yellow; */
+   display: flex;
+   justify-content: flex-end;
+   flex-wrap: wrap;
+   margin: 0 auto;
+}
+.mtitle{
+    width: 1290px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.mtitle>p{
+    font-size: 20px;
+    margin-top: 60px;
+}
+
+.mpicture{
+    /* background-color: #E8E7D2; */
+    width: 1290px;
+    height: 500px;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center; */
+}
+
+.mchoice{
+    border-left: medium solid lightgray;
+    width: 900px;
+    /* float: right; */
+    border-right: medium solid lightgray;
+    height: auto;
+    margin: 0 auto;
+
+}

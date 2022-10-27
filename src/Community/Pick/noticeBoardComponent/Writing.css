@@ -1,0 +1,105 @@
+.m-l-100 {
+    margin-left: 100px;
+}
+
+.white-space {
+    max-width: 1140px;
+    margin: auto;
+}
+
+.text-top-2 {
+    margin-top: 24px;
+}
+
+.m-t-50 {
+    margin-top: 50px;
+}
+
+.center {
+    justify-content: center;
+    text-align: center;
+}
+
+.inputField {
+    background-color: transparent;
+    height: 50px;
+    width: 600px;
+    border: 2px solid rgba(0, 0, 0, 0.23);
+    border-radius: 7px;
+    font-size: 20px;
+}
+.inputField:hover {
+    border: 2px solid black;
+}
+.inputField:focus-visible  {
+    outline: none!important;
+    border: 2px solid #67595E;
+}
+.inputField::placeholder {
+    color: #b8b8b8;
+}
+
+.inputContents {
+    height: 300px;
+    width: 500px;
+    border: 2px solid #D9D9D9;
+    font-size: 15px;
+    padding: 20px;
+    border-radius: 8px;
+}
+.inputContents::placeholder {
+    color: #b8b8b8;
+}
+
+.input_image input[type="file"]{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.img-upload {
+    background-color: #f9f9f9;
+    width: 200px;
+    height: 200px;
+    border: dashed 3px #e4e4e4;
+    position: relative;
+    /* display: flex; */
+    /* text-align: center; */
+}
+
+.img-upload > label > span {
+    color: #67595E;
+    font-size: 80px;
+    /* display: flex; */
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 70px;
+    font-weight: bold;
+}
+
+.img-upload > span {
+    margin-top: 40px;
+    position: absolute;
+    margin-left: -25px;
+}
+
+.brown-round {
+    background-color: #67595E;
+    width: 60px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    margin: 20px 0 0 10px;
+}
+
+.scrap {
+    cursor:pointer;
+    transition: transform 300ms ease;
+}
+
+.scrap:hover {
+    transform: scale(1.1);
+}
