@@ -13,7 +13,6 @@ import Ac from '../step3-details/accessory/Ac'
 import Outer from '../step3-details/outer/Outer'
 import Bar from '../step8-preference/Bar'
 import ClosetMethod from '../../../../Test/ClosetMethod'
-import empty from "../../../../img/empty.png"
 import "../../../../Community/Pick/noticeBoardComponent/Writing.css"
 
 

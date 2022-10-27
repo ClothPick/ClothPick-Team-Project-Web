@@ -52,7 +52,7 @@ const ModifyPicture = (props) => {
     return (
         <>
             <div className="modify_image">
-                <img src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${detailImg}`} alt="" id="mimg"></img>
+                <img src={mimageUrl ? mimageUrl : `http://192.168.0.101:8080/api/v1/displayimg/closet/${detailImg}`} alt="" id="mimg"></img>
                 <br></br><br></br>
                 <label htmlFor="file" ref={imgReff} onChange={() => { onModifyImage(); console.log() }}>사진 변경하기</label>
                 <br></br>

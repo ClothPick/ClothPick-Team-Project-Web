@@ -82,12 +82,26 @@ async function ConnectClosetImgGet() {
     }
 }
 
+//옷, 이미지 / 옷 정보 삭제
+async function ClosetInfoDelete(clothId) { // 연결 테이블에 있는 clothId
+    try {
+        const response = await Instance.delete(`/api/v1/clothDelete/${clothId}`, {
+            clothId: clothId
+        });
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const ClosetMethod = {
     ClosetInfoGet,
     ClosetInfoPost,
     ClosetImgUpload,
     ConnectClosetImgPost,
     ConnectClosetImgGet,
+    ClosetInfoDelete,
 }
 
 export default ClosetMethod;
