@@ -45,15 +45,10 @@ const Modify_choice = () => {
     const [ac, Showac] = useState(false);
 
     //----------db------------
-    const [clothId, setClothId] = useState([]);
+    const [clothId, setClothId] = useState([]); // useEffect monitor value
     const [clothInfo, setClothInfo] = useState([]);
-    const [pickClothInfo, setPickClothInfo] = useState([]);
     const [dbType, setDbType] = useState([]);
 
-    const [checked, setChecked] = useState(false);
-
-    // useEffect의 감시대상
-    const [monitor, setMonitor] = useState(false); // useState로 변하는 변수만 useEffect에 사용
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -67,7 +62,7 @@ const Modify_choice = () => {
 
     const onChange = (e) => {
         setKeyward(e.target.value);
-        console.log(e.target.value);
+        // console.log(e.target.value);
     }
 
     // setMonitor(true);
@@ -98,26 +93,23 @@ const Modify_choice = () => {
 
         const checkId = () => {
             // 만약 clothInfo가 undefined가 아니고 null이 아니면
+
             let result = clothInfo.filter((info) => {
                 return info.clothId === clothId;
             })
-            setPickClothInfo(result);
-            console.log(pickClothInfo);
-            // if (clothInfo != "undefined" && clothInfo != null) {
-            //     let result = clothInfo.filter((info) => { // clothId와 동일한 값을 찾아서
-            //         return info.clothId === clothId;
-            //     });
-            //     console.log(result[0].clothType); // clothId와 동일한 데이터를 검색한다.
-            //     // setDbType(result[0].clothType);
-            // }
-            // else {
-            //     console.log("안돼요");
-            // }
+
+            if (result[0]?.clothType) {
+                console.log(result[0].clothType);
+                setDbType(result[0].clothType);
+            }
+            else {
+                console.log("clothType 안돼요");
+            }
         }
 
         getData();
         checkId();
-    }, [monitor])
+    }, [clothId])
 
     // 옷 데이터에서 중복 값 제거 하는 함수 -- 키워드를 위한 함수
     const removeDuple = () => {
@@ -138,24 +130,15 @@ const Modify_choice = () => {
         return result2;
     }
 
-    // const SetRadioButton = () => {
-    //     // 만약 clothInfo가 undefined가 아니고 null이 아니면
-    //     if (clothInfo != "undefined" && clothInfo != null) {
-    //         let result = clothInfo.filter((info) => { // clothId와 동일한 값을 찾아서
-    //             return info.clothId === clothId;
-    //         });
-    //         console.log(result[0].clothType); // clothId와 동일한 데이터를 검색한다.
-    //         setDbType(result[0].clothType);
-    //         // }
-    //         // else {
-    //         //     console.log("안돼요");
-    //         // }
-    //     }
-    // }
-
     // RadioButton의 value값과 clothInfo의 clothType이 동일한지 확인
     const EqualValueRadio = (e) => {
-        dbType === e.target.value ? setChecked(true) : setChecked(false);
+        if (dbType === e.target.value) {
+            // setTarget(e.target.value);
+            console.log("맞아요");
+        }
+        else {
+            console.log("달라요");
+        }
     }
 
     return (
@@ -165,10 +148,9 @@ const Modify_choice = () => {
                     <span id='quest2'>종류</span>
                     <br></br><br></br>
                     <div className='quest2_answer'>
-                        {/* {SetRadioButton()} */}
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="상의"
-                                defaultChecked={checked}
+                                checked={dbType === "상의" ? true : false}
                                 onChange={(e) => EqualValueRadio(e)}
                                 onClick={() => { Showtop(true); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "상의"; setKind(vall); }} />
                             <span id="span1">상의</span>
@@ -176,36 +158,47 @@ const Modify_choice = () => {
 
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="하의"
+                                checked={dbType === "하의" ? true : false}
                                 onChange={(e) => EqualValueRadio(e)}
                                 onClick={() => { Showbottom(true); Showtop(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "하의"; setKind(vall); }} />
                             <span id="span1">하의</span>
                         </label>
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="신발"
+                                checked={dbType === "신발" ? true : false}
+
                                 onChange={(e) => EqualValueRadio(e)}
                                 onClick={() => { Showtop(false); Showbottom(false); Showshoes(true); Showbag(false); Showac(false); Showouter(false); vall = "신발"; setKind(vall); }} />
                             <span id="span1">신발</span>
                         </label>
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="가방"
+                                checked={dbType === "가방" ? true : false}
+
                                 onChange={(e) => EqualValueRadio(e)}
                                 onClick={() => { Showtop(false); Showbottom(false); Showshoes(false); Showbag(true); Showac(false); Showouter(false); vall = "가방"; setKind(vall); }} />
                             <span id="span1">가방</span>
                         </label>
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="악세사리"
+                                checked={dbType === "악세사리" ? true : false}
+
                                 onChange={(e) => EqualValueRadio(e)}
                                 onClick={() => { Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(true); Showouter(false); vall = "악세사리"; setKind(vall); }} />
                             <span id="span1">악세사리</span>
                         </label>
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="아우터"
+                                checked={dbType === "아우터" ? true : false}
+
                                 onChange={(e) => EqualValueRadio(e)}
                                 onClick={() => { Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(true); vall = "아우터"; setKind(vall); }} />
                             <span id="span1">아우터</span>
                         </label>
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="기타"
+                                checked={dbType === "기타" ? true : false}
+
                                 onChange={(e) => EqualValueRadio(e)}
                                 onClick={() => { Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "기타"; setKind(vall); }} />
                             <span id="span1">기타</span>

@@ -4,7 +4,7 @@ import Instance from "./TestInstance";
 async function ClosetInfoGet() {
     try {
         const response = await Instance.get('/api/v1/closetlist');
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -24,7 +24,7 @@ async function ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, 
             clothKeyword: clothKeyword,
             clothPref: clothPref,
         });
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
         // 옷 아이디(clothId) 리턴
     } catch (error) {
@@ -64,7 +64,7 @@ async function ConnectClosetImgPost(imgName, clothId) {
             clothImgName: imgName,
             clothId: clothId,
         });
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -75,7 +75,7 @@ async function ConnectClosetImgPost(imgName, clothId) {
 async function ConnectClosetImgGet() {
     try {
         const response = await Instance.get("/api/v1/clothimglist")
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
     } catch (error) {
         console.log(error);
