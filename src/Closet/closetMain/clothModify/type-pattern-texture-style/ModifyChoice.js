@@ -130,33 +130,46 @@ const Modify_choice = () => {
         history.replace("/closet");
     }
 
-    const ShowDetail = () => {
+    const ShowDetail = (e) => {
         switch (dbType) {
             case "상의":
-                SetDatail([1, 0, 0, 0, 0, 0, 0, "상의"]);
+                SetDatail([true, false, false, false, false, false, false, "상의"]);
                 break;
             case "하의":
-                SetDatail([0, 1, 0, 0, 0, 0, 0, "하의"]);
+                SetDatail([false, true, false, false, false, false, false, "하의"]);
                 break;
             case "신발":
-                SetDatail([0, 0, 1, 0, 0, 0, 0, "신발"]);
+                SetDatail([false, false, true, false, false, false, false, "신발"]);
                 break;
             case "가방":
-                SetDatail([0, 0, 0, 1, 0, 0, 0, "가방"]);
+                SetDatail([false, false, false, true, false, false, false, "가방"]);
                 break;
             case "악세사리":
-                SetDatail([0, 0, 0, 0, 1, 0, 0, "악세사리"]);
+                SetDatail([false, false, false, false, true, false, false, "악세사리"]);
                 break;
             case "아우터":
-                SetDatail([0, 0, 0, 0, 0, 1, 0, "아우터"]);
+                SetDatail([false, false, false, false, false, true, false, "아우터"]);
                 break;
             case "기타":
-                SetDatail([0, 0, 0, 0, 0, 0, 0, "기타"]);
+                SetDatail([false, false, false, false, false, false, false, "기타"]);
                 break;
         }
     }
 
-    ShowDetail();
+    //{ Showtop(true); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "상의"; setKind(vall); }} /> */}
+
+    const SetDatail = (props) => {
+        if (props > 0) {
+            setShowTop(props[0]);
+            setShowBottom(props[1]);
+            setShowShoes(props[2]);
+            setShowBag(props[3]);
+            setShowAc(props[4]);
+            setShowOuter(props[5]);
+            setKind(props[6]);
+        }
+    }
+
 
     // 옷 데이터에서 중복 값 제거 하는 함수 -- 키워드를 위한 함수
     const removeDuple = () => {
@@ -180,15 +193,17 @@ const Modify_choice = () => {
     // RadioButton의 value값과 clothInfo의 clothType이 동일한지 확인
     const EqualValueRadio = (e) => {
         if (dbType === e.target.value) {
-            console.log("일치");
-            return (setKind(e.target.value));
-
+            // console.log("일치");
+            console.log(e.target.value);
+            setDbType(e.target.value);
+            // return (setKind(e.target.value));
             // return (<RadioInput label={e.target.value} value={e.target.value} checked={clothType} setter={setKind} />);
         }
         else {
-            console.log("불일치");
-            console.log(e.target.checked);
-            return (setKind(e.target.value));
+            // console.log("불일치");
+            console.log(e.target.value);
+            setDbType(e.target.value);
+            // return (setKind(e.target.value));
         }
     }
 
@@ -205,7 +220,7 @@ const Modify_choice = () => {
                             <input type="radio" name="ckbox" id="answer" value="상의"
                                 checked={dbType === "상의" ? true : false}
                                 // {...ShowDetail()}
-                                // onClick={() => { ShowDetail() }}
+                                onClick={(e) => { ShowDetail(e) }}
                                 onChange={(e) => EqualValueRadio(e)} />
                             {/* onClick={() => { Showtop(true); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "상의"; setKind(vall); }} /> */}
                             <span id="span1">상의</span>
@@ -215,12 +230,15 @@ const Modify_choice = () => {
                             <input type="radio" name="ckbox" id="answer" value="하의"
                                 checked={dbType === "하의" ? true : false}
                                 // onClick={() => { Showbottom(true); Showtop(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "하의"; setKind(vall); }} />
+                                onClick={() => { ShowDetail() }}
+
                                 onChange={(e) => EqualValueRadio(e)} />
                             <span id="span1">하의</span>
                         </label>
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="신발"
                                 checked={dbType === "신발" ? true : false}
+                                onClick={() => { ShowDetail() }}
 
                                 // onClick={() => { Showtop(false); Showbottom(false); Showshoes(true); Showbag(false); Showac(false); Showouter(false); vall = "신발"; setKind(vall); }} />
                                 onChange={(e) => EqualValueRadio(e)} />
@@ -229,6 +247,7 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="가방"
                                 checked={dbType === "가방" ? true : false}
+                                onClick={() => { ShowDetail() }}
 
                                 // onClick={() => { Showtop(false); Showbottom(false); Showshoes(false); Showbag(true); Showac(false); Showouter(false); vall = "가방"; setKind(vall); }} />
                                 onChange={(e) => EqualValueRadio(e)} />
@@ -238,6 +257,7 @@ const Modify_choice = () => {
                             <input type="radio" name="ckbox" id="answer" value="악세사리"
                                 checked={dbType === "악세사리" ? true : false}
                                 // onClick={() => { Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(true); Showouter(false); vall = "악세사리"; setKind(vall); }} />
+                                onClick={() => { ShowDetail() }}
 
                                 onChange={(e) => EqualValueRadio(e)} />
                             <span id="span1">악세사리</span>
@@ -246,6 +266,7 @@ const Modify_choice = () => {
                             <input type="radio" name="ckbox" id="answer" value="아우터"
                                 checked={dbType === "아우터" ? true : false}
                                 // onClick={() => { Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(true); vall = "아우터"; setKind(vall); }} />
+                                onClick={() => { ShowDetail() }}
 
                                 onChange={(e) => EqualValueRadio(e)} />
                             <span id="span1">아우터</span>
@@ -254,6 +275,7 @@ const Modify_choice = () => {
                             <input type="radio" name="ckbox" id="answer" value="기타"
                                 checked={dbType === "기타" ? true : false}
                                 // onClick={() => { Showtop(false); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "기타"; setKind(vall); }} />
+                                onClick={() => { ShowDetail() }}
 
                                 onChange={(e) => EqualValueRadio(e)} />
                             <span id="span1">기타</span>
@@ -262,23 +284,29 @@ const Modify_choice = () => {
                 </div>
             </div>
 
+            {/* ------------------------------------------------- */}
+
             <div className='quest3'>
                 <span id='quest3'>세부사항</span>
                 <br></br><br></br>
                 <div className='de'>
-                    {showTop ? <Top setDetail={setDetail} detail={clothDetail} /> : <Blank />}
-                    {showBottom ? <Bottom setDetail={setDetail} detail={clothDetail} /> : <Blank />}
-                    {showShoes ? <Shoes setDetail={setDetail} detail={clothDetail} /> : <Blank />}
-                    {showBag ? <Bag setDetail={setDetail} detail={clothDetail} /> : <Blank />}
-                    {showAc ? <Ac setDetail={setDetail} detail={clothDetail} /> : <Blank />}
-                    {showOuter ? <Outer setDetail={setDetail} detail={clothDetail} /> : <Blank />}
+                    {showTop ? <Top detail={clothDetail} setDetail={setDetail} /> : <Blank />}
+                    {showBottom ? <Bottom detail={clothDetail} setDetail={setDetail} /> : <Blank />}
+                    {showShoes ? <Shoes detail={clothDetail} setDetail={setDetail} /> : <Blank />}
+                    {showBag ? <Bag detail={clothDetail} setDetail={setDetail} /> : <Blank />}
+                    {showAc ? <Ac detail={clothDetail} setDetail={setDetail} /> : <Blank />}
+                    {showOuter ? <Outer detail={clothDetail} setDetail={setDetail} /> : <Blank />}
                 </div>
             </div>
+
+            {/* ------------------------------------------------- */}
 
             <div className='quest4'>
                 <span id='quest4'>색상</span><br></br><br></br>
                 <Check setColor={setColor} color={clothColor} />
             </div>
+
+            {/* ------------------------------------------------- */}
 
             <div className='quest5'>
 
@@ -294,6 +322,8 @@ const Modify_choice = () => {
                 </div>
             </div>
 
+            {/* ------------------------------------------------- */}
+
             <div className='quest6'>
                 <span id='quest6'>재질</span><br></br><br></br>
                 <div className='modmaterial'>
@@ -305,6 +335,8 @@ const Modify_choice = () => {
                     <RadioInput label="기타" value="기타" checked={clothTexture} setter={setMaterial} />
                 </div>
             </div>
+
+            {/* ------------------------------------------------- */}
 
             <div className='quest7'>
                 <span id='quest7'>스타일</span><br></br><br></br><br></br>
@@ -318,11 +350,15 @@ const Modify_choice = () => {
                 </div>
             </div>
 
+            {/* ------------------------------------------------- */}
+
             <div className='quest8'>
                 <span id='quest8'>옷 키워드</span><br></br><br></br>
                 {/* 키워드 추가(clothId 중복제거) */}
                 {removeDuple()}
             </div>
+
+            {/* ------------------------------------------------- */}
 
             <div className='quest9'>
                 <span id='quest9'>선호도</span><br></br><br></br>
@@ -343,13 +379,3 @@ export default Modify_choice;
 
 
 
-//{ Showtop(true); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "상의"; setKind(vall); }} /> */}
-const SetDatail = (props) => {
-    // setShowTop(props[0]);
-    // setShowBottom(props[1]);
-    // setShowShoes(props[2]);
-    // setShowBag(props[3]);
-    // setShowAc(props[4]);
-    // setShowOuter(props[5]);
-    // setKind(props[6]);
-}
