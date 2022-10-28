@@ -29,11 +29,11 @@ const Modify_choice = () => {
     var url = window.location.pathname.split("/")[2];
     // console.log("url:", url);
 
-    const [clothType, setKind] = useState("");
-    const [clothDetail, setDetail] = useState(null);
+    // const [clothType, setKind] = useState("");
+    // const [clothDetail, setDetail] = useState(null);
     const [clothColor, setColor] = useState([]);
-    const [clothPattern, setPattern] = useState(null);
-    const [clothTexture, setMaterial] = useState(null);
+    // const [clothPattern, setPattern] = useState(null);
+    // const [clothTexture, setMaterial] = useState(null);
     const [clothStyle, setStyle] = useState(null);
     const [clothKeyword, setKeyward] = useState("");
     const [clothPref, setPro] = useState(0);
@@ -49,6 +49,11 @@ const Modify_choice = () => {
     const [clothId, setClothId] = useState([]); // useEffect monitor value
     const [clothInfo, setClothInfo] = useState([]);
     const [dbType, setDbType] = useState([]);
+    const [dbDetail, setDbDetail] = useState([]);
+    const [dbColor, setDbColor] = useState([]);
+    const [dbPattern, setDbPattern] = useState([]);
+    const [dbTexture, setDbTexture] = useState([]);
+    const [dbStyle, setDbStyle] = useState([]);
 
     const [useMonitor, setUseMonitor] = useState(false);
 
@@ -58,7 +63,7 @@ const Modify_choice = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        const data = { clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref };
+        const data = { dbType, dbDetail, clothColor, dbPattern, dbTexture, clothStyle, clothKeyword, clothPref };
         const json = JSON.stringify(data, null, 10);
 
         // console.log(json);
@@ -106,47 +111,24 @@ const Modify_choice = () => {
                 return info.clothId === clothId;
             })
 
-            if (result[0]?.clothType) {
-                console.log(result[0].clothType);
+            if (result[0]?.clothType && result[0]?.clothDetail && result[0]?.clothPattern &&
+                result[0]?.clothTexture && result[0]?.clothStyle) {
+                // console.log(result[0].clothType);
                 setDbType(result[0].clothType);
+                // console.log(result[0].clothDetail);
+                setDbDetail(result[0].clothDetail);
+                // console.log(result[0].clothPattern);
+                setDbPattern(result[0].clothPattern);
+                // console.log(result[0].clothTexture);
+                setDbTexture(result[0].clothTexture);
+                console.log(result[0].clothStyle);
+                setDbStyle(result[0].clothStyle);
             }
             else {
                 console.log("clothType 인식 안돼요");
                 useMonitor ? setUseMonitor(false) : setUseMonitor(true);
             }
         }
-
-
-        // const ShowDetail = () => {
-        //     switch (dbType) {
-        //         case "상의":
-        //             return SetDatail([true, false, false, false, false, false, false, "상의"]);
-        //         case "하의":
-        //             return SetDatail([false, true, false, false, false, false, false, "하의"]);
-        //         case "신발":
-        //             return SetDatail([false, false, true, false, false, false, false, "신발"]);
-        //         case "가방":
-        //             return SetDatail([false, false, false, true, false, false, false, "가방"]);
-        //         case "악세사리":
-        //             return SetDatail([false, false, false, false, true, false, false, "악세사리"]);
-        //         case "아우터":
-        //             return SetDatail([false, false, false, false, false, true, false, "아우터"]);
-        //         case "기타":
-        //             return SetDatail([false, false, false, false, false, false, false, "기타"]);
-        //     }
-        // }
-
-        // const SetDatail = (props) => {
-        //     console.log(props);
-        //     setShowTop(props[0]);
-        //     setShowBottom(props[1]);
-        //     setShowShoes(props[2]);
-        //     setShowBag(props[3]);
-        //     setShowAc(props[4]);
-        //     setShowOuter(props[5]);
-        //     setKind(props[6]);
-        // }
-
 
         ShowDetail();
         getData();
@@ -191,7 +173,7 @@ const Modify_choice = () => {
         setShowBag(props[3]);
         setShowAc(props[4]);
         setShowOuter(props[5]);
-        setKind(props[6]);
+        setDbDetail(props[6]);
     }
 
     //{ Showtop(true); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "상의"; setKind(vall); }} /> */}
@@ -300,12 +282,12 @@ const Modify_choice = () => {
                 <span id='quest3'>세부사항</span>
                 <br></br><br></br>
                 <div className='de'>
-                    {dbType === "상의" ? <Top detail={clothDetail} setDetail={setDetail} /> : <Blank />}
-                    {dbType === "하의" ? <Bottom detail={clothDetail} setDetail={setDetail} /> : <Blank />}
-                    {dbType === "신발" ? <Shoes detail={clothDetail} setDetail={setDetail} /> : <Blank />}
-                    {dbType === "가방" ? <Bag detail={clothDetail} setDetail={setDetail} /> : <Blank />}
-                    {dbType === "악세사리" ? <Ac detail={clothDetail} setDetail={setDetail} /> : <Blank />}
-                    {dbType === "아우터" ? <Outer detail={clothDetail} setDetail={setDetail} /> : <Blank />}
+                    {dbType === "상의" ? <Top detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
+                    {dbType === "하의" ? <Bottom detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
+                    {dbType === "신발" ? <Shoes detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
+                    {dbType === "가방" ? <Bag detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
+                    {dbType === "악세사리" ? <Ac detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
+                    {dbType === "아우터" ? <Outer detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
                 </div>
             </div>
 
@@ -322,13 +304,13 @@ const Modify_choice = () => {
 
                 <span id='quest5'>무늬</span><br></br><br></br>
                 <div className='mpattern'>
-                    <RadioInput label="무지" value="무지" checked={clothPattern} setter={setPattern} />
-                    <RadioInput label="그래픽" value="그래픽" checked={clothPattern} setter={setPattern} />
-                    <RadioInput label="레터링" value="레터링" checked={clothPattern} setter={setPattern} />
-                    <RadioInput label="스프라이트" value="스프라이트" checked={clothPattern} setter={setPattern} />
-                    <RadioInput label="플로럴" value="플로럴" checked={clothPattern} setter={setPattern} />
-                    <RadioInput label="체크" value="체크" checked={clothPattern} setter={setPattern} />
-                    <RadioInput label="기타" value="기타" checked={clothPattern} setter={setPattern} />
+                    <RadioInput label="무지" value="무지" checked={dbPattern} setter={setDbPattern} />
+                    <RadioInput label="그래픽" value="그래픽" checked={dbPattern} setter={setDbPattern} />
+                    <RadioInput label="레터링" value="레터링" checked={dbPattern} setter={setDbPattern} />
+                    <RadioInput label="스프라이트" value="스프라이트" checked={dbPattern} setter={setDbPattern} />
+                    <RadioInput label="플로럴" value="플로럴" checked={dbPattern} setter={setDbPattern} />
+                    <RadioInput label="체크" value="체크" checked={dbPattern} setter={setDbPattern} />
+                    <RadioInput label="기타" value="기타" checked={dbPattern} setter={setDbPattern} />
                 </div>
             </div>
 
@@ -338,11 +320,11 @@ const Modify_choice = () => {
                 <span id='quest6'>재질</span><br></br><br></br>
                 <div className='modmaterial'>
 
-                    <RadioInput label="면" value="면" checked={clothTexture} setter={setMaterial} />
-                    <RadioInput label="니트" value="니트" checked={clothTexture} setter={setMaterial} />
-                    <RadioInput label="벨벳" value="벨벳" checked={clothTexture} setter={setMaterial} />
-                    <RadioInput label="합성섬유" value="합성섬유" checked={clothTexture} setter={setMaterial} />
-                    <RadioInput label="기타" value="기타" checked={clothTexture} setter={setMaterial} />
+                    <RadioInput label="면" value="면" checked={dbTexture} setter={setDbTexture} />
+                    <RadioInput label="니트" value="니트" checked={dbTexture} setter={setDbTexture} />
+                    <RadioInput label="벨벳" value="벨벳" checked={dbTexture} setter={setDbTexture} />
+                    <RadioInput label="합성섬유" value="합성섬유" checked={dbTexture} setter={setDbTexture} />
+                    <RadioInput label="기타" value="기타" checked={dbTexture} setter={setDbTexture} />
                 </div>
             </div>
 
@@ -351,12 +333,12 @@ const Modify_choice = () => {
             <div className='quest7'>
                 <span id='quest7'>스타일</span><br></br><br></br><br></br>
                 <div className='mstyle'>
-                    <RadioInput label="캐주얼" value="캐주얼" checked={clothStyle} setter={setStyle} />
-                    <RadioInput label="러블리" value="러블리" checked={clothStyle} setter={setStyle} />
-                    <RadioInput label="하이틴" value="하이틴" checked={clothStyle} setter={setStyle} />
-                    <RadioInput label="스포티" value="스포티" checked={clothStyle} setter={setStyle} />
-                    <RadioInput label="스트릿" value="스트릿" checked={clothStyle} setter={setStyle} />
-                    <RadioInput label="기타" value="기타" checked={clothStyle} setter={setStyle} />
+                    <RadioInput label="캐주얼" value="캐주얼" checked={dbStyle} setter={setDbStyle} />
+                    <RadioInput label="러블리" value="러블리" checked={dbStyle} setter={setDbStyle} />
+                    <RadioInput label="하이틴" value="하이틴" checked={dbStyle} setter={setDbStyle} />
+                    <RadioInput label="스포티" value="스포티" checked={dbStyle} setter={setDbStyle} />
+                    <RadioInput label="스트릿" value="스트릿" checked={dbStyle} setter={setDbStyle} />
+                    <RadioInput label="기타" value="기타" checked={dbStyle} setter={setDbStyle} />
                 </div>
             </div>
 
