@@ -29,31 +29,20 @@ const Modify_choice = () => {
     var url = window.location.pathname.split("/")[2];
     // console.log("url:", url);
 
-    // const [clothType, setKind] = useState("");
-    // const [clothDetail, setDetail] = useState(null);
     const [clothColor, setColor] = useState([]);
-    // const [clothPattern, setPattern] = useState(null);
-    // const [clothTexture, setMaterial] = useState(null);
-    const [clothStyle, setStyle] = useState(null);
     const [clothKeyword, setKeyward] = useState("");
     const [clothPref, setPro] = useState(0);
-
-    const [showTop, setShowTop] = useState(false);
-    const [showBottom, setShowBottom] = useState(false);
-    const [showShoes, setShowShoes] = useState(false);
-    const [showBag, setShowBag] = useState(false);
-    const [showOuter, setShowOuter] = useState(false);
-    const [showAc, setShowAc] = useState(false);
 
     //----------db------------
     const [clothId, setClothId] = useState([]); // useEffect monitor value
     const [clothInfo, setClothInfo] = useState([]);
     const [dbType, setDbType] = useState([]);
     const [dbDetail, setDbDetail] = useState([]);
-    const [dbColor, setDbColor] = useState([]);
+    // const [dbColor, setDbColor] = useState([]);
     const [dbPattern, setDbPattern] = useState([]);
     const [dbTexture, setDbTexture] = useState([]);
     const [dbStyle, setDbStyle] = useState([]);
+    const [dbPref, setDbPref] = useState([]);
 
     const [useMonitor, setUseMonitor] = useState(false);
 
@@ -63,20 +52,13 @@ const Modify_choice = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        const data = { dbType, dbDetail, clothColor, dbPattern, dbTexture, clothStyle, clothKeyword, clothPref };
-        const json = JSON.stringify(data, null, 10);
-
-        // console.log(json);
+        const data = { dbType, dbDetail, clothColor, dbPattern, dbTexture, dbStyle, clothKeyword, clothPref };
     };
-
-    var vall;
 
     const onChange = (e) => {
         setKeyward(e.target.value);
         // console.log(e.target.value);
     }
-
-
 
     useEffect(() => {
         // 옷-이미지 연결 테이블 정보 get
@@ -112,7 +94,7 @@ const Modify_choice = () => {
             })
 
             if (result[0]?.clothType && result[0]?.clothDetail && result[0]?.clothPattern &&
-                result[0]?.clothTexture && result[0]?.clothStyle) {
+                result[0]?.clothColor && result[0]?.clothTexture && result[0]?.clothStyle) {
                 // console.log(result[0].clothType);
                 setDbType(result[0].clothType);
                 // console.log(result[0].clothDetail);
@@ -123,16 +105,23 @@ const Modify_choice = () => {
                 setDbTexture(result[0].clothTexture);
                 console.log(result[0].clothStyle);
                 setDbStyle(result[0].clothStyle);
+                console.log(result);
+
+                // for (let i = 0; i < result.length; i++) {
+                //     dbColor.push(result[i].clothColor);
+                //     // console.log(result[i].clothColor)
+                // }
+                // console.log(dbColor);
+
             }
             else {
-                console.log("clothType 인식 안돼요");
-                useMonitor ? setUseMonitor(false) : setUseMonitor(true);
+                // console.log("clothType 인식 안돼요");
+                // useMonitor ? setUseMonitor(false) : setUseMonitor(true);
             }
         }
 
-        ShowDetail();
-        getData();
         checkId();
+        getData();
     }, [useMonitor])
 
     // 삭제
@@ -144,40 +133,6 @@ const Modify_choice = () => {
         alert("삭제되었습니다.")
         history.replace("/closet");
     }
-
-
-    const ShowDetail = () => {
-        switch (dbType) {
-            case "상의":
-                return SetDatail([true, false, false, false, false, false, false, "상의"]);
-            case "하의":
-                return SetDatail([false, true, false, false, false, false, false, "하의"]);
-            case "신발":
-                return SetDatail([false, false, true, false, false, false, false, "신발"]);
-            case "가방":
-                return SetDatail([false, false, false, true, false, false, false, "가방"]);
-            case "악세사리":
-                return SetDatail([false, false, false, false, true, false, false, "악세사리"]);
-            case "아우터":
-                return SetDatail([false, false, false, false, false, true, false, "아우터"]);
-            case "기타":
-                return SetDatail([false, false, false, false, false, false, false, "기타"]);
-        }
-    }
-
-    const SetDatail = (props) => {
-        console.log(props);
-        setShowTop(props[0]);
-        setShowBottom(props[1]);
-        setShowShoes(props[2]);
-        setShowBag(props[3]);
-        setShowAc(props[4]);
-        setShowOuter(props[5]);
-        setDbDetail(props[6]);
-    }
-
-    //{ Showtop(true); Showbottom(false); Showshoes(false); Showbag(false); Showac(false); Showouter(false); vall = "상의"; setKind(vall); }} /> */}
-
 
     // 옷 데이터에서 중복 값 제거 하는 함수 -- 키워드를 위한 함수
     const removeDuple = () => {
@@ -212,7 +167,6 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="상의"
                                 checked={dbType === "상의" ? true : false}
-                                onClick={(e) => ShowDetail(e)}
                                 onChange={(e) => changeRadio(e)} />
                             <span id="span1">상의</span>
                         </label>
@@ -220,7 +174,6 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="하의"
                                 checked={dbType === "하의" ? true : false}
-                                onClick={(e) => ShowDetail(e)}
                                 onChange={(e) => changeRadio(e)} />
 
 
@@ -229,7 +182,6 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="신발"
                                 checked={dbType === "신발" ? true : false}
-                                onClick={(e) => ShowDetail(e)}
                                 onChange={(e) => changeRadio(e)} />
 
 
@@ -238,7 +190,6 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="가방"
                                 checked={dbType === "가방" ? true : false}
-                                onClick={(e) => ShowDetail(e)}
                                 onChange={(e) => changeRadio(e)} />
 
 
@@ -248,7 +199,6 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="악세사리"
                                 checked={dbType === "악세사리" ? true : false}
-                                onClick={(e) => ShowDetail(e)}
                                 onChange={(e) => changeRadio(e)} />
 
 
@@ -257,7 +207,6 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="아우터"
                                 checked={dbType === "아우터" ? true : false}
-                                onClick={(e) => ShowDetail(e)}
                                 onChange={(e) => changeRadio(e)} />
 
 
@@ -266,7 +215,6 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="기타"
                                 checked={dbType === "기타" ? true : false}
-                                onClick={(e) => ShowDetail(e)}
                                 onChange={(e) => changeRadio(e)} />
 
 
@@ -295,7 +243,7 @@ const Modify_choice = () => {
 
             <div className='quest4'>
                 <span id='quest4'>색상</span><br></br><br></br>
-                <Check setColor={setColor} color={clothColor} />
+                <Check setColor={setColor} color={clothColor} colorList={clothColor} />
             </div>
 
             {/* ------------------------------------------------- */}
@@ -361,7 +309,7 @@ const Modify_choice = () => {
 
             <div className='BTN'>
                 <br></br><br></br><br></br><br></br><br></br>
-                <button id='submit' onClick={handleSubmit}>저장</button>
+                <button id='submit' onClick={handleSubmit}>수정</button>
                 <button id='cancel' onClick={() => { deleteBook() }}>삭제</button>
             </div>
         </form >

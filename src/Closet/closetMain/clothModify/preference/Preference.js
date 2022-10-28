@@ -16,13 +16,6 @@ function Bar(props) {
         }
     }
 
-    function add(props) {
-        if (count > 3) {
-            props.setPro(0);
-        }
-    }
-
-
     const num1 = () => {
 
 

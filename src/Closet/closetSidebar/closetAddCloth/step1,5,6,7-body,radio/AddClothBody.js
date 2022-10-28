@@ -62,6 +62,8 @@ const Survey = () => {
         const json = JSON.stringify(data, null, 8);
         console.log(json); // 저장 파일
 
+        console.log(data);
+
         let clothId = await ClosetMethod.ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref);
 
         // ------ 옷 정보, 옷 이미지 추가 -------
