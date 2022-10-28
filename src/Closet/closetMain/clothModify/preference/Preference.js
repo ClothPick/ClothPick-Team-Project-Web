@@ -3,127 +3,83 @@ import styled from "styled-components";
 import './Preference.css';
 import ClosetMethod from "../../../../Test/ClosetMethod";
 
-function Bar(props) {
-    var url = window.location.pathname.split("/")[2];
-    const [count, setCount] = useState(0);
-    const [good,setGood]=useState(0);
 
-    //--DB----
-    const [clothId, setClothId] = useState([]); // useEffect monitor value
-    const [clothInfo, setClothInfo] = useState([]);
+const Bar = (props)=> {
+    // const [count,setCount]=useState(0);
+    const [dbPref,setDbPref]=useState(0);
 
+    // function setPro(props){
+    //     setCount({props.dbPref})
+    // }
 
+    useEffect(()=>{
+        const Data=()=>{
+            setDbPref(props.dbPref);
+            console.log("dbPref", props.dbPref);
+        }
+        Data();
+        // num1();
+        // num2();
+        // num3();
+        // num4();
+        // num5();
+    },[])
 
-    function add_count(props) {
-        if (count >= 4) {
-            setCount(0);
+    const abc = () =>{
+        console.log("dbPref", dbPref);
+        // console.log(pp);
+    }
+
+    function add_count() {
+        if (dbPref >= 4) {
+            setDbPref(0);
 
         }
         else {
-            setCount(count + 1);
+            setDbPref(dbPref + 1);
 
         }
     }
 
-    function add(props) {
-        if (count > 3) {
-            props.setPro(0);
-        }
-    }
+    // function set(){
+    //     setCount(pp);
+    // }
 
 
-    const num1 = () => {
-        setCount(0);
-        <Progress width={(count * 1)} />
+
+    const num1 = (props) => {
+        setDbPref(0);
+        <Progress width={(dbPref * 1)} />
     }
 
     function num2() {
-        setCount(1);
-        <Progress width={(count)} />
+        setDbPref(1);
+        <Progress width={(dbPref*1)} />
 
     }
 
     function num3() {
-        setCount(2);
-        <Progress width={(count * 1)} />
+        setDbPref(2);
+        <Progress width={(dbPref * 1)} />
 
     }
 
     function num4() {
-        setCount(3);
-        <Progress width={(count * 1)} />
+        setDbPref(3);
+        <Progress width={(dbPref * 1)} />
 
     }
 
     function num5() {
-        setCount(4);
-        <Progress width={(count * 1)}
+        setDbPref(4);
+        <Progress width={(dbPref * 1)}
         />
     }
 
-    //    // setMonitor(true);
-    //    useEffect(() => {
-    //     // 옷-이미지 연결 테이블 정보 get
-    //     const get = ClosetMethod.ConnectClosetImgGet();
-    //     // 옷 정보 테이블 get
-    //     const clothGet = ClosetMethod.ClosetInfoGet();
-
-    //     const getData = () => {
-    //         get.then(data => {
-
-    //             // url주소에 있는 clothImgName와 동일한 이름 찾기
-    //             for (var i = 0; i < data.length; i++) {
-    //                 if (url === data[i].clothImgName) {
-    //                     // url clothImgName과 동일한 데이터가 저장되어있는 clothId값 저장
-    //                     setClothId(data[i].clothId);
-    //                     console.log(data[i].clothId);
-    //                 }
-    //             }
-    //         })
-
-    //         clothGet.then(data => {
-    //             setClothInfo(data);
-    //             console.log(data);
-    //         })
-    //     };
-
-    //     const pre=(clothId)=>{
-    //         const newGood=clothInfo.filter((clothInfo)=>clothInfo.clothId==clothId);
-    //         setGood(newGood);
-    //         console.log("good: "+good);
-    //     };
-    //     getData();
-    //     pre();
-    // }, [clothId])
-
-    //closetInfo에서 ID만 빼서 배열로 저장
-    // const pre=(clothId)=>{
-    //     const newGood=clothInfo.filter((clothInfo)=>clothInfo.clothId==clothId);
-    //     setGood(newGood);
-    //     console.log(good);
-    // }
-
-    // const removeDuple = () => {
-    //     let result = clothInfo.filter((item, i) => {
-    //         return (
-    //             clothInfo.findIndex((item2, j) => {
-    //                 return item.clothId === item2.clothId;
-    //             }) === i
-    //         );
-    //     })
-    //     // console.log(result);
-
-    //     let result2 = result.map(data => (
-    //         clothId === data.clothId ?
-
-    //             // <input type="text" id="mkeyward" onChange={(e) => onChange(e)} defaultValue={data.clothKeyword}></input>
-    //             // : null
-    //     ))
-    //     return result2;
-    // }
 
     return (
         <div className="prefer">
+            {/* <button onClick={() => }>dasdas</button> */}
             <div className='pr'>
                 <span id='a' onClick={num1} >완전 별로</span>
                 <span id='b' onClick={num2} >별로</span>
@@ -133,9 +89,9 @@ function Bar(props) {
             </div>
 
             <div className="barr">
-                <Container onClick={() => { add_count(); }}>
+                <Container onClick={() => { add_count(); abc();}} onChange={()=>{}}>
 
-                    <Progress width={(count / 4) * 100 + "%"} onChange={props.setPro(count)} />
+                    <Progress width={(dbPref / 4) * 100 + "%"} onChange={()=>{   }} />
 
                     <Dot />
                 </Container>
