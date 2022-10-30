@@ -1,5 +1,6 @@
 import React from 'react'
 import "../ModifyDetail.css"
+
 const RadioInput = ({ label, value, checked, setter }) => {
     return (
         <label>
@@ -15,7 +16,6 @@ const MTop = (props) => {
     return (
 
         <div className='ac'>
-
             <br></br>
             <RadioInput label="민소매" value="민소매" checked={props.detail} setter={props.setDetail} />
             <RadioInput label="반팔" value="반팔" checked={props.detail} setter={props.setDetail} />

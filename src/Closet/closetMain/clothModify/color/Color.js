@@ -4,13 +4,17 @@ import styled from "styled-components";
 
 
 function Checkbox(props) {
-    const [checkedList, setCheckedList] = useState([]);
+    // const [checkedList, setCheckedList] = useState([]);
+    const [colorList, setColorList] = useState([]);
     const onCheckedElement = (checked, id) => {
         if (checked) {
-            setCheckedList([...checkedList, id]);
+            // setCheckedList([...checkedList, id]);
+            setColorList([colorList, id]);
+            console.log(colorList);
+            // console.log(id);
         } else {
             //체크 해제
-            setCheckedList(checkedList.filter(el => el !== id));
+            setColorList(colorList.filter(el => el !== id));
         }
     };
 
@@ -20,37 +24,37 @@ function Checkbox(props) {
             <Styletotal>
                 <StyledLabel>
                     <StyledInput type="checkbox" id="white" name='white' color='white' onClick={(e) => { onCheckedElement(e.target.checked, "white"); }}
-                        defaultChecked={checkedList.includes("white") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("white") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>흰색</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <Styled type="checkbox" id='black' name='black' color='black' onClick={(e) => { onCheckedElement(e.target.checked, "black"); }}
-                        defaultChecked={checkedList.includes("black") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("black") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>검정</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <StyledInput type="checkbox" id='red' name='red' color='red' onClick={(e) => { onCheckedElement(e.target.checked, "red"); }}
-                        defaultChecked={checkedList.includes("red") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("red") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>빨강</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <StyledInput type="checkbox" id='orange' name='orange' color='orange' onClick={(e) => { onCheckedElement(e.target.checked, "orange"); }}
-                        defaultChecked={checkedList.includes("orange") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("orange") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>주황</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <StyledInput type="checkbox" id='yellow' name='yellow' color='yellow' onClick={(e) => { onCheckedElement(e.target.checked, "yellow"); }}
-                        defaultChecked={checkedList.includes("yellow") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("yellow") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>노랑</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <StyledInput type="checkbox" id='green' name='green' color='green' onClick={(e) => { onCheckedElement(e.target.checked, "green"); }}
-                        defaultChecked={checkedList.includes("green") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("green") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>초록</StyledP>
                 </StyledLabel>
             </Styletotal>
@@ -58,37 +62,37 @@ function Checkbox(props) {
             <Styletotal>
                 <StyledLabel>
                     <Styled type="checkbox" id='blue' name='blue' color='blue' onClick={(e) => { onCheckedElement(e.target.checked, "blue"); }}
-                        defaultChecked={checkedList.includes("blue") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("blue") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>파랑</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <Styled type="checkbox" id='purple' name='purple' color='purple' onClick={(e) => { onCheckedElement(e.target.checked, "purple"); }}
-                        defaultChecked={checkedList.includes("purple") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("purple") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>보라</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <StyledInput type="checkbox" id='pink' name='pink' color='pink' onClick={(e) => { onCheckedElement(e.target.checked, "pink"); }}
-                        defaultChecked={checkedList.includes("pink") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("pink") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>분홍</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <StyledInput type="checkbox" id='beige' name='beige' color='Beige' onClick={(e) => { onCheckedElement(e.target.checked, "beige"); }}
-                        defaultChecked={checkedList.includes("beige") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("beige") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>베이지</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <Styled type="checkbox" id='brown' name='brown' color='brown' onClick={(e) => { onCheckedElement(e.target.checked, "brown"); }}
-                        defaultChecked={checkedList.includes("brown") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("brown") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>갈색</StyledP>
                 </StyledLabel>
 
                 <StyledLabel>
                     <Styled type="checkbox" id='gray' name='gray' color='gray' onClick={(e) => { onCheckedElement(e.target.checked, "gray"); }}
-                        defaultChecked={checkedList.includes("gray") ? true : false} onChange={props.setColor(checkedList)} />
+                        defaultChecked={colorList.includes("gray") ? true : false} onChange={props.setColor(colorList)} />
                     <StyledP>회색</StyledP>
                 </StyledLabel>
             </Styletotal>

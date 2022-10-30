@@ -7,6 +7,7 @@
     display: flex;
     width: 1000px;
     /* justify-content: space-evenly; */
+    margin-left: 140px;
 }
 
 .ac>label>span{

@@ -1,7 +1,6 @@
 import logo from "../../../img/PICK.PNG"
 import './AddCloth.css'
-// import Survey from './AddClothBody'
-import Survey from "./step2,5,6,7-body,radio/AddClothBody"
+import Survey from "./step1,5,6,7-body,radio/AddClothBody"
 
 function Plus() {
     return (

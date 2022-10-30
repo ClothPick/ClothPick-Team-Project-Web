@@ -1,9 +1,9 @@
 import './AddClothBody.css'
-import '../step1-picture/Picture.css'
+import '../step0-picture/Picture.css'
 
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import Check from "../step4-color/Color"
+import Check from "../step3-color/Color"
 import Top from '../step3-details/top/Top'
 import Bottom from '../step3-details/bottom/Bottom'
 import Blank from '../step3-details/DetailBlank'
@@ -13,7 +13,7 @@ import Ac from '../step3-details/accessory/Ac'
 import Outer from '../step3-details/outer/Outer'
 import Bar from '../step8-preference/Bar'
 import ClosetMethod from '../../../../Test/ClosetMethod'
-import empty from "../../../../img/empty.png"
+import "../../../../Community/Pick/noticeBoardComponent/Writing.css"
 
 
 
@@ -61,6 +61,8 @@ const Survey = () => {
         const data = { clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref };
         const json = JSON.stringify(data, null, 8);
         console.log(json); // 저장 파일
+
+        console.log(data);
 
         let clothId = await ClosetMethod.ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, clothTexture, clothStyle, clothKeyword, clothPref);
 
@@ -113,13 +115,16 @@ const Survey = () => {
         <form onSubmit={handleSubmit}>
             <div className="Stotal">
                 <div className="input_image">
-                    <img src={imageUrl ? imageUrl : empty} alt="cimg" id="ccimg"></img>
-                    <label htmlFor="file" name="file" onChange={(e) => { onChangeImage(e); console.log() }}>파일 선택</label>
-                    <br></br>
-                    <input type="file" name="file" onChange={(e) => { onChangeImage(e); }} id="file"></input>
+                    <div className='img-upload'>
+                        <label htmlFor="file" onChange={(e) => { onChangeImage(e) }}>
+                            <span>+</span>
+                            <img src={imageUrl} alt="" id='ccimg' />
+                        </label>
+                        <input type="file" onChange={(e) => { onChangeImage(e) }} id="file"></input>
+                    </div>
+
 
                 </div>
-                {/* <Picture setPicture={setPicture} picture={picture} /> */}
 
                 <div className='step2'>
 
@@ -175,7 +180,6 @@ const Survey = () => {
                         {ac ? <Ac setDetail={setDetail} detail={clothDetail} /> : <Blank />}
                         {outer ? <Outer setDetail={setDetail} detail={clothDetail} /> : <Blank />}
                     </div>
-                    {/* <div className='bet2'></div> */}
                 </div>
 
                 <div className='step4'>

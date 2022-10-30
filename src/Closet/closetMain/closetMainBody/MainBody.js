@@ -20,8 +20,6 @@ function ClosetList() {
     const [clothImg, setClothImg] = useState([]);
     const [clothInfo, setClothInfo] = useState([]);
 
-    var keywords = [];
-
     useEffect(() => {
         const get = ClosetMethod.ConnectClosetImgGet();
         const closetInfo = ClosetMethod.ClosetInfoGet();
@@ -81,7 +79,7 @@ function ClosetList() {
                             return (
                                 <div key={index}>
                                     <Link to={`/modifycloth/${img.clothImgName}`} className="img-text" >
-                                        <img className="closet-img" src={`http://192.168.0.101:8080/api/v1/displayimg/closet/${img.clothImgName}`} alt="" />
+                                        <img className="closet-img" src={`http://192.168.0.101:8087/api/v1/displayimg/closet/${img.clothImgName}`} alt="" />
                                         <div className='img-text'>
                                             {
                                                 clothInfo && clothInfo.length > 0 ?
