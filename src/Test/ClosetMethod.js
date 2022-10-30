@@ -22,7 +22,7 @@ async function ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, 
             clothTexture: clothTexture,
             clothStyle: clothStyle,
             clothKeyword: clothKeyword,
-            clothPref: clothPref,
+            clothPref: clothPref
         });
         // console.log(response.data);
         return response.data;
