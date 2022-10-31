@@ -8,6 +8,7 @@ import Header from "../../../Header/communityHeader/Header"
 import TestMethod from '../../../Test/TestMethod';
 import Comment from './Comment'
 import ConvenMethod from '../../../Test/ConvenMethod';
+import UserMethod from '../../../Test/UserMethod';
 
 const DetailPage = () => {
     const [community, setCommunity] = useState([]);
@@ -19,6 +20,8 @@ const DetailPage = () => {
     const [click, setClick] = useState(true);
     const [recommend, setRecommend] = useState(0);
     const [img, setImg] = useState([]);
+
+    const [user, setUser] = useState([]);
 
     // URL 주소값
     var url = window.location.pathname.split('/')[2];
@@ -60,8 +63,18 @@ const DetailPage = () => {
             });
         }
 
+
+        // 유저 정보 조회
+        const getUser = UserMethod.ReturnUserInfo();
+        const getUserData = () => {
+            getUser.then(data => {
+                console.log(data);
+            });
+        }
+
         getData();
         getImgData();
+        getUserData();
 
     }, [click]);
 
@@ -90,7 +103,8 @@ const DetailPage = () => {
                             <AiFillHeart size='35' color='red' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} />}
                         <h3>스크랩</h3>
                         <button className='text-right m-r-20 del-btn'>삭제</button>
-                        <BsFillPencilFill size='40' className='m-t-10 m-r-200 update-btn' />
+                        <button className='m-t-10 m-r-200 del-btn'>수정</button>
+                        {/* <BsFillPencilFill size='40' className='m-t-10 m-r-200 update-btn' /> */}
                     </div>
 
                     {/* 게시물 contents */}
