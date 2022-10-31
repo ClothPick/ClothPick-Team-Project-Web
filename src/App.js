@@ -26,8 +26,8 @@ function App() {
           <Route exact path="/" component={CommunityMain} /> {/* 게시판 메인 페이지 */}
           <Route path="/communitymain" component={CommunityMain} /> {/* 게시판 메인 페이지 */}
           <Route path="/recommend" component={Recommend} /> {/* 옷 추천 게시판 */}
-          <Route path="/usedtrade" component={UsedTrade} /> {/* 중고거래 게시판 */}
           <Route path="/freedom" component={Freedom} /> {/* 자유게시판 */}
+          <Route path="/usedtrade" component={UsedTrade} /> {/* 중고거래 게시판 */}
           <Route path="/detailpage/:boardId" component={DetailPage} /> {/* 게시물 상세 페이지 */}
           <Route path="/write" component={Write} /> {/* 글쓰기 페이지 */}
         </Switch>

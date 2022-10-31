@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 import TestMethod from '../../../../Test/TestMethod';
 
 
-
 const Pick = () => {
     const [community, setCommunity] = useState([]);
+    const [boardCommunity, setBoardCommunity] = useState([]);
+
     const [click, setClick] = useState(true);
 
     useEffect(() => {
@@ -20,12 +21,23 @@ const Pick = () => {
                 console.log(data)
             });
         };
+
+        const boardGet = TestMethod.BoardTypeRecommendRanking();
+        const getBoardData = () => {
+            boardGet.then(data => {
+                setBoardCommunity(data);
+                console.log(data);
+            })
+        };
+
+        getBoardData();
         getData();
     }, [click]);
 
     const showTitle = () => {
         var arr = [];
         var count = 1;
+        // console.log(community.length);
         for (var i = 0; i < community.length; i++) {
             // console.log("length", community.length);
             if (count < 7) { // 게시물 개수가 1~6개일 때까지만 실행
@@ -35,7 +47,7 @@ const Pick = () => {
                             <tr className='content2'>
                                 <div className='small-up'><td><AiFillLike /></td></div>
                                 {/* 추천 수 추후 수정 */}
-                                <td className='up-number'>0</td>
+                                <td className='up-number'>{community[i].boardRecommendCount}</td>
                                 {community[i].boardTitle}
                             </tr>
                         </div>
@@ -69,7 +81,7 @@ const Pick = () => {
             <div className='rank'>
                 <div className='rank_header'>
                     <AiFillLike id='up'></AiFillLike>
-                    <span>옷 추천 수 랭킹</span>
+                    <span>옷 추천 랭킹</span>
                     <hr id='rank_hr'></hr>
                     <div className='pick_rank'>
                         <table id='pick_rank'>
@@ -90,15 +102,15 @@ const Pick = () => {
                             </tr>
                         </table>
                         <table id='pick_rank_content'>
-                            <tbody>
-                                {
-                                    // rank.map((data) => (
-                                    //     <tr id='rank1' key={data.id}>
-                                    //         <td>{data.content}</td>
-                                    //     </tr>
-                                    // ))
-                                }
-                            </tbody>
+                            {
+                                boardCommunity && boardCommunity
+                                    .filter((data) => data.boardType === '1')
+                                    .map((data) => (
+                                        <div id="rank1" key={data.boardId}>
+                                            {data.boardTitle}
+                                        </div>
+                                    ))
+                            }
                         </table>
                     </div>
                 </div>

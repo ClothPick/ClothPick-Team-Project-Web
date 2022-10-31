@@ -1,11 +1,13 @@
 import { Temporal } from "@js-temporal/polyfill";
 
-const handleTime = (createAt) => {
+const handleTime = (boardCreateAt) => {
     // 현재 시간 구하기
     var today = Temporal.Now.plainDateTimeISO();
     // console.log(today.toString());
+    // console.log(boardCreateAt);
 
-    var Dday = Temporal.PlainDateTime.from(createAt);
+    var Dday = Temporal.PlainDateTime.from(boardCreateAt);
+    // console.log(Dday);
 
     const result = today.since(Dday);
     // console.log(result.toString());
@@ -30,7 +32,7 @@ const handleTime = (createAt) => {
         return result.days + "일 전";
     }
     else {
-        return createAt.split("T")[0];
+        return boardCreateAt.split("T")[0];
     }
 }
 

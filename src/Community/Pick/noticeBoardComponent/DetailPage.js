@@ -29,7 +29,7 @@ const DetailPage = () => {
         const getData = () => {
             get.then(data => {
                 setCommunity(data);
-                console.log('data : ' + data);
+                // console.log('data : ' + data);
 
                 // 현재 로그인이 되어있지 않기 때문에 임의로 0번째 닉네임을 가져와서 사용한다.
                 setUserName(data[0].userName);
@@ -40,21 +40,23 @@ const DetailPage = () => {
                     if (url === data[i].boardId) {
                         setTitle(data[i].boardTitle);
                         setContent(data[i].boardContent);
-                        setCreateAt(ConvenMethod.handleTime(data[i].createAt));
+                        setCreateAt(ConvenMethod.handleTime(data[i].boardCreateAt));
 
                         console.log(data[i].boardTitle);
                         console.log(data[i].boardContent);
-                        console.log(data[i].createAt);
+                        console.log(data[i].boardCreateAt);
                     }
                 }
             });
         };
 
-        const getImg = TestMethod.BoardConnectImgGet(url);
+        const getImg = TestMethod.ConnectBoardImgBoardIdList(url);
         const getImgData = () => {
-            getImg.then(data => {
-                setImg(data);
-                console.log("img : " + data);
+            getImg.then(img => {
+                // console.log("연결데이터", img);
+                setImg(img);
+                // img.push(data);
+                console.log("img : " + img);
             });
         }
 
@@ -98,7 +100,7 @@ const DetailPage = () => {
                     <h1>{content}</h1>
                     {img.map((data =>
                         <div key={data}>
-                            <img className='img-size' alt='' src={`http://192.168.0.109:80/api/displayimg/${data}.jpg`} />
+                            <img className='img-size' alt='' src={`http://192.168.0.101:8087/api/v1/displayimg/board/${data}`} />
                         </div>
                     ))
                     }

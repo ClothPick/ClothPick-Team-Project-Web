@@ -1,29 +1,30 @@
 import Instance from "./TestInstance";
 
-// async function TestList() {
-//   try {
-//     const response = await Instance.get('/api/list');
-//     console.log(response.data);
-//     return response.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
+// 게시글 조회 All List
 async function CommunityTestListGet() {
   try {
-    const response = await Instance.get('/api/freeboard');
+    const response = await Instance.get('/api/v1/boardlist');
     // console.log(response.data);
     return response.data;
-    console.log(response.data)
   } catch (error) {
     console.log(error);
   }
 };
 
+// 게시물 조회 if BoardType
+async function BoardTextTypeList(boardType) {
+  try {
+    const response = await Instance.get(`/api/v1/boardlist/${boardType}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 게시글 작성
 async function CommunityTestListPost(title, content) {
   try {
-    const response = await Instance.post('/api/freeboard', {
+    const response = await Instance.post('/api/v1/boardtext', {
       boardTitle: title,
       boardContent: content
     });
@@ -36,23 +37,10 @@ async function CommunityTestListPost(title, content) {
 };
 
 
-// async function CommunityTestListPut(id, titles, contents) {
-//   try {
-//     const response = await Instance.post(`/api/communitytest/${id}`, {
-//       title: titles,
-//       content: contents
-//     });
-//     console.log(response.data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-
-//이미지 관련
+//이미지 전송
 async function BoardImgPost(formData) {
   try {
-    const response = await Instance.post("/api/boardimgupload", formData, {
+    const response = await Instance.post("/api/v1/boardimg", formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -63,9 +51,45 @@ async function BoardImgPost(formData) {
     console.log(error);
   }
 };
+
+// 이미지 리소스 접근
+async function BoardConnectImgGet(boardtype) {
+  try {
+    const response = await Instance.get(`/api/v1/boardimgconnect/list/boardtype/${boardtype}`)
+    console.log(response.data);
+    return response.data;
+    console.log(response)
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 보드 아이디로 이미지 아이디 조회
+async function ConnectBoardImgBoardIdList(boardId) {
+  try {
+    const response = await Instance.get(`/api/v1/boardimgconnect/list/boardid/${boardId}`);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// 보드 타입 전체 조회 이미지 아이디 조회
+async function ConnectBoardImgBoardTypeList(boardType) {
+  try {
+    const response = await Instance.get(`/api/v1/boardimgconnect/list/boardtype/${boardType}`);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// 옷, 이미지 post
 async function BoardConnectImgPost(Type, Id, imgId) {
   try {
-    const response = await Instance.post('/api/imgconnect', {
+    const response = await Instance.post('/api/v1/boardimgconnect', {
       boardType: Type,
       boardId: Id,
       fileUniqueName: imgId
@@ -77,34 +101,27 @@ async function BoardConnectImgPost(Type, Id, imgId) {
   }
 };
 
-async function BoardConnectImgGet(board_id) {
+// 추천수 내림차순 정렬 랭킹 상위 5개
+async function BoardTypeRecommendRanking() {
   try {
-    const response = await Instance.get(`/api/imgconnect/${board_id}`);
+    const response = await Instance.get("/api/v1/RecommendRanking");
     console.log(response.data);
     return response.data;
-    console.log(response)
   } catch (error) {
     console.log(error);
   }
-};
+}
 
-async function BoardConnectImgListGet(boardType) {
-  try {
-    const response = await Instance.get(`/api/imglistconnect/${boardType}`);
-    // console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
 const TestMethod = {
   CommunityTestListGet,
+  BoardTextTypeList,
   CommunityTestListPost,
   BoardImgPost,
-  BoardConnectImgPost,
   BoardConnectImgGet,
-  BoardConnectImgListGet
-
+  BoardConnectImgPost,
+  ConnectBoardImgBoardIdList,
+  ConnectBoardImgBoardTypeList,
+  BoardTypeRecommendRanking
 }
 
 export default TestMethod;
