@@ -8,6 +8,7 @@ import Header from "../../../Header/communityHeader/Header"
 import TestMethod from '../../../Test/TestMethod';
 import Comment from './Comment'
 import ConvenMethod from '../../../Test/ConvenMethod';
+import UserMethod from '../../../Test/UserMethod';
 
 const DetailPage = () => {
     const [community, setCommunity] = useState([]);
@@ -20,6 +21,8 @@ const DetailPage = () => {
     const [recommend, setRecommend] = useState(0);
     const [img, setImg] = useState([]);
 
+    const [user, setUser] = useState([]);
+
     // URL 주소값
     var url = window.location.pathname.split('/')[2];
     console.log('url : ' + window.location.pathname.split('/')[2]);
@@ -29,7 +32,7 @@ const DetailPage = () => {
         const getData = () => {
             get.then(data => {
                 setCommunity(data);
-                console.log('data : ' + data);
+                // console.log('data : ' + data);
 
                 // 현재 로그인이 되어있지 않기 때문에 임의로 0번째 닉네임을 가져와서 사용한다.
                 setUserName(data[0].userName);
@@ -40,26 +43,38 @@ const DetailPage = () => {
                     if (url === data[i].boardId) {
                         setTitle(data[i].boardTitle);
                         setContent(data[i].boardContent);
-                        setCreateAt(ConvenMethod.handleTime(data[i].createAt));
+                        setCreateAt(ConvenMethod.handleTime(data[i].boardCreateAt));
 
                         console.log(data[i].boardTitle);
                         console.log(data[i].boardContent);
-                        console.log(data[i].createAt);
+                        console.log(data[i].boardCreateAt);
                     }
                 }
             });
         };
 
-        const getImg = TestMethod.BoardConnectImgGet(url);
+        const getImg = TestMethod.ConnectBoardImgBoardIdList(url);
         const getImgData = () => {
-            getImg.then(data => {
-                setImg(data);
-                console.log("img : " + data);
+            getImg.then(img => {
+                // console.log("연결데이터", img);
+                setImg(img);
+                // img.push(data);
+                console.log("img : " + img);
+            });
+        }
+
+
+        // 유저 정보 조회
+        const getUser = UserMethod.ReturnUserInfo();
+        const getUserData = () => {
+            getUser.then(data => {
+                console.log(data);
             });
         }
 
         getData();
         getImgData();
+        getUserData();
 
     }, [click]);
 
@@ -88,7 +103,8 @@ const DetailPage = () => {
                             <AiFillHeart size='35' color='red' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} />}
                         <h3>스크랩</h3>
                         <button className='text-right m-r-20 del-btn'>삭제</button>
-                        <BsFillPencilFill size='40' className='m-t-10 m-r-200 update-btn' />
+                        <button className='m-t-10 m-r-200 del-btn'>수정</button>
+                        {/* <BsFillPencilFill size='40' className='m-t-10 m-r-200 update-btn' /> */}
                     </div>
 
                     {/* 게시물 contents */}
@@ -98,7 +114,7 @@ const DetailPage = () => {
                     <h1>{content}</h1>
                     {img.map((data =>
                         <div key={data}>
-                            <img className='img-size' alt='' src={`http://192.168.0.109:80/api/displayimg/${data}.jpg`} />
+                            <img className='img-size' alt='' src={`http://192.168.0.101:8087/api/v1/displayimg/board/${data}`} />
                         </div>
                     ))
                     }

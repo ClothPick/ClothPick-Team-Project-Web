@@ -7,6 +7,8 @@ import "./Freedom.css"
 
 function Back() {
     const [community, setCommunity] = useState([]);
+    const [boardCommunity, setBoardCommunity] = useState([]);
+
     const [click, setClick] = useState(true);
 
     useEffect(() => {
@@ -17,6 +19,15 @@ function Back() {
                 console.log(data)
             });
         };
+        const boardGet = TestMethod.BoardTypeRecommendRanking();
+        const getBoardData = () => {
+            boardGet.then(data => {
+                setBoardCommunity(data);
+                console.log(data);
+            })
+        };
+
+        getBoardData();
         getData();
     }, [click]);
 
@@ -31,7 +42,7 @@ function Back() {
                             <tr className='content2'>
                                 <div className='small-up'><td><AiFillLike /></td></div>
                                 {/* 추천 수 추후 수정 */}
-                                <td className='up-number'>0</td>
+                                <td className='up-number'>{community[i].boardRecommendCount}</td>
                                 {community[i].boardTitle}
                             </tr>
                         </div>
@@ -87,21 +98,15 @@ function Back() {
                         </tr>
                     </table>
                     <table id='content'>
-                        <tr>
-                            <td>집</td>
-                        </tr>
-                        <tr>
-                            <td>집</td>
-                        </tr>
-                        <tr>
-                            <td>집</td>
-                        </tr>
-                        <tr>
-                            <td>집</td>
-                        </tr>
-                        <tr>
-                            <td>집</td>
-                        </tr>
+                        {
+                            boardCommunity && boardCommunity
+                                .filter((data) => data.boardType === '3')
+                                .map((data) => (
+                                    <div id="rank1" key={data.boardId}>
+                                        {data.boardTitle}
+                                    </div>
+                                ))
+                        }
                     </table>
                 </div>
             </div>

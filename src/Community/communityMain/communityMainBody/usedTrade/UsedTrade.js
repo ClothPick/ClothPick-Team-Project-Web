@@ -12,6 +12,8 @@ import React from 'react'
 
 const Transaction = () => {
     const [community, setCommunity] = useState([]);
+    const [boardCommunity, setBoardCommunity] = useState([]);
+
     const [click, setClick] = useState(true);
 
     useEffect(() => {
@@ -22,6 +24,16 @@ const Transaction = () => {
                 console.log(data)
             });
         };
+
+        const boardGet = TestMethod.BoardTypeRecommendRanking();
+        const getBoardData = () => {
+            boardGet.then(data => {
+                setBoardCommunity(data);
+                console.log(data);
+            })
+        };
+
+        getBoardData();
         getData();
     }, [click]);
 
@@ -36,7 +48,7 @@ const Transaction = () => {
                             <tr className='content2'>
                                 <div className='small-up'><td><AiFillLike /></td></div>
                                 {/* 추천 수 추후 수정 */}
-                                <td className='up-number'>0</td>
+                                <td className='up-number'>{community[i].boardRecommendCount}</td>
                                 {community[i].boardTitle}
                             </tr>
                         </div>
@@ -93,21 +105,15 @@ const Transaction = () => {
                     </table>
 
                     <table id="content">
-                        <tr>
-                            <td>하이</td>
-                        </tr>
-                        <tr>
-                            <td>ㅎㅎ</td>
-                        </tr>
-                        <tr>
-                            <td>띠롱</td>
-                        </tr>
-                        <tr>
-                            <td>ㅎㅎ</td>
-                        </tr>
-                        <tr>
-                            <td>ㅋㅋ</td>
-                        </tr>
+                        {
+                            boardCommunity && boardCommunity
+                                .filter((data) => data.boardType === '2')
+                                .map((data) => (
+                                    <div id="rank1" key={data.boardId}>
+                                        {data.boardTitle}
+                                    </div>
+                                ))
+                        }
                     </table>
                 </div>
             </div>

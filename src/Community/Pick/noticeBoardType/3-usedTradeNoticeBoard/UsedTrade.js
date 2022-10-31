@@ -25,7 +25,7 @@ const UsedTrade = () => {
             <Header />
             <div className='flex commu-type margin'>
                 <FaRegHandshake size="80" color='#BDC2BB' />
-                <h2 className='text-margin-top-30 text-margin-left-10 '>옷 추천</h2>
+                <h2 className='text-margin-top-30 text-margin-left-10 '>중고 거래 게시판</h2>
             </div>
 
             {/* box */}
@@ -38,8 +38,8 @@ const UsedTrade = () => {
                         boardType={data.boardType}
                         boardTitle={data.boardTitle}
                         boardContent={data.boardContent}
-                        createAt={data.createAt}
-                        userName={data.userName}
+                        boardCreateAt={data.boardCreateAt}
+                        username={data.username}
                     />
                 ))}
 

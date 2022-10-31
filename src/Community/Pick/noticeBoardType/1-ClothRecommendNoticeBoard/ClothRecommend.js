@@ -14,10 +14,10 @@ const ClothRecommend = () => {
         const getData = () => {
             get.then(data => {
                 setCommunity(data);
-                data.map((id) => (
-                    console.log(id.boardId)
-                ))
-                console.log(data)
+                // data.map((id) => (
+                //     console.log(id.boardId)
+                // ))
+                // console.log(data)
             });
         };
         getData();
@@ -43,8 +43,8 @@ const ClothRecommend = () => {
                         boardType={data.boardType}
                         boardTitle={data.boardTitle}
                         boardContent={data.boardContent}
-                        createAt={data.createAt}
-                        userName={data.userName}
+                        boardCreateAt={data.boardCreateAt}
+                        username={data.username}
                     />
                 ))}
 

@@ -10,17 +10,26 @@ import ConvenMethod from '../../../Test/ConvenMethod';
 const ListBox = (props) => {
     const [scrapChecked, setScrapChecked] = useState(true);
     const [community, setCommunity] = useState([]);
+    const [img, setImg] = useState([]);
 
     useEffect(() => {
-        const get = TestMethod.BoardConnectImgGet(props.boardId);
+        const get = TestMethod.BoardConnectImgGet(props.boardType);
         const getData = () => {
             get.then(data => {
                 setCommunity(data);
-                console.log(props.boardId);
                 console.log(data);
             });
         };
+
+        const getImg = TestMethod.ConnectBoardImgBoardIdList(props.boardId);
+        const getImgData = () => {
+            getImg.then(data => {
+                setImg(data);
+                console.log(img);
+            })
+        }
         getData();
+        getImgData();
     }, []);
 
     const handleScrapButton = () => {
@@ -29,7 +38,6 @@ const ListBox = (props) => {
 
     return (
         <div className='web-size'>
-            {/* inline-block */}
             <div className='second-sep'>
                 <div className='border-side max-size inline-block' key={props.boardId}>
                     <Link to={`/detailpage/${props.boardId}`} className='decoration'>
@@ -41,16 +49,17 @@ const ListBox = (props) => {
                                 </div>
                             </div>
                             {
-                                community.length === 0 ? console.log("noda") : <img src={`http://localhost:80/api/displayimg/${community[0]}.jpg`} alt='' />
+                                img.length === 0 ? console.log("no data") :
+                                    <img className="preview-img" src={`http://192.168.0.101:8087/api/v1/displayimg/board/${img[0]}`} alt='' />
                             }
 
-                            <h4 className='text-margin-left-10 text-margin-top-150'>{props.userName}</h4>
                         </div>
                     </Link>
-                    <div className='text-margin-left-10 flex'>
+                    <h4 className='text-margin-left-10'>{props.username}</h4>
+                    <div className='text-margin-left-10 flex text-top-2'>
                         <BiMessage size='20' className='text-top-2' />
                         <h4 className='text-margin-left-10'>3</h4>
-                        <h4 className='text-margin-left-30'>{ConvenMethod.handleTime(props.createAt)}</h4>
+                        <h4 className='text-margin-left-30'>{ConvenMethod.handleTime(props.boardCreateAt)}</h4>
 
                         {scrapChecked ?
                             <AiOutlineHeart size='35' className='text-top-1 text-right scrap' onClick={() => handleScrapButton()} /> :
