@@ -116,7 +116,7 @@ const Modify_choice = () => {
             }
             else {
                 // console.log("clothType 인식 안돼요");
-                // useMonitor ? setUseMonitor(false) : setUseMonitor(true);
+                useMonitor ? setUseMonitor(false) : setUseMonitor(true);
             }
         }
 

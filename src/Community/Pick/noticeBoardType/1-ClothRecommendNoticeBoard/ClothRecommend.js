@@ -44,7 +44,7 @@ const ClothRecommend = () => {
                         boardTitle={data.boardTitle}
                         boardContent={data.boardContent}
                         boardCreateAt={data.boardCreateAt}
-                        username={data.username}
+                        userNickname={data.userNickname}
                     />
                 ))}
 

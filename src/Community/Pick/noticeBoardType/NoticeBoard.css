@@ -55,6 +55,10 @@ div {
     margin-right: 20px;
 }
 
+.m-r-70 {
+    margin-right: 70px;
+}
+
 .m-r-200 {
     margin-right:200px;
 }
@@ -357,12 +361,8 @@ div {
     border-radius: 20px;
 }
 
-.del-btn:hover {
+div > .del-btn :hover {
     border: solid 3px #67595E;
-}
-
-.update-btn:hover {
-    color: #865a3c;
 }
 
 .preview-img {

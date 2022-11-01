@@ -55,7 +55,7 @@ const ListBox = (props) => {
 
                         </div>
                     </Link>
-                    <h4 className='text-margin-left-10'>{props.username}</h4>
+                    <h4 className='text-margin-left-10'>{props.userNickname}</h4>
                     <div className='text-margin-left-10 flex text-top-2'>
                         <BiMessage size='20' className='text-top-2' />
                         <h4 className='text-margin-left-10'>3</h4>
