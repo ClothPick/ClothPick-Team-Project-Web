@@ -68,7 +68,7 @@ async function BoardConnectImgGet(boardtype) {
 async function ConnectBoardImgBoardIdList(boardId) {
   try {
     const response = await Instance.get(`/api/v1/boardimgconnect/list/boardid/${boardId}`);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);

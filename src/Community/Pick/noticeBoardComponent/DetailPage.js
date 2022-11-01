@@ -21,7 +21,10 @@ const DetailPage = () => {
     const [recommend, setRecommend] = useState(0);
     const [img, setImg] = useState([]);
 
-    const [user, setUser] = useState([]);
+    // -- login --
+    const [dbUser, setDbUser] = useState([]);
+    const [dbUserNickName, setDbUserNickName] = useState([]);
+    const [userShowButton, setUserShowButton] = useState(false);
 
     // URL 주소값
     var url = window.location.pathname.split('/')[2];
@@ -34,16 +37,13 @@ const DetailPage = () => {
                 setCommunity(data);
                 // console.log('data : ' + data);
 
-                // 현재 로그인이 되어있지 않기 때문에 임의로 0번째 닉네임을 가져와서 사용한다.
-                setUserName(data[0].userName);
-                console.log('name : ' + data[0].userName);
-
                 // URL 주소값과 boardId의 값이 같으면 그 정보를 화면에 띄운다.
                 for (var i = 0; i < data.length; i++) {
                     if (url === data[i].boardId) {
                         setTitle(data[i].boardTitle);
                         setContent(data[i].boardContent);
                         setCreateAt(ConvenMethod.handleTime(data[i].boardCreateAt));
+                        setUserName(data[i].userNickname);
 
                         console.log(data[i].boardTitle);
                         console.log(data[i].boardContent);
@@ -53,6 +53,7 @@ const DetailPage = () => {
             });
         };
 
+        // 이미지 연결
         const getImg = TestMethod.ConnectBoardImgBoardIdList(url);
         const getImgData = () => {
             getImg.then(img => {
@@ -69,19 +70,29 @@ const DetailPage = () => {
         const getUserData = () => {
             getUser.then(data => {
                 console.log(data);
+                setDbUser(data);
+                setDbUserNickName(data.userNickName);
+                console.log(data.userNickName);
             });
         }
 
         getData();
         getImgData();
         getUserData();
-
     }, [click]);
 
     const handleScrapButton = () => {
         scrapChecked ? setScrapChecked(false) : setScrapChecked(true);
     }
-    // console.log('첫 번째 title : ' + community[0].title);
+
+    const delBoard = () => {
+        if (window.confirm("삭제하시겠습니까?")) {
+            alert("삭제되었습니다.")
+        }
+        else {
+            alert("취소되었습니다.")
+        }
+    }
 
     return (
         <div>
@@ -91,7 +102,7 @@ const DetailPage = () => {
                 <div className='m-l-200'>
                     <h2>옷 추천 게시판</h2>
                     <h1>{title}</h1>
-                    <h2>{userName}</h2>
+                    <h3>[ {userName} ]</h3>
                     <div className='flex'>
                         <BiTime size='40' className='m-t-10' />
                         <h3>{createAt}</h3>
@@ -102,8 +113,17 @@ const DetailPage = () => {
                             <AiOutlineHeart size='35' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} /> :
                             <AiFillHeart size='35' color='red' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} />}
                         <h3>스크랩</h3>
-                        <button className='text-right m-r-20 del-btn'>삭제</button>
-                        <button className='m-t-10 m-r-200 del-btn'>수정</button>
+
+                        {/* {ShowButton()} */}
+                        {
+                            dbUserNickName === userName ?
+                                <div className='text-right m-r-70'>
+                                    <button className='text-right m-r-20 del-btn' >수정</button>
+                                    <button className='m-t-10 del-btn' onClick={() => delBoard()}>삭제</button>
+                                </div>
+                                : console.log("다름")
+                        }
+
                         {/* <BsFillPencilFill size='40' className='m-t-10 m-r-200 update-btn' /> */}
                     </div>
 
@@ -112,11 +132,12 @@ const DetailPage = () => {
                 <hr className='line' />
                 <div className='text-top-2 center'>
                     <h1>{content}</h1>
-                    {img.map((data =>
-                        <div key={data}>
-                            <img className='img-size' alt='' src={`http://192.168.0.101:8087/api/v1/displayimg/board/${data}`} />
-                        </div>
-                    ))
+                    {
+                        img.map((data =>
+                            <div key={data}>
+                                <img className='img-size' alt='' src={`http://192.168.0.101:8087/api/v1/displayimg/board/${data}`} />
+                            </div>
+                        ))
                     }
                     {/* <img className='img-size' alt='' src={require('../../img/cloth1.png')} /> */}
                 </div>

@@ -55,6 +55,30 @@ function Comment() {
             id: uuid().split("-")[0],
         })
     }
+
+    // const ReComment = () => {
+    //     return (
+    //         <form onSubmit={(e) => handleSubmit(e)}>
+    //             <input
+    //                 name="name"
+    //                 onChange={(e) => handleChange(e)}
+    //                 value={info.name}
+    //                 placeholder="작성자"
+    //             />
+    //             <div className="flex">
+    //                 <input
+    //                     className="box-comment"
+    //                     name="comment"
+    //                     onChange={(e) => handleChange(e)}
+    //                     value={info.comment}
+    //                     placeholder="댓글을 입력하세요."
+    //                 />
+    //                 <button className='brown-round scrap' type="submit">작성</button>
+    //             </div>
+    //         </form>
+    //     );
+    // }
+
     return (
         <>
             <form onSubmit={(e) => handleSubmit(e)}>
