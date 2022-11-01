@@ -36,6 +36,31 @@ async function CommunityTestListPost(title, content) {
   }
 };
 
+// 게시물 수정
+async function BoardUpdate(boardId, boardTitle, boardContent) {
+  try {
+    const response = await Instance.put(`/api/v1/boardtext/${boardId}`, {
+      boardTitle: boardTitle,
+      boardContent: boardContent
+    });
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// 게시물 삭제
+async function BoardDelete(boardId) {
+  try {
+    const response = await Instance.delete(`/api/v1/boardtext/${boardId}`);
+    // console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 //이미지 전송
 async function BoardImgPost(formData) {
@@ -117,6 +142,8 @@ const TestMethod = {
   BoardTextTypeList,
   CommunityTestListPost,
   BoardImgPost,
+  BoardUpdate,
+  BoardDelete,
   BoardConnectImgGet,
   BoardConnectImgPost,
   ConnectBoardImgBoardIdList,

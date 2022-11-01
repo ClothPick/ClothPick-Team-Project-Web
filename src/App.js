@@ -11,6 +11,7 @@ import UsedTrade from "./Community/Pick/noticeBoardType/3-usedTradeNoticeBoard/U
 import DetailPage from "./Community/Pick/noticeBoardComponent/DetailPage"
 import Write from "./Community/Pick/noticeBoardComponent/Writing"
 import CommunityMain from "./Community/communityMain/Main"
+import Update from "./Community/Pick/noticeBoardComponent/UpdatePage"
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/usedtrade" component={UsedTrade} /> {/* 중고거래 게시판 */}
           <Route path="/detailpage/:boardId" component={DetailPage} /> {/* 게시물 상세 페이지 */}
           <Route path="/write" component={Write} /> {/* 글쓰기 페이지 */}
+          <Route path="/update/:boardId" component={Update} /> {/* 글 수정 페이지 */}
         </Switch>
       </div>
     </Router>

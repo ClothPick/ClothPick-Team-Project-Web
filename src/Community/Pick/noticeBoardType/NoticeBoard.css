@@ -361,12 +361,13 @@ div {
     border-radius: 20px;
 }
 
-div > .del-btn :hover {
+.text-right.m-r-70 > button:hover {
     border: solid 3px #67595E;
 }
 
 .preview-img {
     width: 70px;
+    height:70px;
     border: solid 1px black;
     margin-bottom: 10px;
     padding: 1px;

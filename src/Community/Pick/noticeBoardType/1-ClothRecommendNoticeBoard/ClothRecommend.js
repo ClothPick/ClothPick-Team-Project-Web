@@ -14,10 +14,6 @@ const ClothRecommend = () => {
         const getData = () => {
             get.then(data => {
                 setCommunity(data);
-                // data.map((id) => (
-                //     console.log(id.boardId)
-                // ))
-                // console.log(data)
             });
         };
         getData();
