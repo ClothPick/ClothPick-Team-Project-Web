@@ -22,9 +22,10 @@ async function BoardTextTypeList(boardType) {
 };
 
 // 게시글 작성
-async function CommunityTestListPost(title, content) {
+async function CommunityTestListPost(type, title, content) {
   try {
     const response = await Instance.post('/api/v1/boardtext', {
+      boardType: type,
       boardTitle: title,
       boardContent: content
     });
