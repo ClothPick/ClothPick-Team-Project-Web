@@ -7,22 +7,55 @@ import { useHistory, Link } from 'react-router-dom';
 import TestMethod from '../../../Test/TestMethod';
 
 const Writing = (props) => {
-    const [url, setUrl] = useState([]); // URL
-    const [imgList, setImgList] = useState([]); // 서버로 보낼 데이터
-    const [click, setClick] = useState(false); // 화면 렌더링
+    const [type, setType] = useState(""); // 게시판 종류
     const [title, setTitle] = useState(""); // 제목
     const [content, setContent] = useState(""); // 내용
-    const [type, setType] = useState(1);
+    const [boardId, setBoardId] = useState(""); // 게시물 아이디
+    const [img, setImg] = useState([]); // 이미지
+    const [useMonitor, setUseMonitor] = useState(false); // useEffect monitor
 
-    const history = useHistory(); // 등록 후 화면 이동
+    // URL 주소값
+    var url = window.location.pathname.split('/')[2];
+    // console.log('url : ' + window.location.pathname.split('/')[2]);
 
-    console.log(props.boardId);
+    let history = useHistory();
+
+    useEffect(() => {
+        const get = TestMethod.CommunityTestListGet();
+        const getData = () => {
+            get.then(data => {
+                // console.log(data);
+
+                for (var i = 0; i < data.length; i++) {
+                    if (url === data[i].boardId) {
+                        console.log(data);
+                        // console.log(data[i].boardId);
+                        setBoardId(data[i].boardId);
+                        setType(data[i].boardType);
+                        setTitle(data[i].boardTitle);
+                        setContent(data[i].boardContent);
+
+                        console.log(data[i].boardType);
+                        console.log(data[i].boardTitle);
+                        console.log(data[i].boardContent);
+                    }
+                }
+            })
 
 
+        };
 
-    const update = async () => {
-        // const get = await TestMethod.BoardUpdate(props.boardId, props.boardTitle, props.boardContent)
-    }
+
+        const getImg = TestMethod.ConnectBoardImgBoardIdList(url);
+        const getImgData = () => {
+            getImg.then(img => {
+                setImg(img);
+            })
+        };
+
+        getData();
+        getImgData();
+    }, [useMonitor]);
 
 
     const Checking = async () => {
@@ -33,8 +66,9 @@ const Writing = (props) => {
             return;
         }
         else {
+            await TestMethod.BoardUpdate(boardId, title, content)
             alert('수정되었습니다.');
-            // history.replace('/community');
+            history.replace(`/detailpage/${boardId}`);
         }
     }
 
@@ -52,15 +86,9 @@ const Writing = (props) => {
             <div className='white-space m-l-100 text-top-2'>
                 <h4>카테고리</h4>
                 <RadioGroup>
-                    <Radio name='category' value='1' defaultChecked>
-                        옷 추천
-                    </Radio>
-                    <Radio name='category' value='2'>
-                        중고거래
-                    </Radio>
-                    <Radio name='category' value='3'>
-                        자유 게시판
-                    </Radio>
+                    {type === '1' ? <Radio name='category' value='1' defaultChecked='1'> 옷 추천 </Radio> : null}
+                    {type === '2' ? <Radio name='category' value='2' defaultChecked='2'> 중고거래 </Radio> : null}
+                    {type === '3' ? <Radio name='category' value='3' defaultChecked='3'> 자유 게시판 </Radio> : null}
                 </RadioGroup>
             </div>
 
@@ -76,6 +104,9 @@ const Writing = (props) => {
                 />
             </form>
 
+            <div>{props.content}</div>
+
+
             {/* 게시물 내용 */}
             <div className='white-space m-t-50 center'>
                 <textarea
@@ -86,27 +117,23 @@ const Writing = (props) => {
                 ></textarea>
             </div>
 
-            {/* 사진 띄우기 */}
-            <div>
-                {
-                    url.map((data, index) => (
-                        <div key={index} className="center">
-                            <img src={data} id="cimg" alt='' />
-                        </div>
-                    ))
-                }
-            </div>
-
+            {
+                img.map((data =>
+                    <div key={data} className="center m-t-50">
+                        <img className='img-size' alt='' src={`http://192.168.0.101:8087/api/v1/displayimg/board/${data}`} />
+                    </div>
+                ))
+            }
 
             {/* 버튼 */}
-            <div className="white-space m-t-50 center">
+            <div className="white-space m-t-50 center" >
 
                 <button className='brown-round scrap'
                     onClick={() => {
                         Checking()
-                    }}>등록</button>
+                    }}>수정</button>
 
-                <Link to="/">
+                <Link to={`/detailpage/${boardId}`}>
                     <button className='brown-round scrap'>취소</button>
                 </Link>
             </div>

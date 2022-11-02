@@ -11,6 +11,7 @@ const ListBox = (props) => {
     const [scrapChecked, setScrapChecked] = useState(true);
     const [community, setCommunity] = useState([]);
     const [img, setImg] = useState([]);
+    const [useMonitor, setUseMonitor] = useState(false);
 
     useEffect(() => {
         const get = TestMethod.BoardConnectImgGet(props.boardType);
@@ -25,12 +26,12 @@ const ListBox = (props) => {
         const getImgData = () => {
             getImg.then(data => {
                 setImg(data);
-                console.log(img);
+                console.log(data);
             })
         }
         getData();
         getImgData();
-    }, []);
+    }, [useMonitor]);
 
     const handleScrapButton = () => {
         scrapChecked ? setScrapChecked(false) : setScrapChecked(true);

@@ -5,8 +5,13 @@
     font-style: normal;
 }
 
-body {
+body div textarea{
     font-family: 'Pretendard-Regular';
+}
+
+form {
+    font-family: 'Pretendard-Regular';
+
 }
 
 .header{

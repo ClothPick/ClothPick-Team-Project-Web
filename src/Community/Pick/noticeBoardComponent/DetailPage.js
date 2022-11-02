@@ -108,14 +108,9 @@ const DetailPage = () => {
     }
 
     const updateBoard = () => {
+
         if (window.confirm("수정하시겠습니까?")) {
-            <UpdatePage
-                key={boardId}
-                boardId={boardId}
-                boardType={boardType}
-                boardTitle={title}
-                boardContent={content}
-            />
+            <UpdatePage />
             history.push(`/update/${boardId}`);
         }
         else {

@@ -326,6 +326,10 @@ div {
     /* display: flex; */
 }
 
+.cimg {
+    width: 20%;
+}
+
 
 .img-upload {
     background-color: #f9f9f9;
