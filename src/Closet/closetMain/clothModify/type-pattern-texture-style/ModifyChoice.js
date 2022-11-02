@@ -10,15 +10,16 @@ import Shoes from '../clothModifyDetail/shoes/Shoes'
 import Bag from '../clothModifyDetail/bag/Bag'
 import Ac from '../clothModifyDetail/accessory/Accessory'
 import Outer from '../clothModifyDetail/outer/Outer'
-import Check from '../color/Color'
-import Bar from '../preference/Preference'
+// import Check from '../color/Color'
+// import Bar from '../preference/Preference'
 import ClosetMethod from "../../../../Test/ClosetMethod";
+import { AiFillHeart } from 'react-icons/ai';
 
-const RadioInput = ({ label, value, checked, setter }) => {
+const RadioInput = ({ label, value, checked }) => {
     return (
         <label>
             <input type="radio" id='choice2' checked={checked == value}
-                onChange={() => setter(value)} />
+            />
             <span>{label}</span>
         </label>
     )
@@ -38,11 +39,11 @@ const Modify_choice = () => {
     const [clothInfo, setClothInfo] = useState([]);
     const [dbType, setDbType] = useState([]);
     const [dbDetail, setDbDetail] = useState([]);
-    // const [dbColor, setDbColor] = useState([]);
+    const [dbColor, setDbColor] = useState([]);
     const [dbPattern, setDbPattern] = useState([]);
     const [dbTexture, setDbTexture] = useState([]);
     const [dbStyle, setDbStyle] = useState([]);
-    const [dbPref, setDbPref] = useState([]);
+    const [dbPref, setDbPref] = useState("");
 
     const [useMonitor, setUseMonitor] = useState(false);
 
@@ -50,14 +51,19 @@ const Modify_choice = () => {
 
 
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = { dbType, dbDetail, clothColor, dbPattern, dbTexture, dbStyle, clothKeyword, clothPref };
+        if (window.confirm("수정하시겠습니까?")) {
+            let result = await ClosetMethod.ClosetInfoPut(clothId, clothKeyword);
+            console.log(result);
+            alert("수정되었습니다.")
+            history.push("/closet")
+        }
+
     };
 
     const onChange = (e) => {
-        setKeyward(e.target.value);
-        // console.log(e.target.value);
+        setKeyward(e.target.value)
     }
 
     useEffect(() => {
@@ -105,7 +111,58 @@ const Modify_choice = () => {
                 setDbTexture(result[0].clothTexture);
                 console.log(result[0].clothStyle);
                 setDbStyle(result[0].clothStyle);
-                console.log(result);
+                // console.log(result);
+                // console.log(result[0].clothPref);
+                if (result[0].clothPref === '0') {
+                    setDbPref("완전 별로😣");
+                }
+                else if (result[0].clothPref === '1') {
+                    setDbPref("별로😑");
+                }
+                else if (result[0].clothPref === '2') {
+                    setDbPref("보통🙂");
+                }
+                else if (result[0].clothPref === '3') {
+                    setDbPref("좋아😄");
+                }
+                else {
+                    setDbPref("완전 좋아😆");
+                }
+
+                for (let i = 0; i < result.length; i++) {
+                    console.log(result[i].clothColor);
+                    if (result[i].clothColor === "red") {
+                        dbColor.push(<AiFillHeart size='35' color='red' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "orange") {
+                        dbColor.push(<AiFillHeart size='35' color='orange' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "yellow") {
+                        dbColor.push(<AiFillHeart size='35' color='yellow' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "green") {
+                        dbColor.push(<AiFillHeart size='35' color='green' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "blue") {
+                        dbColor.push(<AiFillHeart size='35' color='blue' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "purple") {
+                        dbColor.push(<AiFillHeart size='35' color='purple' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "pink") {
+                        dbColor.push(<AiFillHeart size='35' color='pink' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "beige") {
+                        dbColor.push(<AiFillHeart size='35' color='beige' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "brown") {
+                        dbColor.push(<AiFillHeart size='35' color='brown' className='m-t-15 text-right scrap' />);
+                    }
+                    else {
+                        dbColor.push(<AiFillHeart size='35' color='gray' className='m-t-15 text-right scrap' />);
+                    }
+                }
+
 
                 // for (let i = 0; i < result.length; i++) {
                 //     dbColor.push(result[i].clothColor);
@@ -154,7 +211,7 @@ const Modify_choice = () => {
     }
 
     const changeRadio = (e) => {
-        setDbType(e.target.value)
+        // setDbType(e.target.value)
     }
 
     return (
@@ -167,14 +224,14 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="상의"
                                 checked={dbType === "상의" ? true : false}
-                                onChange={(e) => changeRadio(e)} />
+                            />
                             <span id="span1">상의</span>
                         </label>
 
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="하의"
                                 checked={dbType === "하의" ? true : false}
-                                onChange={(e) => changeRadio(e)} />
+                            />
 
 
                             <span id="span1">하의</span>
@@ -182,7 +239,7 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="신발"
                                 checked={dbType === "신발" ? true : false}
-                                onChange={(e) => changeRadio(e)} />
+                            />
 
 
                             <span id="span1">신발</span>
@@ -190,7 +247,7 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="가방"
                                 checked={dbType === "가방" ? true : false}
-                                onChange={(e) => changeRadio(e)} />
+                            />
 
 
 
@@ -199,7 +256,7 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="악세사리"
                                 checked={dbType === "악세사리" ? true : false}
-                                onChange={(e) => changeRadio(e)} />
+                            />
 
 
                             <span id="span1">악세사리</span>
@@ -207,7 +264,7 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="아우터"
                                 checked={dbType === "아우터" ? true : false}
-                                onChange={(e) => changeRadio(e)} />
+                            />
 
 
                             <span id="span1">아우터</span>
@@ -215,7 +272,7 @@ const Modify_choice = () => {
                         <label id="detail">
                             <input type="radio" name="ckbox" id="answer" value="기타"
                                 checked={dbType === "기타" ? true : false}
-                                onChange={(e) => changeRadio(e)} />
+                            />
 
 
                             <span id="span1">기타</span>
@@ -230,12 +287,12 @@ const Modify_choice = () => {
                 <span id='quest3'>세부사항</span>
                 <br></br><br></br>
                 <div className='de'>
-                    {dbType === "상의" ? <Top detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
-                    {dbType === "하의" ? <Bottom detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
-                    {dbType === "신발" ? <Shoes detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
-                    {dbType === "가방" ? <Bag detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
-                    {dbType === "악세사리" ? <Ac detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
-                    {dbType === "아우터" ? <Outer detail={dbDetail} setDetail={setDbDetail} /> : <Blank />}
+                    {dbType === "상의" ? <Top detail={dbDetail} /> : <Blank />}
+                    {dbType === "하의" ? <Bottom detail={dbDetail} /> : <Blank />}
+                    {dbType === "신발" ? <Shoes detail={dbDetail} /> : <Blank />}
+                    {dbType === "가방" ? <Bag detail={dbDetail} /> : <Blank />}
+                    {dbType === "악세사리" ? <Ac detail={dbDetail} /> : <Blank />}
+                    {dbType === "아우터" ? <Outer detail={dbDetail} /> : <Blank />}
                 </div>
             </div>
 
@@ -243,7 +300,18 @@ const Modify_choice = () => {
 
             <div className='quest4'>
                 <span id='quest4'>색상</span><br></br><br></br>
-                <Check setColor={setColor} color={clothColor} colorList={clothColor} />
+                <div id="colorheart">
+                    {
+                        dbColor.map((color) => {
+                            return (
+                                <span>
+                                    {color}
+                                </span>
+                            );
+                        })
+                    }
+                </div>
+                {/* <Check setColor={setColor} color={clothColor} colorList={clothColor} /> */}
             </div>
 
             {/* ------------------------------------------------- */}
@@ -252,13 +320,13 @@ const Modify_choice = () => {
 
                 <span id='quest5'>무늬</span><br></br><br></br>
                 <div className='mpattern'>
-                    <RadioInput label="무지" value="무지" checked={dbPattern} setter={setDbPattern} />
-                    <RadioInput label="그래픽" value="그래픽" checked={dbPattern} setter={setDbPattern} />
-                    <RadioInput label="레터링" value="레터링" checked={dbPattern} setter={setDbPattern} />
-                    <RadioInput label="스프라이트" value="스프라이트" checked={dbPattern} setter={setDbPattern} />
-                    <RadioInput label="플로럴" value="플로럴" checked={dbPattern} setter={setDbPattern} />
-                    <RadioInput label="체크" value="체크" checked={dbPattern} setter={setDbPattern} />
-                    <RadioInput label="기타" value="기타" checked={dbPattern} setter={setDbPattern} />
+                    <RadioInput label="무지" value="무지" checked={dbPattern} />
+                    <RadioInput label="그래픽" value="그래픽" checked={dbPattern} />
+                    <RadioInput label="레터링" value="레터링" checked={dbPattern} />
+                    <RadioInput label="스프라이트" value="스프라이트" checked={dbPattern} />
+                    <RadioInput label="플로럴" value="플로럴" checked={dbPattern} />
+                    <RadioInput label="체크" value="체크" checked={dbPattern} />
+                    <RadioInput label="기타" value="기타" checked={dbPattern} />
                 </div>
             </div>
 
@@ -268,11 +336,11 @@ const Modify_choice = () => {
                 <span id='quest6'>재질</span><br></br><br></br>
                 <div className='modmaterial'>
 
-                    <RadioInput label="면" value="면" checked={dbTexture} setter={setDbTexture} />
-                    <RadioInput label="니트" value="니트" checked={dbTexture} setter={setDbTexture} />
-                    <RadioInput label="벨벳" value="벨벳" checked={dbTexture} setter={setDbTexture} />
-                    <RadioInput label="합성섬유" value="합성섬유" checked={dbTexture} setter={setDbTexture} />
-                    <RadioInput label="기타" value="기타" checked={dbTexture} setter={setDbTexture} />
+                    <RadioInput label="면" value="면" checked={dbTexture} />
+                    <RadioInput label="니트" value="니트" checked={dbTexture} />
+                    <RadioInput label="벨벳" value="벨벳" checked={dbTexture} />
+                    <RadioInput label="합성섬유" value="합성섬유" checked={dbTexture} />
+                    <RadioInput label="기타" value="기타" checked={dbTexture} />
                 </div>
             </div>
 
@@ -281,12 +349,12 @@ const Modify_choice = () => {
             <div className='quest7'>
                 <span id='quest7'>스타일</span><br></br><br></br><br></br>
                 <div className='mstyle'>
-                    <RadioInput label="캐주얼" value="캐주얼" checked={dbStyle} setter={setDbStyle} />
-                    <RadioInput label="러블리" value="러블리" checked={dbStyle} setter={setDbStyle} />
-                    <RadioInput label="하이틴" value="하이틴" checked={dbStyle} setter={setDbStyle} />
-                    <RadioInput label="스포티" value="스포티" checked={dbStyle} setter={setDbStyle} />
-                    <RadioInput label="스트릿" value="스트릿" checked={dbStyle} setter={setDbStyle} />
-                    <RadioInput label="기타" value="기타" checked={dbStyle} setter={setDbStyle} />
+                    <RadioInput label="캐주얼" value="캐주얼" checked={dbStyle} />
+                    <RadioInput label="러블리" value="러블리" checked={dbStyle} />
+                    <RadioInput label="하이틴" value="하이틴" checked={dbStyle} />
+                    <RadioInput label="스포티" value="스포티" checked={dbStyle} />
+                    <RadioInput label="스트릿" value="스트릿" checked={dbStyle} />
+                    <RadioInput label="기타" value="기타" checked={dbStyle} />
                 </div>
             </div>
 
@@ -301,16 +369,16 @@ const Modify_choice = () => {
             {/* ------------------------------------------------- */}
 
             <div className='quest9'>
-                <span id='quest9'>선호도</span><br></br><br></br>
 
+                <span id='quest9'>선호도</span><br></br><br></br>
+                <span className="m-l-150">{dbPref}</span>
                 <br></br>
-                <Bar setPro={setPro} pro={clothPref} />
             </div>
 
             <div className='BTN'>
                 <br></br><br></br><br></br><br></br><br></br>
-                <button id='submit' onClick={handleSubmit}>수정</button>
-                <button id='cancel' onClick={() => { deleteBook() }}>삭제</button>
+                <button id='submit' onClick={() => handleSubmit()}>수정</button>
+                <button id='cancel' onClick={() => deleteBook()}>삭제</button>
             </div>
         </form >
     )

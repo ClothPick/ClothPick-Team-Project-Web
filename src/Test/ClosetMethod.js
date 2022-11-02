@@ -32,6 +32,18 @@ async function ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, 
     }
 };
 
+// 옷 정보 수정
+async function ClosetInfoPut(clothId, clothKeyword) {
+    try {
+        const response = await Instance.put(`/api/v1/clothUpdate/${clothId}`, {
+            clothKeyword: clothKeyword
+        });
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // 옷 이미지 조회
 // async function ClosetImgGet(clothImgName) {
 //     try {
@@ -98,6 +110,7 @@ async function ClosetInfoDelete(clothId) { // 연결 테이블에 있는 clothId
 const ClosetMethod = {
     ClosetInfoGet,
     ClosetInfoPost,
+    ClosetInfoPut,
     ClosetImgUpload,
     ConnectClosetImgPost,
     ConnectClosetImgGet,

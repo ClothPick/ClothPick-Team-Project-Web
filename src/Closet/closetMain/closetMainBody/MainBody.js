@@ -84,7 +84,7 @@ function ClosetList() {
                                             {
                                                 clothInfo && clothInfo.length > 0 ?
                                                     clothInfo.filter((connect) =>
-                                                        connect.clothId === img.clothId)[0].clothKeyword : <p></p>
+                                                        connect.clothId === img.clothId)[0].clothKeyword : null
                                             }
                                         </div>
                                     </Link>

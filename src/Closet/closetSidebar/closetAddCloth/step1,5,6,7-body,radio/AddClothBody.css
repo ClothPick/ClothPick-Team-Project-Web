@@ -245,8 +245,9 @@ span{
 .bet1{
     display: flex;
     justify-content: space-evenly;
-    width: 900px;
-    margin-left: 80px;
+    /* width: 450px; */
+    margin-left: 30px;
+    margin-top: 30px;
 
 }
 
