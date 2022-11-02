@@ -1,0 +1,98 @@
+.white-space {
+    max-width: 1140px;
+    margin: auto;
+}
+
+
+.m-l-200 {
+    margin-left:200px;
+}
+
+.flex {
+    display: flex;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.m-l-30 {
+    margin-left: 30px;
+}
+
+.scrap {
+    cursor:pointer;
+    transition: transform 300ms ease;
+}
+
+.scrap:hover {
+    transform: scale(1.1);
+}
+
+.m-l-20 {
+    margin-left: 20px;
+}
+
+
+.text-right {
+    margin-left: auto;
+}
+
+.m-r-70 {
+    margin-right: 70px;
+}
+
+.m-r-20 {
+    margin-right: 20px;
+}
+
+.del-btn {
+    width: 70px;
+    height: 40px;
+    font-size: 15px;
+    margin-top: 15px;
+    border: solid 1px #67595E;
+    border-radius: 20px;
+}
+
+.text-right.m-r-70 > button:hover {
+    border: solid 3px #67595E;
+}
+
+
+.line {
+    width: 90%;
+    border: 0px;
+    border-top: 2px dashed rgb(187, 187, 187);
+}
+
+.m-t-25 {
+    margin-top: 24px;
+}
+
+.center {
+    justify-content: center;
+    text-align: center;
+}
+
+.img-size {
+    width: 30%;
+    /* height: 55%; */
+    align-content: center;
+    justify-content: center;
+}
+
+.round-box {
+    background-color: #67595E;
+    width: 200px;
+    height: 80px;
+    border-radius: 30px;
+    /* margin-top: 30px; */
+    margin: 50px auto ;
+}
+
+.text-recom {
+    margin-top: 10px;
+    font-size: 45px;
+    color: white;
+}

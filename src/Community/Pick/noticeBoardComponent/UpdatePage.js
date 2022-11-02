@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Header from "../../../Header/communityHeader/Header"
-import "./Writing.css"
+import "./UpdatePage.css"
 import Radio from "../../../Component/Radio/Radio"
 import RadioGroup from '../../../Component/Radio/RadioGroup';
 import { useHistory, Link } from 'react-router-dom';
@@ -83,7 +83,7 @@ const Writing = (props) => {
             </div>
 
             {/* 카테고리 선택 */}
-            <div className='white-space m-l-100 text-top-2'>
+            <div className='white-space m-l-100 m-t-25'>
                 <h4>카테고리</h4>
                 <RadioGroup>
                     {type === '1' ? <Radio name='category' value='1' defaultChecked='1'> 옷 추천 </Radio> : null}

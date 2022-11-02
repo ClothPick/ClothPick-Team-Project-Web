@@ -1,0 +1,81 @@
+.flex {
+    display: flex;
+}
+
+.box-comment {
+    width: 800px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 0 auto 100px;
+    display: flex;
+    background-color: white;
+    border: solid 5px #E5E8CB;
+    padding: 15px;
+}
+
+.brown-round {
+    background-color: #67595E;
+    width: 60px;
+    height: 40px;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    margin: 20px 0 0 10px;
+}
+.scrap {
+    cursor:pointer;
+    transition: transform 300ms ease;
+}
+
+.scrap:hover {
+    transform: scale(1.1);
+}
+
+.comment {
+    width: 900px;
+    height: 140px;
+    /* margin-left: 100px; */
+    margin: 30px 0 0 100px;
+    background-color: #E5E8CB;
+    /* border: solid 5px #E5E8CB; */
+}
+
+.comment:hover {
+    background-color: #d7d9c2;
+
+}
+
+.comment-text {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-left: 15px;
+    /* margin: auto; */
+    /* margin-top: 30px; */
+    /* margin: auto 0 0 15px; */
+    padding: 5px;
+}
+
+.comment-text2 {
+    margin-left:30px;
+    margin-top: 5px;
+}
+
+.comment-time {
+    margin-left: 30px;
+    margin-top: 15px;
+    color: gray;
+    font-size: 13px;
+}
+
+.comment-btn {
+    width: 50px;
+    margin-left: 30px;
+    margin-top: 5px;
+    border: solid 0.5px #67595E;
+    border-radius: 8px;
+}
+
+.comment-btn:hover {
+    color: #67595E;
+    border: solid 2px #67595E;
+}

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import "../noticeBoardType/NoticeBoard.css"
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { BiMessage } from 'react-icons/bi';
 import TestMethod from "../../../Test/TestMethod";
 import { Link } from 'react-router-dom';
 import ConvenMethod from '../../../Test/ConvenMethod';
 
+import "./MainPostComponent.css"
 
 const ListBox = (props) => {
     const [scrapChecked, setScrapChecked] = useState(true);
@@ -43,7 +43,7 @@ const ListBox = (props) => {
                 <div className='border-side max-size inline-block' key={props.boardId}>
                     <Link to={`/detailpage/${props.boardId}`} className='decoration'>
                         <div className='noticeBoard'>
-                            <div className='text-margin-left-10'>
+                            <div>
                                 <div>
                                     <li className='li-style'><h2>{props.boardTitle}</h2></li>
                                     <li className='li-style'><h3>{props.boardContent}</h3></li>
@@ -56,15 +56,15 @@ const ListBox = (props) => {
 
                         </div>
                     </Link>
-                    <h4 className='text-margin-left-10'>{props.userNickname}</h4>
-                    <div className='text-margin-left-10 flex text-top-2'>
-                        <BiMessage size='20' className='text-top-2' />
-                        <h4 className='text-margin-left-10'>3</h4>
-                        <h4 className='text-margin-left-30'>{ConvenMethod.handleTime(props.boardCreateAt)}</h4>
+                    <h4 className='m-l-10'>{props.userNickname}</h4>
+                    <div className='m-l-10 flex m-t-25'>
+                        <BiMessage size='20' className='m-t-25' />
+                        <h4 className='m-l-10'>3</h4>
+                        <h4 className='m-l-30'>{ConvenMethod.handleTime(props.boardCreateAt)}</h4>
 
                         {scrapChecked ?
-                            <AiOutlineHeart size='35' className='text-top-1 text-right scrap' onClick={() => handleScrapButton()} /> :
-                            <AiFillHeart size='35' color='red' className='text-top-1 text-right scrap' onClick={() => handleScrapButton()} />}
+                            <AiOutlineHeart size='35' className='m-t-15 text-right scrap' onClick={() => handleScrapButton()} /> :
+                            <AiFillHeart size='35' color='red' className='m-t-15 text-right scrap' onClick={() => handleScrapButton()} />}
                     </div>
                 </div>
             </div>
