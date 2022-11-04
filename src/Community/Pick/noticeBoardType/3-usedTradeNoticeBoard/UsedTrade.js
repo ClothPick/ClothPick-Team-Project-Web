@@ -38,8 +38,8 @@ const UsedTrade = () => {
                         boardType={data.boardType}
                         boardTitle={data.boardTitle}
                         boardContent={data.boardContent}
-                        createAt={data.createAt}
-                        userName={data.userName}
+                        boardCreateAt={data.boardCreateAt}
+                        userNickname={data.userNickname}
                     />
                 ))}
 

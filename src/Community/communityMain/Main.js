@@ -3,12 +3,14 @@ import Pick from "../communityMain/communityMainBody/clothRecommend/ClothRecomme
 import Transaction from "../communityMain/communityMainBody/usedTrade/UsedTrade"
 import Cfree from "./communityMainBody/freedom/Freedom"
 import Community_header from "../../Header/communityHeader/Header"
+import Community_header2 from "../../Header/communityHeader/Header2"
 import './Main.css'
 
 function Ggol() {
     return (
         <div>
-            <Community_header />
+            {/* <Community_header /> */}
+            {<Community_header2 />}
             <div className='body'>
                 {/* 검색 기능 */}
                 {/* <div>

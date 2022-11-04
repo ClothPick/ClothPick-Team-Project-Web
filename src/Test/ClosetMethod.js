@@ -4,7 +4,6 @@ import Instance from "./TestInstance";
 async function ClosetInfoGet() {
     try {
         const response = await Instance.get('/api/v1/closetlist');
-        // console.log(response.data);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -24,24 +23,12 @@ async function ClosetInfoPost(clothType, clothDetail, clothColor, clothPattern, 
             clothKeyword: clothKeyword,
             clothPref: clothPref,
         });
-        // console.log(response.data);
         return response.data;
         // 옷 아이디(clothId) 리턴
     } catch (error) {
         console.log(error);
     }
 };
-
-// 옷 이미지 조회
-// async function ClosetImgGet(clothImgName) {
-//     try {
-//         const response = await Instance.get(`/api/v1/closetimg/${clothImgName}`)
-//         console.log(response.data);
-//         return response.data;
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
 
 // 옷 이미지 업로드
 async function ClosetImgUpload(formData) {
@@ -64,7 +51,6 @@ async function ConnectClosetImgPost(imgName, clothId) {
             clothImgName: imgName,
             clothId: clothId,
         });
-        // console.log(response.data);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -75,7 +61,6 @@ async function ConnectClosetImgPost(imgName, clothId) {
 async function ConnectClosetImgGet() {
     try {
         const response = await Instance.get("/api/v1/clothimglist")
-        // console.log(response.data);
         return response.data;
     } catch (error) {
         console.log(error);
@@ -94,14 +79,39 @@ async function ClosetInfoDelete(clothId) { // 연결 테이블에 있는 clothId
         console.log(error);
     }
 }
+//닉네임 얻기
+async function GetNickName() {
+    try{
+        const response = await Instance.get("/api/v1/userinfo")
+        console.log(response.data);
+        return response.data;
 
+    }catch(error){
+        console.log(error);
+    }
+}
+//비밀번호 초기화
+async function ResetPassword(password){
+    try{
+      const response=await Instance.post('/api/v1/reset/password',{
+        password: password
+      });
+      // console.log(response.data);
+      return response.data;
+    }catch(error){
+      console.log(error);
+    }
+  }
 const ClosetMethod = {
+    GetNickName,
     ClosetInfoGet,
     ClosetInfoPost,
     ClosetImgUpload,
     ConnectClosetImgPost,
     ConnectClosetImgGet,
     ClosetInfoDelete,
+    ResetPassword,
+
 }
 
 export default ClosetMethod;

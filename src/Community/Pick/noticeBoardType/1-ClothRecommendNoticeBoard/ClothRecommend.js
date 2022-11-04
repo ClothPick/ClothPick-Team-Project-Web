@@ -8,19 +8,24 @@ import ListBox from '../../noticeBoardComponent/MainPostComponent';
 const ClothRecommend = () => {
     const [community, setCommunity] = useState([]);
     const [click, setClick] = useState(true);
+    const [getScrap,setGetScrap]=useState([]);
 
     useEffect(() => {
         const get = TestMethod.CommunityTestListGet();
+
         const getData = () => {
             get.then(data => {
                 setCommunity(data);
                 data.map((id) => (
                     console.log(id.boardId)
                 ))
-                console.log(data)
+                console.log(data);
             });
         };
+
+
         getData();
+
     }, [click]);
 
 
@@ -43,8 +48,9 @@ const ClothRecommend = () => {
                         boardType={data.boardType}
                         boardTitle={data.boardTitle}
                         boardContent={data.boardContent}
-                        createAt={data.createAt}
-                        userName={data.userName}
+                        boardCreateAt={data.boardCreateAt}
+                        userNickname={data.userNickname}
+
                     />
                 ))}
 

@@ -1,0 +1,95 @@
+body, div {
+    margin: 0;
+}
+
+/* .header-bar {
+    width: auto;
+    height: 30px;
+    background-color: #67595e;
+} */
+
+.commu-header{
+    display: flex;
+    max-width: 1400px;
+    margin: auto;
+    height: 100px;
+    justify-content: space-around;
+
+}
+
+#logo2{
+    margin-top: 15px;
+    width: 150px;
+}
+
+.catalog{
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+.catalog> span{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+#bar{
+    color: gray;
+    font-size: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.button{
+    margin-top: 40px;
+    display: flex;
+}
+
+/* .mypage{
+    margin-right: 10px;
+    border-radius: 5px;
+    /* border: 1px solid gray; */
+    /* height: 40px; */
+/* } */
+
+/* .mypage:hover {
+    border-radius: 5px;
+    border: 2.5px dashed rgb(37, 39, 55);
+} */
+
+.login{
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 5px;
+    width: 80px;
+    font-size: 20px;
+}
+
+.login:hover{
+    border-radius: 5px;
+    border: 2.5px dashed rgb(37, 39, 55);
+}
+
+.write{
+    margin-right: 10px;
+    background-color: #D2D5B8;
+    /* border: 1px solid gray; */
+    border-radius: 5px;
+    width: 80px;
+    /* height: 30px; */
+    font-size: 20px;
+}
+
+.write:hover {
+    border-radius: 5px;
+    border: 2.5px dashed rgb(37, 39, 55);
+}
+
+.line-none {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.menu {
+    margin-top: 40px;
+}

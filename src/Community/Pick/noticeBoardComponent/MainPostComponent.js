@@ -18,14 +18,18 @@ const ListBox = (props) => {
                 setCommunity(data);
                 console.log(props.boardId);
                 console.log(data);
+
             });
         };
+
         getData();
     }, []);
 
-    const handleScrapButton = () => {
+    const handleScrapButton = async() => {
         scrapChecked ? setScrapChecked(false) : setScrapChecked(true);
     }
+
+
 
     return (
         <div className='web-size'>
@@ -44,17 +48,19 @@ const ListBox = (props) => {
                                 community.length === 0 ? console.log("noda") : <img src={`http://localhost:80/api/displayimg/${community[0]}.jpg`} alt='' />
                             }
 
-                            <h4 className='text-margin-left-10 text-margin-top-150'>{props.userName}</h4>
+                            <h4 className='text-margin-left-10 text-margin-top-150'>{props.userNickname}</h4>
                         </div>
                     </Link>
                     <div className='text-margin-left-10 flex'>
                         <BiMessage size='20' className='text-top-2' />
                         <h4 className='text-margin-left-10'>3</h4>
-                        <h4 className='text-margin-left-30'>{ConvenMethod.handleTime(props.createAt)}</h4>
+                        <h4 className='text-margin-left-30'>{ConvenMethod.handleTime(props.boardCreateAt)}</h4>
 
                         {scrapChecked ?
-                            <AiOutlineHeart size='35' className='text-top-1 text-right scrap' onClick={() => handleScrapButton()} /> :
-                            <AiFillHeart size='35' color='red' className='text-top-1 text-right scrap' onClick={() => handleScrapButton()} />}
+                            <AiOutlineHeart size='35' className='text-top-1 text-right scrap' onClick={() => {console.log(props.boardId)}} /> :
+                            <AiFillHeart size='35' color='red' className='text-top-1 text-right scrap' onClick={() => {handleScrapButton();}} />}
+
+
                     </div>
                 </div>
             </div>

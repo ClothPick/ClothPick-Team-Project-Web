@@ -1,0 +1,42 @@
+div {
+    margin: 0;
+}
+
+.m-l-10 {
+    margin-left: 10px;
+}
+
+.flex {
+    display: flex;
+}
+
+
+.commu-type {
+    max-width: 1140px;
+}
+
+.margin {
+    margin: auto;
+}
+
+
+.img-upload {
+    background-color: #f9f9f9;
+    width: 200px;
+    height: 200px;
+    border: dashed 3px #e4e4e4;
+    margin: auto;
+    position: relative;
+    /* display: flex; */
+    /* text-align: center; */
+}
+
+.img-upload > span {
+    color: #67595E;
+    font-size: 80px;
+    /* display: flex; */
+    position: relative;
+    /* margin-top: 40px; */
+    /* margin-left: -75px; */
+    font-weight: bold;
+}

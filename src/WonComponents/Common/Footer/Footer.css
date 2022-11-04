@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wonfooter{
+    background-color: black;
+    height: 200px;
+}
+.footertotal{
+    margin-top: 200px;
+    background-color: black;
+    display: flex;
+    margin-left: 60px;
+}
+
+
+#ftlogo{
+    margin-top: 20px;
+    width: 100px;
+
+}
+
+#wonfooterti{
+    color: #85757a;
+    font-family: 'yg-jalnan';
+    font-size: 20px;
+}
+
+.footertitle{
+    margin-top: 35px;
+    font-family: 'yg-jalnan';
+    height: 50px;
+}
+
+.footercontent{
+    margin-top: 10px;
+    margin-left: 70px;
+    display: flex;
+    /* width: 1200px; */
+    justify-content: space-between;
+}
+
+#woncompanyname{
+    color: #85757a;
+}
+
+#companyaddress{
+    color: #85757a;
+
+}
+
+.footercont{
+    width: 1000px;
+}
+.footersns{
+    /* margin-left:200px ; */
+
+    margin-right: 70px;
+    margin-bottom: 20px;
+}
+#sns1{
+    background-color: #352e30;
+    border-radius: 30px;
+    border: 1px solid #67595e;
+    margin-right: 20px;
+}

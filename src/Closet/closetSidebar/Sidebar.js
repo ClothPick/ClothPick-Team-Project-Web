@@ -17,10 +17,10 @@ function sidebar() {
                 </Link>
             </p>
             <p>
-                <Link to="/addcloth" className='deco'>
+                {/* <Link to="/addcloth" className='deco'>
                     <span>코디 추천 </span>
                     <IoMdArrowDropright id='arrow'></IoMdArrowDropright>
-                </Link>
+                </Link> */}
             </p>
         </div>
     )

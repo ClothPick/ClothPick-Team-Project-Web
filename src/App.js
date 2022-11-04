@@ -12,11 +12,18 @@ import DetailPage from "./Community/Pick/noticeBoardComponent/DetailPage"
 import Write from "./Community/Pick/noticeBoardComponent/Writing"
 import CommunityMain from "./Community/communityMain/Main"
 
+import MyPage from "./WonComponents/MyPage/ModifyIM/MyPage_main";
+import Scrap from "./WonComponents/MyPage/Scrap/Scrap_main";
+
 function App() {
   return (
     <Router>
       <div className="App">
         <Switch>
+          {/*-------------마이 페이지-------- */}
+          <Route path="/mypage" component={MyPage}/>
+          <Route path="/scrap" component={Scrap}/>
+
           {/* ------------ 옷장 ------------ */}
           <Route path="/closet" component={ClosetMain} /> {/* 옷장 메인 페이지 */}
           <Route path="/addcloth" component={AddCloth} /> {/* 옷 추가 페이지 */}
