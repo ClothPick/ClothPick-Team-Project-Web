@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import '../NoticeBoard.css'
 import Header from "../../../../Header/communityHeader/Header"
 import TestMethod from "../../../../Test/TestMethod";
 import { AiOutlineAliwangwang } from 'react-icons/ai'
 import ListBox from "../../noticeBoardComponent/MainPostComponent";
 
+import '../NoticeBoard.css'
 
 const Freedom = () => {
     const [community, setCommunity] = useState([]);
@@ -25,7 +25,7 @@ const Freedom = () => {
             <Header />
             <div className='flex commu-type margin'>
                 <AiOutlineAliwangwang size="80" color='#BDC2BB' />
-                <h2 className='text-margin-top-30 text-margin-left-10 '>자유 게시판</h2>
+                <h2 className='m-l-10'>자유 게시판</h2>
             </div>
 
             {/* box */}

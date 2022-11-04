@@ -22,15 +22,41 @@ async function BoardTextTypeList(boardType) {
 };
 
 // 게시글 작성
-async function CommunityTestListPost(title, content) {
+async function CommunityTestListPost(type, title, content) {
   try {
     const response = await Instance.post('/api/v1/boardtext', {
+      boardType: type,
       boardTitle: title,
       boardContent: content
     });
     console.log(response.data);
     return response.data;
     // 게시글 아이디 리턴
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 게시물 수정
+async function BoardUpdate(boardId, boardTitle, boardContent) {
+  try {
+    const response = await Instance.put(`/api/v1/boardtext/${boardId}`, {
+      boardTitle: boardTitle,
+      boardContent: boardContent
+    });
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// 게시물 삭제
+async function BoardDelete(boardId) {
+  try {
+    const response = await Instance.delete(`/api/v1/boardtext/${boardId}`);
+    // console.log(response.data);
+    return response.data;
   } catch (error) {
     console.log(error);
   }
@@ -117,6 +143,8 @@ const TestMethod = {
   BoardTextTypeList,
   CommunityTestListPost,
   BoardImgPost,
+  BoardUpdate,
+  BoardDelete,
   BoardConnectImgGet,
   BoardConnectImgPost,
   ConnectBoardImgBoardIdList,

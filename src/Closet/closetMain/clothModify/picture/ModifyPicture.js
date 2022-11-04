@@ -40,7 +40,7 @@ const ModifyPicture = (props) => {
                 for (var i = 0; i < data.length; i++) {
                     if (url === data[i].clothImgName) {
                         setDetailImg(data[i].clothImgName);
-                        // console.log(data[i].clothImgName);
+                        console.log(data[i].clothImgName);
                     }
                 }
             })
@@ -52,9 +52,9 @@ const ModifyPicture = (props) => {
     return (
         <>
             <div className="modify_image">
-                <img src={mimageUrl ? mimageUrl : `http://192.168.0.101:8080/api/v1/displayimg/closet/${detailImg}`} alt="" id="mimg"></img>
+                <img src={mimageUrl ? mimageUrl : `http://192.168.0.101:8087/api/v1/displayimg/closet/${detailImg}`} alt="" id="mimg"></img>
                 <br></br><br></br>
-                <label htmlFor="file" ref={imgReff} onChange={() => { onModifyImage(); console.log() }}>사진 변경하기</label>
+                {/* <label htmlFor="file" ref={imgReff} onChange={() => { onModifyImage(); console.log() }}>사진 변경하기</label> */}
                 <br></br>
                 <input type="file" ref={imgReff} onChange={() => { onModifyImage(); }} id="file"></input>
             </div>

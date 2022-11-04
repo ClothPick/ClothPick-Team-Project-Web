@@ -102,6 +102,10 @@ span{
     width: 900px;
 }
 
+#colorheart {
+    margin-left: 140px;
+}
+
 #quest5{
     margin-left: 130px;
     font-size: 18px;
@@ -205,4 +209,8 @@ span{
 #quest9{
     margin-left: 130px;
     font-size: 18px;
+}
+
+.m-l-150 {
+    margin-left: 150px;
 }

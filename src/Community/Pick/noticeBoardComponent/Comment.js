@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import "../noticeBoardType/NoticeBoard.css"
 import uuid from "react-uuid";
 import { FaTrashAlt } from 'react-icons/fa'
+
+import "./Comment.css"
 
 
 function Comment() {

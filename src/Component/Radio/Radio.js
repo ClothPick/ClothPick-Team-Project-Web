@@ -1,7 +1,7 @@
 import React from 'react';
 import './Radio.css';
 
-const Radio = ({ children, value, name, defaultChecked, disabled }) => {
+const Radio = ({ children, value, name, defaultChecked, disabled, setter }) => {
     return (
         <label style={{ marginLeft: '20px' }}>
             <input
@@ -11,6 +11,7 @@ const Radio = ({ children, value, name, defaultChecked, disabled }) => {
                 name={name}
                 defaultChecked={defaultChecked}
                 disabled={disabled}
+                onChange={() => setter(value)}
             />
             {children}
         </label>

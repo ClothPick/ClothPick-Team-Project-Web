@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { BiTime, BiMessage } from 'react-icons/bi'
 import { BsFillPencilFill } from 'react-icons/bs'
 import { AiFillLike, AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import "../noticeBoardType/NoticeBoard.css"
 import Header from "../../../Header/communityHeader/Header"
 import TestMethod from '../../../Test/TestMethod';
 import Comment from './Comment'
 import ConvenMethod from '../../../Test/ConvenMethod';
 import UserMethod from '../../../Test/UserMethod';
+import UpdatePage from "./UpdatePage";
+
+import "./DetailPage.css"
 
 const DetailPage = () => {
     const [community, setCommunity] = useState([]);
@@ -20,11 +24,14 @@ const DetailPage = () => {
     const [click, setClick] = useState(true);
     const [recommend, setRecommend] = useState(0);
     const [img, setImg] = useState([]);
+    const [boardId, setBoardId] = useState('');
+    const [boardType, setBoardType] = useState('');
 
     // -- login --
     const [dbUser, setDbUser] = useState([]);
     const [dbUserNickName, setDbUserNickName] = useState([]);
-    const [userShowButton, setUserShowButton] = useState(false);
+
+    let history = useHistory();
 
     // URL 주소값
     var url = window.location.pathname.split('/')[2];
@@ -44,6 +51,8 @@ const DetailPage = () => {
                         setContent(data[i].boardContent);
                         setCreateAt(ConvenMethod.handleTime(data[i].boardCreateAt));
                         setUserName(data[i].userNickname);
+                        setBoardId(data[i].boardId);
+                        setBoardType(data[i].boardType);
 
                         console.log(data[i].boardTitle);
                         console.log(data[i].boardContent);
@@ -85,12 +94,28 @@ const DetailPage = () => {
         scrapChecked ? setScrapChecked(false) : setScrapChecked(true);
     }
 
-    const delBoard = () => {
+    const delBoard = async () => {
         if (window.confirm("삭제하시겠습니까?")) {
+            console.log(boardId);
+            let result = await TestMethod.BoardDelete(boardId);
+            console.log(result);
+
             alert("삭제되었습니다.")
+            history.goBack();
         }
         else {
             alert("취소되었습니다.")
+        }
+    }
+
+    const updateBoard = () => {
+
+        if (window.confirm("수정하시겠습니까?")) {
+            <UpdatePage />
+            history.push(`/update/${boardId}`);
+        }
+        else {
+            alert("취소되었습니다.");
         }
     }
 
@@ -100,37 +125,34 @@ const DetailPage = () => {
             <div className='white-space'>
                 {/* 게시물 header */}
                 <div className='m-l-200'>
-                    <h2>옷 추천 게시판</h2>
+                    {boardType === '1' ? <h2>옷 추천 게시판</h2> : null}
+                    {boardType === '2' ? <h2>중고거래 게시판</h2> : null}
+                    {boardType === '3' ? <h2>자유 게시판</h2> : null}
                     <h1>{title}</h1>
                     <h3>[ {userName} ]</h3>
                     <div className='flex'>
                         <BiTime size='40' className='m-t-10' />
                         <h3>{createAt}</h3>
-                        <BiMessage size='40' className='m-t-10 text-margin-left-30' />
+                        <BiMessage size='40' className='m-t-10 m-l-30' />
                         <h3>3</h3>
                         {/* <AiOutlineHeart size='40' className='m-t-10 text-margin-left-30' onClick={handleScrapButton} /> */}
                         {scrapChecked ?
-                            <AiOutlineHeart size='35' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} /> :
-                            <AiFillHeart size='35' color='red' className='text-top-1 scrap text-margin-left-20' onClick={handleScrapButton} />}
+                            <AiOutlineHeart size='35' className='m-t-10 scrap m-l-20' onClick={handleScrapButton} /> :
+                            <AiFillHeart size='35' color='red' className='m-t-10 scrap m-l-20' onClick={handleScrapButton} />}
                         <h3>스크랩</h3>
 
-                        {/* {ShowButton()} */}
                         {
                             dbUserNickName === userName ?
                                 <div className='text-right m-r-70'>
-                                    <button className='text-right m-r-20 del-btn' >수정</button>
+                                    <button className='text-right m-r-20 del-btn' onClick={() => updateBoard()}>수정</button>
                                     <button className='m-t-10 del-btn' onClick={() => delBoard()}>삭제</button>
                                 </div>
-                                : console.log("다름")
+                                : null
                         }
-
-                        {/* <BsFillPencilFill size='40' className='m-t-10 m-r-200 update-btn' /> */}
                     </div>
-
-                    {/* 게시물 contents */}
                 </div>
                 <hr className='line' />
-                <div className='text-top-2 center'>
+                <div className='m-t-25 center'>
                     <h1>{content}</h1>
                     {
                         img.map((data =>
@@ -139,7 +161,6 @@ const DetailPage = () => {
                             </div>
                         ))
                     }
-                    {/* <img className='img-size' alt='' src={require('../../img/cloth1.png')} /> */}
                 </div>
 
                 {/* 추천 수 */}

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Header from "../../../Header/communityHeader/Header"
 import "./Writing.css"
 import Radio from "../../../Component/Radio/Radio"
@@ -33,7 +33,8 @@ const Writing = () => {
     };
 
     const ontext = async () => {
-        let get = await TestMethod.CommunityTestListPost(title, content)
+        let boardId = await TestMethod.CommunityTestListPost(type, title, content)
+        console.log(boardId);
         if (imgList.length > 0) {
             let formData = new FormData();
             for (let i = 0; i < imgList.length; i++) {
@@ -42,7 +43,10 @@ const Writing = () => {
             list = await TestMethod.BoardImgPost(formData);
 
             for (let i = 0; i < list.length; i++) {
-                await TestMethod.BoardConnectImgPost(type, get, list[i])
+                await TestMethod.BoardConnectImgPost(type, boardId, list[i])
+                console.log("type :", type);
+                console.log("boardId :", boardId);
+                console.log("list : ", list[i]);
                 console.log("BoardconnectImgPost 진행");
             }
         }
@@ -60,10 +64,9 @@ const Writing = () => {
         else {
             await ontext();
             alert('등록되었습니다.');
-            history.replace('/community');
+            history.replace('/communitymain');
         }
     }
-
 
     return (
         <div>
@@ -78,13 +81,13 @@ const Writing = () => {
             <div className='white-space m-l-100 text-top-2'>
                 <h4>카테고리</h4>
                 <RadioGroup>
-                    <Radio name='category' value='옷 추천' defaultChecked>
+                    <Radio name='category' value='1' setter={setType}>
                         옷 추천
                     </Radio>
-                    <Radio name='category' value='중고거래'>
+                    <Radio name='category' value='2' setter={setType}>
                         중고거래
                     </Radio>
-                    <Radio name='category' value='자유 게시판'>
+                    <Radio name='category' value='3' setter={setType}>
                         자유 게시판
                     </Radio>
                 </RadioGroup>
@@ -98,6 +101,7 @@ const Writing = () => {
                     type='text'
                     className='inputField'
                     placeholder='제목'
+                    // onChange={changeTitle}
                     onChange={({ target: { value } }) => setTitle(value)}
                 />
             </form>
@@ -108,6 +112,7 @@ const Writing = () => {
                     value={content}
                     className='inputContents'
                     placeholder='내용'
+                    // onChange={changeContent}
                     onChange={({ target: { value } }) => setContent(value)}
                 ></textarea>
             </div>

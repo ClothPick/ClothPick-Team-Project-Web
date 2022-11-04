@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../Footer/Footer";
 import Header from "../../Header/closetHeader/Header"
 // import Sidebar from '../Sidebar/sidebar'
 import Sidebar from "../closetSidebar/Sidebar";
@@ -15,9 +16,8 @@ function ClosetMain() {
             <div className="closet-body">
                 <div className="flex"><Sidebar /></div>
                 <div className="flex"><ClosetList /></div>
-
             </div>
-
+            <Footer />
 
         </div>
 
