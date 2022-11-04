@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.RegisterForm_Component{/*전체 폼*/
+  /* margin: 0 auto; */
+  width: 420px;
+  height: 500px;
+  background-color: #E1E2D6;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px ;
+  box-shadow: 12px 13px 5px #8f8e8e;
+}
+.RegisterForm_Title{/*폼 제목*/
+  font-weight: bold;
+  font-family: 'Pretendard-Regular';
+}
+.RegisterForm_RegisterInfo{/*ul*/
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.RegisterForm_RegisterInfoLine{/*li 한 줄*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  width: 420px;
+  height: 30px;
+  margin: 2.5%;
+}
+
+.RegisterForm_InputBox{/*li 입력박스*/
+  width: 200px;
+  height: 30px;
+  background-color: #ffffff;
+  padding-left: 15px;
+  font-size: 13px;
+  font-family: 'Pretendard-Regular';
+  border-radius: 8px;
+  border: none;
+}
+.RegisterForm_InputBox_RED{/*li 입력박스 경고*/
+  width: 196px;
+  height: 30px;
+  background-color: #ffffff;
+  padding-left: 15px;
+  font-size: 13px;
+  font-family: 'Pretendard-Regular';
+  border-radius: 8px;
+  border: 1px solid red;
+}
+.RegisterForm_InputBox:focus {outline: none;} /*클릭시 테두리 제거*/
+.RegisterForm_InputBox_RED:focus {outline: none;} /*클릭시 테두리 제거*/
+
+.RegisterForm_CODEInputBox{/*li 코드입력박스 짧은거*/
+  width: 130px;
+  height: 30px;
+  background-color: #ffffff;
+  padding-left: 15px;
+  font-size: 13px;
+  font-family: 'Pretendard-Regular';
+  border-radius: 8px;
+  border: none;
+}
+.RegisterForm_CODEInputBox:focus {outline: none;} /*클릭시 테두리 제거*/
+.RegisterForm_SEXInputBox{/*li 코드입력박스 개짧은거*/
+  width: 25px;
+  height: 30px;
+  background-color: #ffffff;
+  padding-left: 15px;
+  font-size: 13px;
+  font-family: 'Pretendard-Regular';
+  border-radius: 8px;
+  border: none;
+}
+.RegisterForm_SEXInputBox:focus {outline: none;} /*클릭시 테두리 제거*/
+.RegisterForm_LabelBox{/*li 라벨박스*/
+  width: 70px;
+  height: 30px;
+  background-color: #E1E2D6;
+  line-height : 30px;
+  text-align: right;
+  font-size: 15px;
+  font-family: 'Pretendard-Regular';
+  border-radius: 8px;
+  border: none;
+}
+.RegisterForm_InputBox::placeholder{
+  font-size: 11px;
+  font-family: 'Pretendard-Regular';
+}
+.RegisterForm_InputBox_RED::placeholder{
+  font-size: 11px;
+  font-family: 'Pretendard-Regular';
+}
+.RegisterForm_CODEInputBox::placeholder{
+  font-size: 11px;
+  font-family: 'Pretendard-Regular';
+}
+.RegisterForm_SEXInputBox::placeholder{
+  font-size: 11px;
+  font-family: 'Pretendard-Regular';
+}
+
+.RegisterForm_TextBox{/*li 정보 텍스트 박스*/
+  width: 80px;
+  height: 30px;
+  margin-left: 20px;
+  text-align: left;
+  line-height : 30px;
+  font-size: 14px;
+  font-family: 'Pretendard-Regular';
+}
+
+.RegisterForm_Button{ /*li 버튼*/
+  width: 80px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 15px;
+  color: #292325;
+  background: #d9d6d7;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Pretendard-Regular';
+}
+.RegisterForm_Button_Disable{ /*li 버튼*/
+  width: 80px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 15px;
+  color: #292325;
+  background: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Pretendard-Regular';
+}
+
+.RegisterForm_CrossIcon{/* '-' 박스 */
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.RegisterForm_StarIcon{/* '*' 박스 */
+  width: 90px;
+  height: 30px;
+  padding-left: 10px;
+  line-height : 30px;
+  text-align: left;
+}
+.RegisterForm_RegisterSubmit{/*서브밋 버튼*/
+  width: 400px;
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #A1A584;
+  color: #292325;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Pretendard-Regular';
+  font-size: 18px;
+  font-weight:bold;
+}
+
+
+.RegisterForm_TextBoxRED{
+  width: 215px;
+  /* height: 10px; */
+  margin-left: 100px;
+  text-align: right;
+  font-family: 'Pretendard-Regular';
+  font-size: 4px;
+  color:red;
+}

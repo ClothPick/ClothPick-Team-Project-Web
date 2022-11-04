@@ -1,0 +1,28 @@
+.ColorLuk_Component{
+    width:  1280px;
+    height: 600px;
+    margin-bottom: 20%;
+}
+.ColorLuk_Title{
+    font-family: 'KNPSKkomi-Regular00';
+    text-align: center;
+}
+/* .dailybox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width: 1080px;
+    margin: auto;
+
+} */
+.ColorLuk_Imgbox{
+    min-height: 100%; max-width: 100%;
+    position: relative;
+}
+.ColorLuk_Imgblock{
+
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}

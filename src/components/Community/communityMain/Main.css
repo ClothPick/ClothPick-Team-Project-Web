@@ -1,0 +1,22 @@
+.body{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+#search{
+    margin-top: 20px;
+    height: 40px;
+    width: 700px;
+}
+
+input{
+    width: 950px;
+    height: 70px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 25px;
+}
+
+.board{
+    margin-top: 50px;
+}

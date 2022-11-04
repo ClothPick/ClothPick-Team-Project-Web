@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'KNPSKkomi-Regular00';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KNPSKkomi-Regular00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.Weather_infoBox{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+.Weather_imgbox{
+    width: 80px;
+    height: 80px;
+}
+
+.Wather_infoTextBox{
+    width: 200PX;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.Wather_infoText{
+    font-family: 'KNPSKkomi-Regular00';
+    font-size: 25px;
+}
+

@@ -1,0 +1,16 @@
+.registerbody{
+    /* flex-direction: column; */
+    background-color: #CACDCA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .registerbanner{
+    width: 420px;
+    height: 500px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px ;
+    box-shadow: 10px 13px 5px #8f8e8e;
+
+  }

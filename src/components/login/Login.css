@@ -1,0 +1,211 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+.loginform{
+  /* margin: 0 auto; */
+  width: 420px;
+  height: 500px;
+  background-color: #E1E2D6;
+  /* border-radius: 15px; */
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px ;
+  box-shadow: 10px 13px 5px #8f8e8e;
+
+  color: #292325;
+  font-family: 'Pretendard-Regular';
+}
+.loginform > h2{
+  /* background-color: bisque; */
+  position: relative;
+  top: 50px;
+  margin-left: 25%;
+  margin-right: 25%;
+
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  font-size: 45px;
+  color: #8D9073;
+  font-family: 'Pretendard-Regular';
+}
+.loginformlogo{
+  /* margin: auto; */
+  position: relative;
+  top: 25px;
+  margin-left: 160px;
+  margin-right: 160px;
+  width: 100px;
+  height: 60px;
+}
+
+/* .validTest{
+  margin-bottom: 2%
+} */
+.emailBox {
+  width : 350px;
+  height: 50px;
+  margin-top: 95px;
+  margin-left: 8%;
+  margin-right: 8%;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.emailBoxT {
+  width : 350px;
+  height: 50px;
+  margin-top: 95px;
+  margin-left: 8%;
+  margin-right: 8%;
+  border: 1px solid red;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.loginEmail{
+  width : 310px;
+  height: 50px;
+  padding-left: 2%;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  -webkit-appearance: none;
+}
+.loginEmail:focus{
+  outline: none;
+  text-align: left;
+}
+.loginPassword{
+  width: 280px;
+  height: 50px;
+  padding-left: 2%;
+  font-size: 15px;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  border: none;
+  background-color: #ffffff;
+
+}
+.loginPassword:focus{
+  outline: none;
+  text-align: left;
+}
+.passwordBox{
+  display: flex;
+  flex-direction: row;
+  width : 350px;
+  height: 50px;
+  margin-left: 8%;
+  margin-right: 8%;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  align-items: center;
+}
+.passwordBoxT{
+  display: flex;
+  flex-direction: row;
+  width : 350px;
+  height: 50px;
+  margin-left: 8%;
+  margin-right: 8%;
+  border: 1px solid red;
+  border-radius: 10px;
+  background-color: #ffffff;
+  align-items: center;
+
+}
+.visibliltyicon {
+  margin: auto;
+}
+
+.EmailCheck{
+  text-align: right;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 2%;
+}
+.signinfo{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8%;
+    margin-left: 8%;
+    margin-right: 8%;
+    /* justify-content: space-between; */
+
+
+}
+.signinfo > p {
+  margin-left: 1%;
+  font-size: 13px;
+  color: #292325;
+  font-family: 'Pretendard-Regular';
+}
+
+.liA {
+  font-size: 12px;
+  color: #292325;
+  margin-left: auto;
+  font-family: 'Pretendard-Regular';
+}
+input[type="checkbox"] {
+  display:none;
+
+}
+input[type="checkbox"] +label {
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  /* nonoFlex/primary */
+
+  border: 2px solid #A1A584;
+  border-radius: 6px;
+  display: inline-block;
+  cursor: pointer;
+  /* margin: 2%; */
+}
+input[type="checkbox"]:checked + label {
+  background: #A1A584;
+  border-radius: 6px;
+}
+
+.sign{
+  width: 200px;
+  height: 16px;
+  display: flex;
+  flex-direction:column;
+  margin-left: auto;
+
+}
+.submit{
+  width: 350px;
+  height: 50px;
+  margin-top: 8%;
+  margin-left: 8%;
+  margin-right: 8%;
+  background-color: #A1A584;
+  color: #292325;
+  border-radius: 10px;
+  border: none;
+  /* border-color: #A1A584; */
+  font-family: 'Pretendard-Regular';
+  font-size: 18px;
+  font-weight:bold;
+}
+/* .submit :active{
+  background-color:black;
+} */
+.EmailCheck {
+  height: 10px;
+  font-size: 8px;
+  color:red;
+  font-family: 'Pretendard-Regular';
+}
+.EmailCheck2{
+  display:none;
+  font-size: 8px;
+  color:#fff;
+}

@@ -1,0 +1,18 @@
+.loginbody{
+    /* flex-direction: column; */
+    background-color: #CACDCA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+
+  .loginbanner{
+    width: 420px;
+    height: 500px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px ;
+    box-shadow: 12px 13px 5px #8f8e8e;
+
+  }
