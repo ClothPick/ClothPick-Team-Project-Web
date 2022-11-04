@@ -70,7 +70,7 @@ function ClosetList() {
 
     return (
         <div className='root'>
-            <Accordion />
+            {/* <Accordion /> */}
             <div>
                 <div className='itemlist'>
                     {
@@ -84,7 +84,7 @@ function ClosetList() {
                                             {
                                                 clothInfo && clothInfo.length > 0 ?
                                                     clothInfo.filter((connect) =>
-                                                        connect.clothId === img.clothId)[0].clothKeyword : null
+                                                        connect.clothId === img.clothId)[0].clothKeyword : console.log("nodata")
                                             }
                                         </div>
                                     </Link>
@@ -106,7 +106,6 @@ function ClosetList() {
 
                 </div>
             </div>
-
         </div >
     );
 }

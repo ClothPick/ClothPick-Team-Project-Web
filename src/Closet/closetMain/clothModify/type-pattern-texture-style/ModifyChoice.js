@@ -13,7 +13,7 @@ import Outer from '../clothModifyDetail/outer/Outer'
 // import Check from '../color/Color'
 // import Bar from '../preference/Preference'
 import ClosetMethod from "../../../../Test/ClosetMethod";
-import { AiFillHeart } from 'react-icons/ai';
+import { AiFillSkin } from 'react-icons/ai';
 
 const RadioInput = ({ label, value, checked }) => {
     return (
@@ -50,20 +50,34 @@ const Modify_choice = () => {
     const history = useHistory(); // 등록 후 화면 이동
 
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (window.confirm("수정하시겠습니까?")) {
-            let result = await ClosetMethod.ClosetInfoPut(clothId, clothKeyword);
-            console.log(result);
-            alert("수정되었습니다.")
-            history.push("/closet")
-        }
+        // if (window.confirm("수정하시겠습니까?")) {
+        let result = await ClosetMethod.ClosetInfoPut(clothId, clothKeyword);
+        console.log(result);
+        alert("수정되었습니다.")
+        history.push("/closet")
+        // }
 
     };
 
+
+    // 삭제
+    const deleteBook = async (e) => {
+        e.preventDefault();
+        if (window.confirm("삭제하시겠습니까?")) {
+            console.log(clothId);
+            let result = await ClosetMethod.ClosetInfoDelete(clothId);
+            console.log(result);
+
+            alert("삭제되었습니다.")
+            history.push("/closet");
+        }
+    }
+
     const onChange = (e) => {
-        setKeyward(e.target.value)
+        setKeyward(e.target.value);
+        console.log(e.target.value);
     }
 
     useEffect(() => {
@@ -132,34 +146,40 @@ const Modify_choice = () => {
                 for (let i = 0; i < result.length; i++) {
                     console.log(result[i].clothColor);
                     if (result[i].clothColor === "red") {
-                        dbColor.push(<AiFillHeart size='35' color='red' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='red' className='m-t-15 text-right scrap' />);
                     }
                     else if (result[i].clothColor === "orange") {
-                        dbColor.push(<AiFillHeart size='35' color='orange' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='orange' className='m-t-15 text-right scrap' />);
                     }
                     else if (result[i].clothColor === "yellow") {
-                        dbColor.push(<AiFillHeart size='35' color='yellow' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='yellow' className='m-t-15 text-right scrap' />);
                     }
                     else if (result[i].clothColor === "green") {
-                        dbColor.push(<AiFillHeart size='35' color='green' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='green' className='m-t-15 text-right scrap' />);
                     }
                     else if (result[i].clothColor === "blue") {
-                        dbColor.push(<AiFillHeart size='35' color='blue' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='blue' className='m-t-15 text-right scrap' />);
                     }
                     else if (result[i].clothColor === "purple") {
-                        dbColor.push(<AiFillHeart size='35' color='purple' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='purple' className='m-t-15 text-right scrap' />);
                     }
                     else if (result[i].clothColor === "pink") {
-                        dbColor.push(<AiFillHeart size='35' color='pink' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='pink' className='m-t-15 text-right scrap' />);
                     }
                     else if (result[i].clothColor === "beige") {
-                        dbColor.push(<AiFillHeart size='35' color='beige' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='beige' className='m-t-15 text-right scrap' />);
                     }
                     else if (result[i].clothColor === "brown") {
-                        dbColor.push(<AiFillHeart size='35' color='brown' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='brown' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "black") {
+                        dbColor.push(<AiFillSkin size='35' color='black' className='m-t-15 text-right scrap' />);
+                    }
+                    else if (result[i].clothColor === "white") {
+                        dbColor.push(<AiFillSkin size='35' color='white' className='m-t-15 text-right scrap' />);
                     }
                     else {
-                        dbColor.push(<AiFillHeart size='35' color='gray' className='m-t-15 text-right scrap' />);
+                        dbColor.push(<AiFillSkin size='35' color='gray' className='m-t-15 text-right scrap' />);
                     }
                 }
 
@@ -181,15 +201,6 @@ const Modify_choice = () => {
         getData();
     }, [useMonitor])
 
-    // 삭제
-    const deleteBook = async () => {
-        console.log(clothId);
-        let result = await ClosetMethod.ClosetInfoDelete(clothId);
-        console.log(result);
-
-        alert("삭제되었습니다.")
-        history.replace("/closet");
-    }
 
     // 옷 데이터에서 중복 값 제거 하는 함수 -- 키워드를 위한 함수
     const removeDuple = () => {
@@ -377,8 +388,8 @@ const Modify_choice = () => {
 
             <div className='BTN'>
                 <br></br><br></br><br></br><br></br><br></br>
-                <button id='submit' onClick={() => handleSubmit()}>수정</button>
-                <button id='cancel' onClick={() => deleteBook()}>삭제</button>
+                <button id='submit' onClick={(e) => handleSubmit(e)}>수정</button>
+                <button id='cancel' onClick={(e) => deleteBook(e)}>삭제</button>
             </div>
         </form >
     )

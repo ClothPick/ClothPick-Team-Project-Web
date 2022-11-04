@@ -107,6 +107,18 @@ async function ClosetInfoDelete(clothId) { // 연결 테이블에 있는 clothId
     }
 }
 
+//닉네임 얻기
+async function GetNickName() {
+    try {
+        const response = await Instance.get("/api/v1/userinfo")
+        console.log(response.data);
+        return response.data;
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const ClosetMethod = {
     ClosetInfoGet,
     ClosetInfoPost,
@@ -115,6 +127,7 @@ const ClosetMethod = {
     ConnectClosetImgPost,
     ConnectClosetImgGet,
     ClosetInfoDelete,
+    GetNickName,
 }
 
 export default ClosetMethod;
